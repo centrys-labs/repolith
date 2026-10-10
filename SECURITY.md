@@ -6,18 +6,14 @@ If you discover a security vulnerability in Repolith, please report it responsib
 
 **Do not open a public GitHub issue.**
 
-Instead, email us at **security@repolith.dev** with:
+Instead, use the **Report a vulnerability** button on the [repository's Security Advisories page](https://github.com/centrys-labs/repolith/security/advisories). GitHub private vulnerability reporting is enabled for this repository. Include:
 
 - A description of the vulnerability
 - Steps to reproduce
 - The potential impact
 - Any suggested fix (optional)
 
-## Response Timeline
-
-- **Acknowledgment**: within 48 hours
-- **Initial assessment**: within 1 week
-- **Fix or mitigation**: as soon as possible, depending on severity
+Reports are reviewed privately. Response and remediation times depend on the issue's severity and reproducibility.
 
 ## Supported Versions
 

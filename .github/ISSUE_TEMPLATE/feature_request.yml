@@ -1,0 +1,17 @@
+name: Feature request
+description: Propose an improvement to an existing workflow
+labels: [enhancement]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What is difficult today?
+      description: Explain the GitHub workflow or Repolith behavior you want to improve.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Suggested improvement
+    validations:
+      required: true

@@ -12,4 +12,4 @@ The canonical production origin is `https://repolith.my.id`. Local development r
 6. Install the rebuilt Chrome and Firefox extension downloads and verify first-install redirects, upgrades with the previous stored default, and a configured custom host. Existing release/store listings must be updated separately if applicable.
 7. Only if the previous domain is still controlled: configure a permanent redirect from `repolith.dev` and `www.repolith.dev` to the new host, preserving paths and query strings. No such redirect is asserted by this repository change.
 
-The security mailbox `security@repolith.dev` has **not** been replaced: no new monitored address has been verified. Confirm a working security reporting channel before retiring the previous domain. GitHub private vulnerability reporting is a candidate once enabled and verified in repository settings.
+GitHub private vulnerability reporting is enabled on `centrys-labs/repolith`, and `SECURITY.md` directs reporters to its private form. Confirm that maintainers are subscribed to security alerts before retiring the old mailbox; no new monitored email address is assumed.
