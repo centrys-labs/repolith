@@ -12,6 +12,7 @@ import { createHash } from "@better-auth/utils/hash";
 import { admin, oAuthProxy } from "better-auth/plugins";
 import { grantSignupCredits } from "./billing/credit";
 import { patSignIn } from "./auth-plugins/pat-signin";
+import { PRODUCTION_URL } from "./site-url";
 
 async function getOctokitUser(token: string) {
 	const cached = await redis.get<ReturnType<(typeof octokit)["users"]["getAuthenticated"]>>(
@@ -44,7 +45,14 @@ export const auth = betterAuth({
 		admin(),
 		patSignIn(),
 		...(process.env.VERCEL
-			? [oAuthProxy({ productionURL: "https://www.repolith.dev" })]
+			? [
+					oAuthProxy({
+						productionURL: PRODUCTION_URL,
+						...(process.env.OAUTH_PROXY_SECRET
+							? { secret: process.env.OAUTH_PROXY_SECRET }
+							: {}),
+					}),
+				]
 			: []),
 	],
 	user: {
@@ -100,11 +108,10 @@ export const auth = betterAuth({
 	},
 	trustedOrigins: [
 		// Production
-		"https://www.repolith.dev",
+		PRODUCTION_URL,
+		...(process.env.NODE_ENV === "development" ? ["http://localhost:3000"] : []),
 		// Vercel preview
 		"https://repolith-*-repolith.vercel.app",
-		// Beta site
-		"https://beta.repolith.dev",
 	],
 	advanced: {
 		ipAddress: {

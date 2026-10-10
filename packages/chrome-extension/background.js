@@ -1,4 +1,9 @@
-const DEFAULT_HOST = "https://repolith.dev";
+const DEFAULT_HOST = "https://repolith.my.id";
+const LEGACY_HOST = "https://repolith.dev";
+
+function resolveHost(host) {
+	return !host || host === LEGACY_HOST ? DEFAULT_HOST : host;
+}
 
 // Track tabs on the logout page so we can avoid redirecting github.com/
 // after logout (declarativeNetRequest cancels the request mid-flight
@@ -20,7 +25,7 @@ chrome.webNavigation.onCommitted.addListener(
 		if (ghLogoutTabs.delete(details.tabId)) return;
 		chrome.storage.local.get(["enabled", "host"], (data) => {
 			if (data.enabled === false) return;
-			const host = data.host || DEFAULT_HOST;
+			const host = resolveHost(data.host);
 			chrome.tabs.update(details.tabId, { url: `${host}/dashboard` });
 		});
 	},
@@ -33,19 +38,25 @@ chrome.webNavigation.onCommitted.addListener(
 chrome.runtime.onInstalled.addListener(() => {
 	chrome.storage.local.get(["enabled", "host"], (data) => {
 		const enabled = data.enabled !== false;
-		const host = data.host || DEFAULT_HOST;
+		const host = resolveHost(data.host);
 		chrome.storage.local.set({ enabled, host });
 
 		if (!enabled) {
-			// Disable static rules if user had it off
-			chrome.declarativeNetRequest.updateEnabledRulesets({
-				disableRulesetIds: ["redirect_rules"],
-			});
+			clearDynamicRules().then(() =>
+				chrome.declarativeNetRequest.updateEnabledRulesets({
+					disableRulesetIds: ["redirect_rules"],
+				}),
+			);
 		} else if (host !== DEFAULT_HOST) {
 			// Custom host — switch to dynamic rules
 			switchToDynamicRules(host);
+		} else {
+			clearDynamicRules().then(() =>
+				chrome.declarativeNetRequest.updateEnabledRulesets({
+					enableRulesetIds: ["redirect_rules"],
+				}),
+			);
 		}
-		// Otherwise: static rules are already active with localhost:3000
 		updateIcon(enabled);
 	});
 });
@@ -53,7 +64,7 @@ chrome.runtime.onInstalled.addListener(() => {
 chrome.runtime.onMessage.addListener((msg, _sender, sendResponse) => {
 	if (msg.type === "toggle") {
 		chrome.storage.local.get(["host"], (data) => {
-			const host = data.host || DEFAULT_HOST;
+			const host = resolveHost(data.host);
 			chrome.storage.local.set({ enabled: msg.enabled });
 
 			if (msg.enabled) {
@@ -115,11 +126,11 @@ function switchToDynamicRules(host) {
 }
 
 function clearDynamicRules() {
-	chrome.declarativeNetRequest.getDynamicRules((existing) => {
+	return chrome.declarativeNetRequest.getDynamicRules().then((existing) =>
 		chrome.declarativeNetRequest.updateDynamicRules({
 			removeRuleIds: existing.map((r) => r.id),
-		});
-	});
+		}),
+	);
 }
 
 function updateIcon(enabled) {

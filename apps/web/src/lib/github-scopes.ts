@@ -26,7 +26,7 @@ export const SCOPE_GROUPS: ScopeGroup[] = [
 			"public_repo",
 			"repo:status",
 			"repo_deployment",
-			// https://github.com/kaltdev/repolith/issues/49
+			// https://github.com/centrys-labs/repolith/issues/49
 			"read:org",
 		],
 		required: true,
