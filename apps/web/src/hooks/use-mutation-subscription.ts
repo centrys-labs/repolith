@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+
 import { useMutationEvents } from "@/components/shared/mutation-event-provider";
 import type { MutationEvent, MutationEventType } from "@/lib/mutation-events";
 

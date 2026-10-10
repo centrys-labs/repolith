@@ -1,4 +1,5 @@
 import { notFound, redirect } from "next/navigation";
+
 import { getLatestRepoRelease } from "@/lib/github";
 export default async function LatestReleaseRedirectPage({
 	params,

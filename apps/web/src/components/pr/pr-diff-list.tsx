@@ -1,11 +1,12 @@
 "use client";
 
-import { useState, useMemo } from "react";
 import { ChevronDown, ChevronUp, ArrowRight } from "lucide-react";
+import { useState, useMemo } from "react";
+
 import { FileTypeIcon } from "@/components/shared/file-icon";
-import { cn } from "@/lib/utils";
 import { parseDiffPatch, type DiffLine } from "@/lib/github-utils";
 import type { SyntaxToken } from "@/lib/shiki";
+import { cn } from "@/lib/utils";
 
 interface DiffFile {
 	filename: string;

@@ -1,8 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { createPortal } from "react-dom";
-import { useRouter, usePathname } from "next/navigation";
+import { formatForDisplay } from "@tanstack/react-hotkeys";
 import {
 	LayoutDashboard,
 	FolderGit2,
@@ -42,25 +40,28 @@ import {
 	FileJson,
 	FileType,
 } from "lucide-react";
-import { formatForDisplay } from "@tanstack/react-hotkeys";
-import { signOut } from "@/lib/auth-client";
-import { cn, formatNumber } from "@/lib/utils";
-import { getLanguageColor } from "@/lib/github-utils";
-import { useGlobalChatOptional } from "@/components/shared/global-chat-provider";
-import { getRecentViews, type RecentViewItem } from "@/lib/recent-views";
-import { useColorTheme } from "@/components/theme/theme-provider";
-import { useIconTheme } from "@/components/theme-store/icon-theme-provider";
-import type { IconMapping } from "@/lib/theme-store-types";
-import { BORDER_RADIUS_PRESETS, type BorderRadiusPreset } from "@/lib/themes/border-radius";
-import { useMutationEvents } from "@/components/shared/mutation-event-provider";
-import { useMutationSubscription } from "@/hooks/use-mutation-subscription";
-import type { MutationEvent } from "@/lib/mutation-events";
+import { useRouter, usePathname } from "next/navigation";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { createPortal } from "react-dom";
+
 import {
 	pinToOverview,
 	unpinFromOverview,
 	getPinnedUrlsForRepo,
 } from "@/app/(app)/repos/[owner]/[repo]/pin-actions";
+import { useGlobalChatOptional } from "@/components/shared/global-chat-provider";
+import { useMutationEvents } from "@/components/shared/mutation-event-provider";
+import { useIconTheme } from "@/components/theme-store/icon-theme-provider";
+import { useColorTheme } from "@/components/theme/theme-provider";
+import { useMutationSubscription } from "@/hooks/use-mutation-subscription";
+import { signOut } from "@/lib/auth-client";
 import { SELECTABLE_MODELS } from "@/lib/billing/ai-models";
+import { getLanguageColor } from "@/lib/github-utils";
+import type { MutationEvent } from "@/lib/mutation-events";
+import { getRecentViews, type RecentViewItem } from "@/lib/recent-views";
+import type { IconMapping } from "@/lib/theme-store-types";
+import { BORDER_RADIUS_PRESETS, type BorderRadiusPreset } from "@/lib/themes/border-radius";
+import { cn, formatNumber } from "@/lib/utils";
 
 interface SearchRepo {
 	id: number;

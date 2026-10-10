@@ -2,8 +2,9 @@
 
 import * as PopoverPrimitive from "@radix-ui/react-popover";
 import { Settings2, FolderTree, List } from "lucide-react";
-import { cn } from "@/lib/utils";
+
 import { type DiffPreferences, type DiffViewMode, type DiffFontSize } from "@/lib/diff-preferences";
+import { cn } from "@/lib/utils";
 
 interface DiffTreeSettingsPopoverProps {
 	preferences: Pick<DiffPreferences, "defaultViewMode" | "fontSize" | "showFolderDiffCount">;

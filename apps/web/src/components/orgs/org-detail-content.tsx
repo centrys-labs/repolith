@@ -1,9 +1,5 @@
 "use client";
 
-import { useMemo } from "react";
-import { parseAsString, parseAsStringLiteral, useQueryState } from "nuqs";
-import Image from "next/image";
-import Link from "next/link";
 import {
 	ArrowUpDown,
 	Bot,
@@ -21,11 +17,16 @@ import {
 	Star,
 	Users,
 } from "lucide-react";
-import { cn, formatNumber } from "@/lib/utils";
-import { getLanguageColor } from "@/lib/github-utils";
-import type { UserFollow } from "@/lib/github";
-import { TimeAgo } from "@/components/ui/time-ago";
+import Image from "next/image";
+import Link from "next/link";
+import { parseAsString, parseAsStringLiteral, useQueryState } from "nuqs";
+import { useMemo } from "react";
+
 import { CreateRepoDialog } from "@/components/repo/create-repo-dialog";
+import { TimeAgo } from "@/components/ui/time-ago";
+import type { UserFollow } from "@/lib/github";
+import { getLanguageColor } from "@/lib/github-utils";
+import { cn, formatNumber } from "@/lib/utils";
 
 export interface OrgDetails {
 	login: string;

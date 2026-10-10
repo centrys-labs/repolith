@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
-import { getAuthenticatedUser, searchIssues } from "@/lib/github";
+
 import { PRsContent } from "@/components/prs/prs-content";
+import { getAuthenticatedUser, searchIssues } from "@/lib/github";
 
 export const metadata: Metadata = {
 	title: "Pull Requests",

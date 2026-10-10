@@ -1,14 +1,15 @@
 "use client";
 
+import { ShieldCheck } from "lucide-react";
+import Link from "next/link";
 import { useRef, useCallback, useState } from "react";
 import { createPortal } from "react-dom";
+
 import { GithubAvatar } from "@/components/shared/github-avatar";
-import Link from "next/link";
-import { ShieldCheck } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { UserTooltip } from "@/components/shared/user-tooltip";
 import { TimeAgo } from "@/components/ui/time-ago";
 import type { ScoreResult } from "@/lib/contributor-score";
-import { UserTooltip } from "@/components/shared/user-tooltip";
+import { cn } from "@/lib/utils";
 
 interface AuthorOrg {
 	login: string;

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
-import { getTrendingRepos } from "@/lib/github";
+
 import { TrendingContent } from "@/components/trending/trending-content";
+import { getTrendingRepos } from "@/lib/github";
 
 export const metadata: Metadata = {
 	title: "Trending",

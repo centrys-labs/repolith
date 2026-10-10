@@ -1,12 +1,14 @@
 "use client";
 
-import { useState, useTransition, type ReactNode } from "react";
-import { useRouter } from "next/navigation";
 import { Loader2, AlertCircle } from "lucide-react";
-import { MessageActionsMenu } from "./message-actions-menu";
-import { useDeletedComments } from "./deleted-comments-context";
-import { MarkdownEditor } from "@/components/shared/markdown-editor";
+import { useRouter } from "next/navigation";
+import { useState, useTransition, type ReactNode } from "react";
+
 import { updateIssueComment } from "@/app/(app)/repos/[owner]/[repo]/issues/issue-actions";
+import { MarkdownEditor } from "@/components/shared/markdown-editor";
+
+import { useDeletedComments } from "./deleted-comments-context";
+import { MessageActionsMenu } from "./message-actions-menu";
 
 type ChatMessageWrapperProps = {
 	headerContent: ReactNode;

@@ -1,7 +1,8 @@
 "use client";
 
-import { useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
+import { useEffect, useRef } from "react";
+
 import { parseGitHubUrl, toInternalUrl } from "@/lib/github-utils";
 
 export function GitHubLinkInterceptor({ children }: { children: React.ReactNode }) {

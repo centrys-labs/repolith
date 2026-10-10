@@ -1,8 +1,11 @@
 "use client";
 
-import { useState, useTransition } from "react";
-import { useRouter } from "next/navigation";
 import { Loader2, Lock, Globe, Plus } from "lucide-react";
+import { useRouter } from "next/navigation";
+import { useState, useTransition } from "react";
+
+import { createRepo } from "@/app/(app)/repos/actions";
+import { useMutationEvents } from "@/components/shared/mutation-event-provider";
 import {
 	Dialog,
 	DialogContent,
@@ -11,8 +14,6 @@ import {
 	DialogDescription,
 } from "@/components/ui/dialog";
 import { cn } from "@/lib/utils";
-import { createRepo } from "@/app/(app)/repos/actions";
-import { useMutationEvents } from "@/components/shared/mutation-event-provider";
 
 export function CreateRepoDialog({ org }: { org?: string } = {}) {
 	const router = useRouter();

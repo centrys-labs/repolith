@@ -1,9 +1,10 @@
 "use client";
 
-import { useState, useEffect } from "react";
 import { Pin } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { useState, useEffect } from "react";
+
 import { isPinnedRepo, pinRepo, unpinRepo } from "@/lib/pinned-repos";
+import { cn } from "@/lib/utils";
 
 interface PinButtonProps {
 	owner: string;

@@ -1,4 +1,9 @@
+import { File, Download } from "lucide-react";
 import type { Metadata } from "next";
+
+import { CodeViewer } from "@/components/repo/code-viewer";
+import { MarkdownBlobView } from "@/components/repo/markdown-blob-view";
+import { MarkdownRenderer } from "@/components/shared/markdown-renderer";
 import {
 	getFileContent,
 	getRepoBranches,
@@ -7,10 +12,6 @@ import {
 	extractRepoPermissions,
 } from "@/lib/github";
 import { parseRefAndPath, formatBytes, getLanguageFromFilename } from "@/lib/github-utils";
-import { CodeViewer } from "@/components/repo/code-viewer";
-import { MarkdownRenderer } from "@/components/shared/markdown-renderer";
-import { MarkdownBlobView } from "@/components/repo/markdown-blob-view";
-import { File, Download } from "lucide-react";
 
 const MARKDOWN_EXTENSIONS = new Set(["md", "mdx", "markdown", "mdown", "mkd"]);
 

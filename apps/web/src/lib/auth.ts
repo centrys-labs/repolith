@@ -1,17 +1,18 @@
-import { betterAuth } from "better-auth";
-import { prismaAdapter } from "better-auth/adapters/prisma";
-import { prisma } from "./db";
-import { Octokit } from "@octokit/rest";
-import { redis } from "./redis";
-import { waitUntil } from "@vercel/functions";
-import { all } from "better-all";
-import { headers } from "next/headers";
-import { cache } from "react";
 import { dash, sentinel } from "@better-auth/infra";
 import { createHash } from "@better-auth/utils/hash";
+import { Octokit } from "@octokit/rest";
+import { waitUntil } from "@vercel/functions";
+import { all } from "better-all";
+import { betterAuth } from "better-auth";
+import { prismaAdapter } from "better-auth/adapters/prisma";
 import { admin, oAuthProxy } from "better-auth/plugins";
-import { grantSignupCredits } from "./billing/credit";
+import { headers } from "next/headers";
+import { cache } from "react";
+
 import { patSignIn } from "./auth-plugins/pat-signin";
+import { grantSignupCredits } from "./billing/credit";
+import { prisma } from "./db";
+import { redis } from "./redis";
 import { PRODUCTION_URL } from "./site-url";
 
 async function getOctokitUser(token: string) {

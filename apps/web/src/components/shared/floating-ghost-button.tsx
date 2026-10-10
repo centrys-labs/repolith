@@ -1,8 +1,9 @@
 "use client";
 
 import { Ghost } from "lucide-react";
-import { cn } from "@/lib/utils";
+
 import { useGlobalChat } from "@/components/shared/global-chat-provider";
+import { cn } from "@/lib/utils";
 
 function GhostIcon({ isWorking }: { isWorking: boolean }) {
 	return (

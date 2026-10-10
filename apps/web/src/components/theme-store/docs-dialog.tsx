@@ -1,7 +1,9 @@
 "use client";
 
-import { useState } from "react";
 import { BookOpen, Palette, FolderTree, Copy, Check, Sparkles } from "lucide-react";
+import { useState } from "react";
+
+import { HighlightedCodeBlock } from "@/components/shared/highlighted-code-block";
 import { Button } from "@/components/ui/button";
 import {
 	Dialog,
@@ -11,7 +13,6 @@ import {
 	DialogDescription,
 	DialogTrigger,
 } from "@/components/ui/dialog";
-import { HighlightedCodeBlock } from "@/components/shared/highlighted-code-block";
 
 type DocType = "theme" | "icon-theme";
 

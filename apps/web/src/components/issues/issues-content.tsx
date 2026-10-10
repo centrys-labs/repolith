@@ -1,8 +1,5 @@
 "use client";
 
-import { useMemo } from "react";
-import { useQueryState, parseAsString, parseAsStringLiteral } from "nuqs";
-import Link from "next/link";
 import {
 	CircleDot,
 	MessageSquare,
@@ -14,11 +11,15 @@ import {
 	PenLine,
 	AtSign,
 } from "lucide-react";
-import { cn } from "@/lib/utils";
-import { toInternalUrl } from "@/lib/github-utils";
-import { TimeAgo } from "@/components/ui/time-ago";
+import Link from "next/link";
+import { useQueryState, parseAsString, parseAsStringLiteral } from "nuqs";
+import { useMemo } from "react";
+
 import { CopyLinkButton } from "@/components/shared/copy-link-button";
+import { TimeAgo } from "@/components/ui/time-ago";
 import type { IssueItem } from "@/lib/github-types";
+import { toInternalUrl } from "@/lib/github-utils";
+import { cn } from "@/lib/utils";
 
 const issueTabTypes = ["assigned", "created", "mentioned"] as const;
 type TabType = (typeof issueTabTypes)[number];

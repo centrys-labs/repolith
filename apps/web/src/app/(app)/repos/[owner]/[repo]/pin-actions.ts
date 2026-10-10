@@ -1,7 +1,9 @@
 "use server";
 
-import { auth } from "@/lib/auth";
+import { revalidatePath } from "next/cache";
 import { headers } from "next/headers";
+
+import { auth } from "@/lib/auth";
 import {
 	pinItem,
 	unpinItem,
@@ -9,7 +11,6 @@ import {
 	getPinnedItems,
 	type PinnedItem,
 } from "@/lib/pinned-items-store";
-import { revalidatePath } from "next/cache";
 import { invalidateRepoCache } from "@/lib/repo-data-cache-vc";
 
 export async function pinToOverview(

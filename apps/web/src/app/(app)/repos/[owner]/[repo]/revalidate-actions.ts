@@ -1,7 +1,7 @@
 "use server";
 
-import { fetchAndCacheRepoPageData, getRepoTree } from "@/lib/github";
 import { buildFileTree } from "@/lib/file-tree";
+import { fetchAndCacheRepoPageData, getRepoTree } from "@/lib/github";
 import { setCachedRepoTree } from "@/lib/repo-data-cache";
 
 export async function revalidateRepoPageData(owner: string, repo: string): Promise<void> {

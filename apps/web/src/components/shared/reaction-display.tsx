@@ -1,11 +1,11 @@
 "use client";
 
-import { useState, useRef, useEffect, useCallback, useTransition } from "react";
-import { createPortal } from "react-dom";
+import { SmilePlus } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { SmilePlus } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { useState, useRef, useEffect, useCallback, useTransition } from "react";
+import { createPortal } from "react-dom";
+
 import {
 	getReactionUsers,
 	addReaction,
@@ -14,6 +14,7 @@ import {
 	type ReactionWithId,
 	type ReactionContent,
 } from "@/app/(app)/repos/[owner]/[repo]/reaction-actions";
+import { cn } from "@/lib/utils";
 
 export interface Reactions {
 	"+1"?: number;

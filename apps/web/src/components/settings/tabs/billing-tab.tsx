@@ -1,8 +1,9 @@
 "use client";
 
-import { useState } from "react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { AlertCircle, Key, Wallet } from "lucide-react";
+import { useState } from "react";
+
 import {
 	Dialog,
 	DialogContent,
@@ -11,8 +12,8 @@ import {
 	DialogHeader,
 	DialogTitle,
 } from "@/components/ui/dialog";
-import { cn } from "@/lib/utils";
 import type { UserSettings } from "@/lib/user-settings-store";
+import { cn } from "@/lib/utils";
 
 interface BillingTabProps {
 	onNavigate: (tab: "general" | "editor" | "ai" | "billing" | "account") => void;

@@ -1,5 +1,7 @@
-import { type NextRequest } from "next/server";
 import { ImageResponse } from "next/og";
+import { type NextRequest } from "next/server";
+
+import { getOGRepo, getOGIssue, getOGPullRequest, getOGUser, getOGOrg } from "@/lib/og/og-data";
 import {
 	OG,
 	OGFrame,
@@ -9,7 +11,6 @@ import {
 	ogFonts,
 	truncate,
 } from "@/lib/og/og-utils";
-import { getOGRepo, getOGIssue, getOGPullRequest, getOGUser, getOGOrg } from "@/lib/og/og-data";
 
 export const runtime = "nodejs";
 

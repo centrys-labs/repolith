@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import {
 	BookOpen,
 	Check,
@@ -13,6 +12,8 @@ import {
 	Terminal,
 	Upload,
 } from "lucide-react";
+import { useState } from "react";
+
 import { cn } from "@/lib/utils";
 
 interface EmptyRepoQuickSetupProps {

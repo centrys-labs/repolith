@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+
 import { useGlobalChat, type ChatConfig } from "@/components/shared/global-chat-provider";
 
 interface ChatPageActivatorProps {

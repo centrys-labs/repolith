@@ -1,7 +1,5 @@
 "use client";
 
-import { useState, useTransition, useEffect, useRef, useCallback } from "react";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import {
 	Plus,
 	Loader2,
@@ -23,15 +21,10 @@ import {
 	Pencil,
 	Image,
 } from "lucide-react";
-import {
-	Dialog,
-	DialogContent,
-	DialogHeader,
-	DialogTitle,
-	DialogDescription,
-} from "@/components/ui/dialog";
-import { cn, getErrorMessage } from "@/lib/utils";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { useState, useTransition, useEffect, useRef, useCallback } from "react";
 import ReactMarkdown from "react-markdown";
+
 import type { IssueTemplate } from "@/app/(app)/repos/[owner]/[repo]/issues/actions";
 import {
 	createIssue,
@@ -45,6 +38,14 @@ import {
 	uploadImage,
 } from "@/app/(app)/repos/[owner]/[repo]/issues/actions";
 import { useMutationEvents } from "@/components/shared/mutation-event-provider";
+import {
+	Dialog,
+	DialogContent,
+	DialogHeader,
+	DialogTitle,
+	DialogDescription,
+} from "@/components/ui/dialog";
+import { cn, getErrorMessage } from "@/lib/utils";
 
 interface RepoLabel {
 	name: string;

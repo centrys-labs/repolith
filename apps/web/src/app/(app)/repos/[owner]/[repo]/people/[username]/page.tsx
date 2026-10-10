@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
-import { getUser, getPersonRepoActivity, getRepoContributorStats } from "@/lib/github";
+
 import { PersonDetail } from "@/components/people/person-detail";
+import { getUser, getPersonRepoActivity, getRepoContributorStats } from "@/lib/github";
 
 export async function generateMetadata({
 	params,

@@ -1,7 +1,8 @@
 "use server";
 
-import { getOctokit } from "@/lib/github";
 import { revalidatePath } from "next/cache";
+
+import { getOctokit } from "@/lib/github";
 
 export async function inviteOrgMember(
 	org: string,

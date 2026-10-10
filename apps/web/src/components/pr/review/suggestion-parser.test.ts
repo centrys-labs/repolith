@@ -1,4 +1,5 @@
 import { describe, expect, it } from "vitest";
+
 import { parseSuggestionBlock } from "./suggestion-parser";
 
 describe("parseSuggestionBlock", () => {

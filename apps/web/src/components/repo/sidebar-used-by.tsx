@@ -1,11 +1,12 @@
 "use client";
 
-import { useState } from "react";
-import Link from "next/link";
 import { useQuery } from "@tanstack/react-query";
 import { Package, Star } from "lucide-react";
-import { formatNumber } from "@/lib/utils";
+import Link from "next/link";
+import { useState } from "react";
+
 import { fetchUsedBy, type UsedByData } from "@/app/(app)/repos/[owner]/[repo]/readme-actions";
+import { formatNumber } from "@/lib/utils";
 
 const INITIAL_COUNT = 5;
 

@@ -1,8 +1,8 @@
 "use client";
 
-import { useState, useEffect } from "react";
 import { GitPullRequest, GitMerge, XCircle } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { useState, useEffect } from "react";
+
 import { useMutationSubscription } from "@/hooks/use-mutation-subscription";
 import {
 	isRepoEvent,
@@ -10,6 +10,7 @@ import {
 	type PRClosedEvent,
 	type PRReopenedEvent,
 } from "@/lib/mutation-events";
+import { cn } from "@/lib/utils";
 
 type PRStatus = "open" | "merged" | "closed" | "draft";
 type PRStateEvent = PRMergedEvent | PRClosedEvent | PRReopenedEvent;

@@ -1,10 +1,11 @@
 "use client";
 
-import { useState, useTransition } from "react";
 import { Star } from "lucide-react";
+import { useState, useTransition } from "react";
+
 import { starRepo, unstarRepo } from "@/app/(app)/repos/actions";
-import { cn, formatNumber } from "@/lib/utils";
 import { useMutationEvents } from "@/components/shared/mutation-event-provider";
+import { cn, formatNumber } from "@/lib/utils";
 
 interface StarButtonProps {
 	owner: string;

@@ -1,9 +1,10 @@
 "use client";
 
 import { createContext, useContext, useState, useCallback, useEffect, useRef } from "react";
+
+import { ClientMarkdown } from "@/components/shared/client-markdown";
 import { GithubAvatar } from "@/components/shared/github-avatar";
 import { TimeAgo } from "@/components/ui/time-ago";
-import { ClientMarkdown } from "@/components/shared/client-markdown";
 
 interface OptimisticComment {
 	id: number;

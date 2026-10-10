@@ -1,12 +1,13 @@
 "use client";
 
-import { useState, useCallback, useTransition, useEffect } from "react";
 import { ArrowBigUp } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { useState, useCallback, useTransition, useEffect } from "react";
+
 import {
 	toggleDiscussionUpvoteAction,
 	getCurrentUser,
 } from "@/app/(app)/repos/[owner]/[repo]/discussions/discussion-actions";
+import { cn } from "@/lib/utils";
 
 interface DiscussionUpvoteButtonProps {
 	discussionId: string;

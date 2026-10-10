@@ -1,5 +1,7 @@
 "use server";
 
+import { revalidatePath } from "next/cache";
+
 import {
 	getRepoDiscussionsPage,
 	fetchMoreDiscussions,
@@ -8,7 +10,6 @@ import {
 } from "@/lib/github";
 import type { RepoDiscussionNode } from "@/lib/github";
 import { getErrorMessage } from "@/lib/utils";
-import { revalidatePath } from "next/cache";
 
 export async function fetchDiscussionsByCategory(owner: string, repo: string, _category: string) {
 	const data = await getRepoDiscussionsPage(owner, repo);

@@ -1,10 +1,11 @@
 "use client";
 
-import { useState, useMemo } from "react";
-import Link from "next/link";
 import Image from "next/image";
-import { cn } from "@/lib/utils";
+import Link from "next/link";
+import { useState, useMemo } from "react";
+
 import type { PersonRepoActivity, ContributorWeek } from "@/lib/github";
+import { cn } from "@/lib/utils";
 
 interface UserData {
 	login: string;

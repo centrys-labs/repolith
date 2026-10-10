@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
-import { listPromptRequests } from "@/lib/prompt-request-store";
+
 import { PromptList } from "@/components/prompt-request/prompt-list";
+import { listPromptRequests } from "@/lib/prompt-request-store";
 
 export async function generateMetadata({
 	params,

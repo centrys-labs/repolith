@@ -1,8 +1,11 @@
 "use client";
 
-import { useState, useTransition, useRef, useCallback } from "react";
-import { useRouter } from "next/navigation";
 import { Loader2, X, AlertCircle, CornerDownLeft, Sparkles, ImagePlus } from "lucide-react";
+import { useRouter } from "next/navigation";
+import { useState, useTransition, useRef, useCallback } from "react";
+
+import { createPromptRequestAction } from "@/app/(app)/repos/[owner]/[repo]/prompts/actions";
+import { useMutationEvents } from "@/components/shared/mutation-event-provider";
 import {
 	Dialog,
 	DialogContent,
@@ -11,8 +14,6 @@ import {
 	DialogDescription,
 } from "@/components/ui/dialog";
 import { cn } from "@/lib/utils";
-import { createPromptRequestAction } from "@/app/(app)/repos/[owner]/[repo]/prompts/actions";
-import { useMutationEvents } from "@/components/shared/mutation-event-provider";
 
 interface SuggestPromptDialogProps {
 	owner: string;

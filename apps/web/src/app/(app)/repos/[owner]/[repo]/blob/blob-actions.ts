@@ -1,9 +1,10 @@
 "use server";
 
-import { getOctokit, invalidateFileContentCache } from "@/lib/github";
-import { getErrorMessage } from "@/lib/utils";
 import { revalidatePath } from "next/cache";
+
+import { getOctokit, invalidateFileContentCache } from "@/lib/github";
 import { invalidateRepoCache } from "@/lib/repo-data-cache-vc";
+import { getErrorMessage } from "@/lib/utils";
 
 export async function commitFileEdit(
 	owner: string,

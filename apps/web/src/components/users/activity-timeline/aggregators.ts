@@ -1,4 +1,11 @@
 import type { ActivityEvent } from "@/lib/github-types";
+
+import {
+	getPullRequestStatusFromContribution,
+	mergeCommitActivity,
+	mergeIssueEntries,
+	mergePullRequestEntries,
+} from "./helpers";
 import type {
 	ContributionData,
 	ContributionMonthAccumulator,
@@ -9,12 +16,6 @@ import type {
 	PullRequestEntry,
 	TimelineMonthGroup,
 } from "./types";
-import {
-	getPullRequestStatusFromContribution,
-	mergeCommitActivity,
-	mergeIssueEntries,
-	mergePullRequestEntries,
-} from "./helpers";
 
 function monthFromDate(value: string): string {
 	return value.slice(0, 7);

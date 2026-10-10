@@ -1,7 +1,5 @@
 "use client";
 
-import { useRef, useState, useCallback, useEffect, Fragment } from "react";
-import { useRouter } from "next/navigation";
 import {
 	Ghost,
 	Search,
@@ -13,15 +11,18 @@ import {
 	Check,
 	WrapText,
 } from "lucide-react";
-import { formatBytes } from "@/lib/github-utils";
-import { cn } from "@/lib/utils";
-import type { SyntaxToken } from "@/lib/shiki";
-import { useGlobalChat, type InlineContext } from "@/components/shared/global-chat-provider";
-import { CommitDialog } from "@/components/shared/commit-dialog";
+import { useRouter } from "next/navigation";
+import { useRef, useState, useCallback, useEffect, Fragment } from "react";
+
 import { commitFileEdit } from "@/app/(app)/repos/[owner]/[repo]/blob/blob-actions";
+import { CommitDialog } from "@/components/shared/commit-dialog";
+import { useGlobalChat, type InlineContext } from "@/components/shared/global-chat-provider";
 import { useMutationEvents } from "@/components/shared/mutation-event-provider";
 import { useColorTheme } from "@/components/theme/theme-provider";
+import { formatBytes } from "@/lib/github-utils";
+import type { SyntaxToken } from "@/lib/shiki";
 import { highlightCodeClient } from "@/lib/shiki-client";
+import { cn } from "@/lib/utils";
 
 interface CodeViewerClientProps {
 	html: string;

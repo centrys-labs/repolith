@@ -1,11 +1,12 @@
-import Link from "next/link";
-import Image from "next/image";
 import { CircleDot, CheckCircle2, GitPullRequest, ExternalLink } from "lucide-react";
-import { cn } from "@/lib/utils";
-import { TimeAgo } from "@/components/ui/time-ago";
+import Image from "next/image";
+import Link from "next/link";
+
 import { PinButton } from "@/components/shared/pin-button";
-import type { CrossReference } from "@/lib/github";
 import { UserTooltip } from "@/components/shared/user-tooltip";
+import { TimeAgo } from "@/components/ui/time-ago";
+import type { CrossReference } from "@/lib/github";
+import { cn } from "@/lib/utils";
 
 interface IssueHeaderProps {
 	title: string;

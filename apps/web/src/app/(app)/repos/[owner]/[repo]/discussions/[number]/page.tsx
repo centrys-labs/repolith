@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
+
+import { DiscussionCommentForm } from "@/components/discussion/discussion-comment-form";
+import { DiscussionCommentsClient } from "@/components/discussion/discussion-comments-client";
+import { DiscussionHeader } from "@/components/discussion/discussion-header";
+import { DiscussionSidebar } from "@/components/discussion/discussion-sidebar";
+import { IssueDetailLayout } from "@/components/issue/issue-detail-layout";
+import { renderMarkdownToHtml } from "@/components/shared/markdown-renderer";
 import { getDiscussion, getDiscussionComments, getAuthenticatedUser, getRepo } from "@/lib/github";
 import { extractParticipants } from "@/lib/github-utils";
-import { renderMarkdownToHtml } from "@/components/shared/markdown-renderer";
-import { DiscussionHeader } from "@/components/discussion/discussion-header";
-import { IssueDetailLayout } from "@/components/issue/issue-detail-layout";
-import { DiscussionCommentsClient } from "@/components/discussion/discussion-comments-client";
-import { DiscussionCommentForm } from "@/components/discussion/discussion-comment-form";
-import { DiscussionSidebar } from "@/components/discussion/discussion-sidebar";
 
 export async function generateMetadata({
 	params,

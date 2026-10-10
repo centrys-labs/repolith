@@ -1,9 +1,11 @@
 "use client";
 
-import { useState } from "react";
-import { GithubAvatar } from "@/components/shared/github-avatar";
 import { ChevronRight, Bot } from "lucide-react";
+import { useState } from "react";
+
+import { GithubAvatar } from "@/components/shared/github-avatar";
 import { cn } from "@/lib/utils";
+
 import { DeletedCommentsProvider, useDeletedComments } from "./deleted-comments-context";
 
 interface BotActivityGroupProps {

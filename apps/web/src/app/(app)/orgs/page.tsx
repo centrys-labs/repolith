@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
-import { getUserOrgs } from "@/lib/github";
+
 import { OrgsContent, type OrgListItem } from "@/components/orgs/orgs-content";
+import { getUserOrgs } from "@/lib/github";
 
 export const metadata: Metadata = {
 	title: "Organizations",

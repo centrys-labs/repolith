@@ -1,8 +1,5 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
 import {
 	LogOut,
 	ExternalLink,
@@ -16,10 +13,19 @@ import {
 	Store,
 } from "lucide-react";
 import dynamic from "next/dynamic";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useState, useEffect } from "react";
 
 const CommandMenu = dynamic(() => import("@/components/command-menu").then((m) => m.CommandMenu));
+import { APP_ROUTES } from "@/app-routes";
+import { NotificationSheet } from "@/components/layout/notification-sheet";
+import type { TabId } from "@/components/settings/settings-content";
+import { SettingsDialog } from "@/components/settings/settings-dialog";
+import { NavbarGhostButton } from "@/components/shared/floating-ghost-button";
+import { useMutationEvents } from "@/components/shared/mutation-event-provider";
+import { useNavVisibility } from "@/components/shared/nav-visibility-provider";
 import { useColorTheme } from "@/components/theme/theme-provider";
-import { signOut } from "@/lib/auth-client";
 import {
 	DropdownMenu,
 	DropdownMenuTrigger,
@@ -30,16 +36,10 @@ import {
 	DropdownMenuGroup,
 	DropdownMenuLabel,
 } from "@/components/ui/dropdown-menu";
-import { SettingsDialog } from "@/components/settings/settings-dialog";
-import type { TabId } from "@/components/settings/settings-content";
-import { NavbarGhostButton } from "@/components/shared/floating-ghost-button";
-import { useMutationEvents } from "@/components/shared/mutation-event-provider";
-import { useNavVisibility } from "@/components/shared/nav-visibility-provider";
-import { cn } from "@/lib/utils";
-import { NotificationSheet } from "@/components/layout/notification-sheet";
 import { $Session } from "@/lib/auth";
+import { signOut } from "@/lib/auth-client";
 import type { NotificationItem } from "@/lib/github-types";
-import { APP_ROUTES } from "@/app-routes";
+import { cn } from "@/lib/utils";
 
 interface AppNavbarProps {
 	session: $Session;

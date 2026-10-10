@@ -1,7 +1,8 @@
-import { auth } from "@/lib/auth";
 import { headers } from "next/headers";
-import { getUserSettings, updateUserSettings } from "@/lib/user-settings-store";
 import { z } from "zod";
+
+import { auth } from "@/lib/auth";
+import { getUserSettings, updateUserSettings } from "@/lib/user-settings-store";
 
 function maskApiKey(key: string | null): string | null {
 	if (!key) return null;

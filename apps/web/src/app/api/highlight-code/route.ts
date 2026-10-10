@@ -1,7 +1,8 @@
-import { NextRequest, NextResponse } from "next/server";
-import { highlightFullFile } from "@/lib/shiki";
-import { auth } from "@/lib/auth";
 import { headers } from "next/headers";
+import { NextRequest, NextResponse } from "next/server";
+
+import { auth } from "@/lib/auth";
+import { highlightFullFile } from "@/lib/shiki";
 
 const MAX_CODE_LENGTH = 500_000;
 

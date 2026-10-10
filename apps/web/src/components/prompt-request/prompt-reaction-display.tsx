@@ -1,13 +1,14 @@
 "use client";
 
-import { useState, useRef, useEffect, useCallback, useTransition } from "react";
-import { createPortal } from "react-dom";
+import { SmilePlus } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { SmilePlus } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { useState, useRef, useEffect, useCallback, useTransition } from "react";
+import { createPortal } from "react-dom";
+
 import { togglePromptReaction } from "@/app/(app)/repos/[owner]/[repo]/prompts/actions";
 import type { PromptRequestReaction, PromptReactionContent } from "@/lib/prompt-request-store";
+import { cn } from "@/lib/utils";
 
 const REACTION_EMOJI: [PromptReactionContent, string][] = [
 	["+1", "👍"],

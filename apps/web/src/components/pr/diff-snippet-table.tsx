@@ -1,14 +1,16 @@
 "use client";
 
-import React, { useState, useRef, useCallback, useMemo } from "react";
 import { ChevronDown, Plus } from "lucide-react";
-import { cn } from "@/lib/utils";
+import React, { useState, useRef, useCallback, useMemo } from "react";
+
+import { Badge } from "@/components/ui/badge";
 import type { DiffLine } from "@/lib/github-utils";
 import type { SyntaxToken } from "@/lib/shiki";
-import { Badge } from "@/components/ui/badge";
+import { cn } from "@/lib/utils";
+
+import { InlineCommentForm } from "./pr-diff-viewer";
 import { SegmentedContent, SyntaxSegmentedContent } from "./review/diff-content";
 import type { AddContextCallback } from "./review/review-models";
-import { InlineCommentForm } from "./pr-diff-viewer";
 
 interface DiffSnippetTableProps {
 	lines: DiffLine[];

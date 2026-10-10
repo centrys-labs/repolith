@@ -1,6 +1,5 @@
 "use client";
 
-import { useState, useEffect, useCallback, useMemo, useRef, memo } from "react";
 import {
 	Check,
 	Loader2,
@@ -10,18 +9,21 @@ import {
 	AlertCircle,
 	TextSearch,
 } from "lucide-react";
+import { useState, useEffect, useCallback, useMemo, useRef, memo } from "react";
+
 import { FileTypeIcon } from "@/components/shared/file-icon";
-import { cn } from "@/lib/utils";
-import { useOverviewActive } from "./pr-detail-layout";
+import { useColorTheme } from "@/components/theme/theme-provider";
 import { parseDiffPatch } from "@/lib/github-utils";
 import type { SyntaxToken } from "@/lib/shiki";
 import { highlightDiffLinesClient } from "@/lib/shiki-client";
-import { useColorTheme } from "@/components/theme/theme-provider";
-import { DiffSnippetTable } from "./diff-snippet-table";
+import { cn } from "@/lib/utils";
+
 import { ClientMarkdown } from "../shared/client-markdown";
 import { Badge } from "../ui/badge";
 import { Button } from "../ui/button";
 import { Tooltip, TooltipContent, TooltipTrigger } from "../ui/tooltip";
+import { DiffSnippetTable } from "./diff-snippet-table";
+import { useOverviewActive } from "./pr-detail-layout";
 
 /** Turn single newlines into paragraph breaks, preserving fenced code blocks. */
 function ensureParagraphBreaks(md: string): string {

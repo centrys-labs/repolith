@@ -1,7 +1,7 @@
 "use server";
 
-import { getOctokit, getGitHubToken } from "@/lib/github";
 import { renderMarkdownToHtml } from "@/components/shared/markdown-renderer";
+import { getOctokit, getGitHubToken } from "@/lib/github";
 import { setCachedReadmeHtml } from "@/lib/readme-cache";
 import {
 	setCachedRepoLanguages,

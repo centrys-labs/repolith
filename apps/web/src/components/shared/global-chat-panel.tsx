@@ -1,19 +1,20 @@
 "use client";
 
-import { useEffect, useState, useCallback, useRef, useMemo } from "react";
-import { usePathname, useSearchParams } from "next/navigation";
 import { X, Code2, Ghost, Plus, ChevronRight } from "lucide-react";
-import { cn } from "@/lib/utils";
-import { AIChat } from "@/components/shared/ai-chat";
-import { useResponsiveSurfaceContext } from "@/components/shared/responsive-surface-provider";
-import { useGlobalChat, type InlineContext } from "@/components/shared/global-chat-provider";
-import { useNavVisibility } from "@/components/shared/nav-visibility-provider";
-import { Sheet, SheetContent } from "@/components/ui/sheet";
-import { getResponsiveSurfaceDecision } from "@/lib/responsive-surface-policy";
+import { usePathname, useSearchParams } from "next/navigation";
+import { useEffect, useState, useCallback, useRef, useMemo } from "react";
+
 import {
 	searchRepoFiles,
 	fetchFileContentForContext,
 } from "@/app/(app)/repos/[owner]/[repo]/file-search-actions";
+import { AIChat } from "@/components/shared/ai-chat";
+import { useGlobalChat, type InlineContext } from "@/components/shared/global-chat-provider";
+import { useNavVisibility } from "@/components/shared/nav-visibility-provider";
+import { useResponsiveSurfaceContext } from "@/components/shared/responsive-surface-provider";
+import { Sheet, SheetContent } from "@/components/ui/sheet";
+import { getResponsiveSurfaceDecision } from "@/lib/responsive-surface-policy";
+import { cn } from "@/lib/utils";
 
 // ─── Page hints ─────────────────────────────────────────────────────────────
 

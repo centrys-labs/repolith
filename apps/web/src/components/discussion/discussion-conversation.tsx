@@ -1,18 +1,19 @@
-import Link from "next/link";
-import Image from "next/image";
 import { CheckCircle2 } from "lucide-react";
-import { cn } from "@/lib/utils";
-import { MarkdownCopyHandler } from "@/components/shared/markdown-copy-handler";
-import { ReactiveCodeBlocks } from "@/components/shared/reactive-code-blocks";
-import { UserTooltip } from "@/components/shared/user-tooltip";
-import { TimeAgo } from "@/components/ui/time-ago";
-import { CollapsibleBody } from "@/components/issue/collapsible-body";
-import { BotActivityGroup } from "@/components/pr/bot-activity-group";
+import Image from "next/image";
+import Link from "next/link";
+
 import {
 	DiscussionReactionDisplay,
 	type Reactions,
 } from "@/components/discussion/discussion-reaction-display";
+import { CollapsibleBody } from "@/components/issue/collapsible-body";
+import { BotActivityGroup } from "@/components/pr/bot-activity-group";
+import { MarkdownCopyHandler } from "@/components/shared/markdown-copy-handler";
+import { ReactiveCodeBlocks } from "@/components/shared/reactive-code-blocks";
+import { UserTooltip } from "@/components/shared/user-tooltip";
+import { TimeAgo } from "@/components/ui/time-ago";
 import type { DiscussionComment, DiscussionReply } from "@/lib/github";
+import { cn } from "@/lib/utils";
 
 interface DescriptionEntry {
 	body: string;

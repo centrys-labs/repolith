@@ -1,6 +1,7 @@
-import { auth } from "@/lib/auth";
 import { headers } from "next/headers";
 import { z } from "zod";
+
+import { auth } from "@/lib/auth";
 import { installCustomTheme, uninstallCustomTheme, getCustomThemeById } from "@/lib/theme-store";
 
 const bodySchema = z.object({

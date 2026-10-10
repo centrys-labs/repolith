@@ -1,4 +1,5 @@
 import type { LanguageModelUsage } from "ai";
+
 import { Prisma } from "../../generated/prisma/client";
 import {
 	calculateCostUsd,
@@ -8,8 +9,8 @@ import {
 } from "./ai-models";
 import { decimal, toNegativeAmount } from "./amounts";
 import { isBillingExemptUser } from "./billing-exemption";
-import { getCreditBalanceSnapshot } from "./credit";
 import { CREDIT_ENTRY_TYPE, FIXED_COSTS } from "./config";
+import { getCreditBalanceSnapshot } from "./credit";
 import { withSerializableTx } from "./transaction";
 
 const INSUFFICIENT_CREDIT_BALANCE_MESSAGE = "Insufficient credit balance to record usage";

@@ -1,4 +1,5 @@
 import Link from "next/link";
+
 import { encodeFilePath } from "@/lib/github-utils";
 
 interface BreadcrumbNavProps {

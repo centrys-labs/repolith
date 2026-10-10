@@ -1,7 +1,5 @@
 "use client";
 
-import { useState, useEffect, useCallback, useRef, useTransition, useMemo } from "react";
-import { useRouter } from "next/navigation";
 import {
 	Check,
 	AlertTriangle,
@@ -13,12 +11,15 @@ import {
 	X,
 	Keyboard,
 } from "lucide-react";
-import { cn, getErrorMessage } from "@/lib/utils";
-import type { MergeHunk, ConflictFileData } from "@/lib/three-way-merge";
+import { useRouter } from "next/navigation";
+import { useState, useEffect, useCallback, useRef, useTransition, useMemo } from "react";
+
 import { commitMergeConflictResolution } from "@/app/(app)/repos/[owner]/[repo]/pulls/pr-actions";
 import { useMutationEvents } from "@/components/shared/mutation-event-provider";
-import { highlightCodeClient } from "@/lib/shiki-client";
 import { useColorTheme } from "@/components/theme/theme-provider";
+import { highlightCodeClient } from "@/lib/shiki-client";
+import type { MergeHunk, ConflictFileData } from "@/lib/three-way-merge";
+import { cn, getErrorMessage } from "@/lib/utils";
 
 const EXT_TO_LANG: Record<string, string> = {
 	ts: "typescript",

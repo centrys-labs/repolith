@@ -1,13 +1,14 @@
 "use client";
 
-import { useState, useEffect, useTransition } from "react";
+import { GitCommit } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { GitCommit } from "lucide-react";
+import { useState, useEffect, useTransition } from "react";
+
+import { fetchLatestCommit } from "@/app/(app)/repos/[owner]/[repo]/commits/actions";
 import { TimeAgo } from "@/components/ui/time-ago";
 import { useMutationSubscription } from "@/hooks/use-mutation-subscription";
 import { isRepoEvent, type MutationEvent } from "@/lib/mutation-events";
-import { fetchLatestCommit } from "@/app/(app)/repos/[owner]/[repo]/commits/actions";
 
 interface LatestCommit {
 	sha: string;

@@ -1,9 +1,11 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
 import { ArrowLeft, Loader2, AlertCircle, Check, ExternalLink } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import Link from "next/link";
+import { useState, useEffect, useCallback } from "react";
+
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import {
 	Combobox,
 	ComboboxInput,
@@ -12,10 +14,10 @@ import {
 	ComboboxItem,
 	ComboboxEmpty,
 } from "@/components/ui/combobox";
-import Link from "next/link";
 import type { ThemeStoreDetail } from "@/lib/theme-store-types";
-import { ThemePreview } from "./theme-preview";
+
 import { ExtensionIcon } from "./default-theme-icon";
+import { ThemePreview } from "./theme-preview";
 
 interface RepoEntry {
 	name: string;

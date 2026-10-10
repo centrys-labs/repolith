@@ -1,6 +1,7 @@
 "use client";
 
 import { cn } from "@/lib/utils";
+
 import type { RenderedCell, RenderedOutput } from "./notebook-viewer";
 
 function CellBadge({ count }: { count: number | null }) {

@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
-import { getRepoPageData } from "@/lib/github";
+
 import { EmptyRepoQuickSetup } from "@/components/repo/empty-repo-quick-setup";
-import { TrackView } from "@/components/shared/track-view";
 import { RepoOverview, type RepoOverviewProps } from "@/components/repo/repo-overview";
+import { TrackView } from "@/components/shared/track-view";
+import { getRepoPageData } from "@/lib/github";
+import { ogImageUrl, ogImages } from "@/lib/og/og-utils";
 import {
 	getCachedOverviewPRs,
 	getCachedOverviewIssues,
@@ -10,7 +12,7 @@ import {
 	getCachedOverviewCommitActivity,
 	getCachedOverviewCI,
 } from "@/lib/repo-data-cache";
-import { ogImageUrl, ogImages } from "@/lib/og/og-utils";
+
 import { fetchPinnedItemsForRepo } from "./pin-actions";
 import { revalidateReadme } from "./readme-actions";
 

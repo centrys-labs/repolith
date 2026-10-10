@@ -1,13 +1,15 @@
 "use client";
 
-import { useState } from "react";
-import Link from "next/link";
-import { GithubAvatar } from "@/components/shared/github-avatar";
 import { Check, AlertTriangle, MessageSquare, X as XIcon } from "lucide-react";
-import { cn } from "@/lib/utils";
+import Link from "next/link";
+import { useState } from "react";
+
+import { GithubAvatar } from "@/components/shared/github-avatar";
 import type { ReviewThread } from "@/lib/github";
-import { ReviewThreadList, type ReviewThreadFileGroup } from "./review/review-thread-list";
+import { cn } from "@/lib/utils";
+
 import type { PRReviewSummary } from "./review/review-models";
+import { ReviewThreadList, type ReviewThreadFileGroup } from "./review/review-thread-list";
 
 interface PRReviewsPanelProps {
 	reviews: PRReviewSummary[];

@@ -1,9 +1,6 @@
 "use client";
 
-import { useState, useEffect, useMemo, useCallback, useTransition, useRef } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
-import Link from "next/link";
-import Image from "next/image";
+import { useHotkey } from "@tanstack/react-hotkeys";
 import {
 	CircleDot,
 	CheckCircle2,
@@ -16,19 +13,24 @@ import {
 	Search,
 	CircleSlash,
 } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { Zap, GitPullRequest } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import { useRouter, useSearchParams } from "next/navigation";
+import { useState, useEffect, useMemo, useCallback, useTransition, useRef } from "react";
+
+import { useGlobalChat } from "@/components/shared/global-chat-provider";
+import { LabelBadge } from "@/components/shared/label-badge";
+import { InfiniteScrollSentinel, LoadingOverlay } from "@/components/shared/list-controls";
+import { UserTooltip } from "@/components/shared/user-tooltip";
 import { TimeAgo } from "@/components/ui/time-ago";
-import { CreateIssueDialog } from "./create-issue-dialog";
 import { useClickOutside } from "@/hooks/use-click-outside";
+import { useInfiniteScroll } from "@/hooks/use-infinite-scroll";
 import { useMutationSubscription } from "@/hooks/use-mutation-subscription";
 import { isRepoEvent, type MutationEvent } from "@/lib/mutation-events";
-import { useInfiniteScroll } from "@/hooks/use-infinite-scroll";
-import { InfiniteScrollSentinel, LoadingOverlay } from "@/components/shared/list-controls";
-import { LabelBadge } from "@/components/shared/label-badge";
-import { useGlobalChat } from "@/components/shared/global-chat-provider";
-import { useHotkey } from "@tanstack/react-hotkeys";
-import { Zap, GitPullRequest } from "lucide-react";
-import { UserTooltip } from "@/components/shared/user-tooltip";
+import { cn } from "@/lib/utils";
+
+import { CreateIssueDialog } from "./create-issue-dialog";
 
 interface IssueUser {
 	login: string;

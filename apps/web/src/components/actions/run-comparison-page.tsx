@@ -1,13 +1,15 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { Loader2, ArrowLeftRight, ArrowLeft, Copy, Check } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { Loader2, ArrowLeftRight, ArrowLeft, Copy, Check } from "lucide-react";
+import { useState, useEffect } from "react";
+
 import { cn } from "@/lib/utils";
+
+import type { ComparisonRun } from "./run-comparison";
 import { RunComparisonDiff } from "./run-comparison-diff";
 import { RunComparisonTimeline } from "./run-comparison-timeline";
-import type { ComparisonRun } from "./run-comparison";
 
 export function RunComparisonPage({
 	owner,

@@ -1,13 +1,14 @@
 "use client";
 
-import { useState } from "react";
 import { Pin, PinOff } from "lucide-react";
+import { useState } from "react";
+
 import { pinToOverview, unpinFromOverview } from "@/app/(app)/repos/[owner]/[repo]/pin-actions";
-import { cn } from "@/lib/utils";
 import { useMutation } from "@/hooks/use-mutation";
 import { useMutationSubscription } from "@/hooks/use-mutation-subscription";
 import type { MutationEvent } from "@/lib/mutation-events";
 import { isRepoEvent } from "@/lib/mutation-events";
+import { cn } from "@/lib/utils";
 
 interface PinButtonProps {
 	owner: string;

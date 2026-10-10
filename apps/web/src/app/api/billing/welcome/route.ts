@@ -1,6 +1,7 @@
+import { headers } from "next/headers";
+
 import { auth } from "@/lib/auth";
 import { grantSignupCredits } from "@/lib/billing/credit";
-import { headers } from "next/headers";
 
 // For existing users who never claimed their welcome credit
 export async function POST() {

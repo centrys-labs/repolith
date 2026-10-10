@@ -1,10 +1,11 @@
-import Link from "next/link";
-import Image from "next/image";
 import { CheckCircle2, GitCommitHorizontal, GitPullRequest, RotateCcw } from "lucide-react";
-import { cn } from "@/lib/utils";
+import Image from "next/image";
+import Link from "next/link";
+
+import { UserTooltip } from "@/components/shared/user-tooltip";
 import { TimeAgo } from "@/components/ui/time-ago";
 import type { IssueTimelineEvent } from "@/lib/github";
-import { UserTooltip } from "@/components/shared/user-tooltip";
+import { cn } from "@/lib/utils";
 
 interface IssueTimelineEventsProps {
 	events: IssueTimelineEvent[];

@@ -1,9 +1,10 @@
 "use client";
 
-import { useState } from "react";
 import { Palette, FolderTree } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { useState } from "react";
+
 import type { CustomThemeType } from "@/lib/theme-store-types";
+import { cn } from "@/lib/utils";
 
 const config: Record<CustomThemeType, { Icon: typeof Palette; gradient: string }> = {
 	theme: {

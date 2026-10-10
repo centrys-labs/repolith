@@ -1,9 +1,10 @@
 "use client";
 
-import { useRef, useEffect, useState } from "react";
-import { Play, X } from "lucide-react";
-import { Dialog, DialogOverlay, DialogPortal, DialogTitle } from "@/components/ui/dialog";
 import * as DialogPrimitive from "@radix-ui/react-dialog";
+import { Play, X } from "lucide-react";
+import { useRef, useEffect, useState } from "react";
+
+import { Dialog, DialogOverlay, DialogPortal, DialogTitle } from "@/components/ui/dialog";
 
 export function DemoVideoDialog() {
 	const [open, setOpen] = useState(false);

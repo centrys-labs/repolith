@@ -1,9 +1,5 @@
 "use client";
 
-import { useState, useEffect, useRef, useCallback } from "react";
-import { fetchReleasesPage } from "@/app/(app)/repos/[owner]/[repo]/releases/actions";
-import Link from "next/link";
-import Image from "next/image";
 import {
 	Tag,
 	Download,
@@ -15,8 +11,13 @@ import {
 	AlertCircle,
 	Loader2,
 } from "lucide-react";
-import { cn, formatNumber } from "@/lib/utils";
+import Image from "next/image";
+import Link from "next/link";
+import { useState, useEffect, useRef, useCallback } from "react";
+
+import { fetchReleasesPage } from "@/app/(app)/repos/[owner]/[repo]/releases/actions";
 import { TimeAgo } from "@/components/ui/time-ago";
+import { cn, formatNumber } from "@/lib/utils";
 
 type Asset = {
 	id: number;

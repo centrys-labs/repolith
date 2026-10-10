@@ -1,14 +1,15 @@
 "use client";
 
 import { Moon, Sun, Check, Square, Store, Palette, File } from "lucide-react";
-import { cn } from "@/lib/utils";
-import { useColorTheme } from "@/components/theme/theme-provider";
+import Link from "next/link";
+
 import { useIconTheme } from "@/components/theme-store/icon-theme-provider";
-import type { ThemeDefinition } from "@/lib/themes";
+import { useColorTheme } from "@/components/theme/theme-provider";
 import type { IconMapping, ThemeStoreDetail } from "@/lib/theme-store-types";
+import type { ThemeDefinition } from "@/lib/themes";
 import { BORDER_RADIUS_PRESETS, type BorderRadiusPreset } from "@/lib/themes/border-radius";
 import type { UserSettings } from "@/lib/user-settings-store";
-import Link from "next/link";
+import { cn } from "@/lib/utils";
 
 interface GeneralTabProps {
 	settings: UserSettings;

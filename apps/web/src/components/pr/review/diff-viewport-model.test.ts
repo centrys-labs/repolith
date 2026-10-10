@@ -1,5 +1,7 @@
 import { describe, expect, it } from "vitest";
+
 import type { DiffLine } from "@/lib/github-utils";
+
 import { buildDiffViewportModel, buildSplitRows } from "./diff-viewport-model";
 
 describe("buildSplitRows", () => {

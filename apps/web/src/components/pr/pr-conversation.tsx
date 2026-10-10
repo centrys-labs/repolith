@@ -1,5 +1,3 @@
-import Link from "next/link";
-import { GithubAvatar } from "@/components/shared/github-avatar";
 import {
 	GitCommitHorizontal,
 	GitPullRequest,
@@ -10,19 +8,23 @@ import {
 	FileCheck,
 	Link2Icon,
 } from "lucide-react";
-import { cn } from "@/lib/utils";
+import Link from "next/link";
+
+import { GithubAvatar } from "@/components/shared/github-avatar";
+import { MarkdownRenderer } from "@/components/shared/markdown-renderer";
+import { ReactionDisplay, type Reactions } from "@/components/shared/reaction-display";
+import { UserTooltip } from "@/components/shared/user-tooltip";
 import { TimeAgo } from "@/components/ui/time-ago";
 import { parseCoAuthors, getInitials } from "@/lib/commit-utils";
-import { MarkdownRenderer } from "@/components/shared/markdown-renderer";
-import { CollapsibleReviewCard } from "./collapsible-review-card";
-import { BotActivityGroup } from "./bot-activity-group";
-import { CommitActivityGroup } from "./commit-activity-group";
-import { ReactionDisplay, type Reactions } from "@/components/shared/reaction-display";
-import { CollapsibleDescription } from "./collapsible-description";
-import { ChatMessageWrapper } from "./chat-message-wrapper";
-import { PRChecksPanel } from "./pr-checks-panel";
 import type { CheckStatus } from "@/lib/github";
-import { UserTooltip } from "@/components/shared/user-tooltip";
+import { cn } from "@/lib/utils";
+
+import { BotActivityGroup } from "./bot-activity-group";
+import { ChatMessageWrapper } from "./chat-message-wrapper";
+import { CollapsibleDescription } from "./collapsible-description";
+import { CollapsibleReviewCard } from "./collapsible-review-card";
+import { CommitActivityGroup } from "./commit-activity-group";
+import { PRChecksPanel } from "./pr-checks-panel";
 
 interface BaseUser {
 	login: string;

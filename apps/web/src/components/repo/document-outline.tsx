@@ -1,10 +1,11 @@
 "use client";
 
+import { List, Search, X, ChevronRight } from "lucide-react";
 import { useState, useEffect, useRef, useCallback, useMemo } from "react";
+
 import { useResponsiveSurfaceContext } from "@/components/shared/responsive-surface-provider";
 import { getResponsiveSurfaceDecision } from "@/lib/responsive-surface-policy";
 import { cn } from "@/lib/utils";
-import { List, Search, X, ChevronRight } from "lucide-react";
 
 // ---------------------------------------------------------------------------
 // Types

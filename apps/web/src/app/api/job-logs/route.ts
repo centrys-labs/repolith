@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+
 import { getGitHubToken } from "@/lib/github";
 
 type AnnotationType = "error" | "warning" | "debug" | "notice" | null;

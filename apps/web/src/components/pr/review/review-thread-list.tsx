@@ -1,8 +1,10 @@
 "use client";
 
 import { ChevronDown, FileCode } from "lucide-react";
+
 import type { ReviewThread } from "@/lib/github";
 import { cn } from "@/lib/utils";
+
 import { ReviewThreadCard } from "./review-thread-card";
 
 export interface ReviewThreadFileGroup {

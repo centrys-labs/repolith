@@ -1,6 +1,5 @@
 "use client";
 
-import { useState, useEffect } from "react";
 import {
 	LogOut,
 	Trash2,
@@ -12,12 +11,15 @@ import {
 	Link as LinkIcon,
 	Calendar,
 } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { useState, useEffect } from "react";
+
+import { PermissionBadge } from "@/components/shared/permission-badge";
 import { signIn, signOut } from "@/lib/auth-client";
 import { SCOPE_GROUPS, scopesToGroupIds } from "@/lib/github-scopes";
 import type { UserSettings } from "@/lib/user-settings-store";
+import { cn } from "@/lib/utils";
+
 import type { GitHubProfile } from "../settings-dialog";
-import { PermissionBadge } from "@/components/shared/permission-badge";
 interface AccountTabProps {
 	user: {
 		name: string;

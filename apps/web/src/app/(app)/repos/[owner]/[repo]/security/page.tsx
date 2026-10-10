@@ -1,8 +1,9 @@
-import type { Metadata } from "next";
 import { ShieldAlert } from "lucide-react";
-import { getRepoSecurityTabData, getFileContent, getRepo } from "@/lib/github";
-import { renderMarkdownToHtml } from "@/components/shared/markdown-renderer";
+import type { Metadata } from "next";
+
 import { SecurityView } from "@/components/security/security-view";
+import { renderMarkdownToHtml } from "@/components/shared/markdown-renderer";
+import { getRepoSecurityTabData, getFileContent, getRepo } from "@/lib/github";
 
 async function fetchSecurityPolicy(
 	owner: string,

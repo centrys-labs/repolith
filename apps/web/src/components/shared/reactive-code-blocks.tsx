@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+
 import { useColorTheme } from "@/components/theme/theme-provider";
 import { highlightCodeClient } from "@/lib/shiki-client";
 

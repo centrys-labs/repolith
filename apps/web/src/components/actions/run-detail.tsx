@@ -1,8 +1,5 @@
 "use client";
 
-import { Fragment, useState, useCallback, useRef } from "react";
-import Image from "next/image";
-import Link from "next/link";
 import {
 	GitBranch,
 	Clock,
@@ -17,17 +14,22 @@ import {
 	Download,
 	Check,
 } from "lucide-react";
-import { cn } from "@/lib/utils";
-import { LiveDuration } from "@/components/ui/live-duration";
-import { TimeAgo } from "@/components/ui/time-ago";
-import { StatusIcon } from "./status-icon";
-import { getRunLinkTargets, splitTitleOnPrToken } from "./run-link-targets";
+import Image from "next/image";
+import Link from "next/link";
+import { Fragment, useState, useCallback, useRef } from "react";
+
 import {
 	DropdownMenu,
 	DropdownMenuContent,
 	DropdownMenuItem,
 	DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { LiveDuration } from "@/components/ui/live-duration";
+import { TimeAgo } from "@/components/ui/time-ago";
+import { cn } from "@/lib/utils";
+
+import { getRunLinkTargets, splitTitleOnPrToken } from "./run-link-targets";
+import { StatusIcon } from "./status-icon";
 
 interface WorkflowRun {
 	id: number;

@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { redirect } from "next/navigation";
-import { getOrgMembers, getUser, getOctokit, getRepoPageData } from "@/lib/github";
+
 import { PeopleList } from "@/components/people/people-list";
+import { getOrgMembers, getUser, getOctokit, getRepoPageData } from "@/lib/github";
+
 import { inviteOrgMember } from "./actions";
 
 export async function generateMetadata({

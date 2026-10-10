@@ -1,4 +1,5 @@
 import { describe, expect, it } from "vitest";
+
 import { shouldRenderCompactRepoHeader } from "./repo-layout-wrapper-visibility";
 
 describe("shouldRenderCompactRepoHeader", () => {

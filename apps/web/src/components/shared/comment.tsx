@@ -1,7 +1,9 @@
 import Link from "next/link";
+
+import { TimeAgo } from "@/components/ui/time-ago";
+
 import { GithubAvatar } from "./github-avatar";
 import { MarkdownRenderer } from "./markdown-renderer";
-import { TimeAgo } from "@/components/ui/time-ago";
 
 interface CommentProps {
 	author: {

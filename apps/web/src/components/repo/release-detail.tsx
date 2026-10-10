@@ -1,7 +1,5 @@
 "use client";
 
-import Link from "next/link";
-import Image from "next/image";
 import {
 	ArrowLeft,
 	ArrowRight,
@@ -14,9 +12,12 @@ import {
 	Tag,
 	GitCommit,
 } from "lucide-react";
-import { cn } from "@/lib/utils";
-import { TimeAgo } from "@/components/ui/time-ago";
+import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
+
+import { TimeAgo } from "@/components/ui/time-ago";
+import { cn } from "@/lib/utils";
 
 type Asset = {
 	id: number;

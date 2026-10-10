@@ -1,5 +1,9 @@
 "use server";
 
+import { all } from "better-all";
+import { revalidatePath } from "next/cache";
+
+import { renderMarkdownToHtml } from "@/components/shared/markdown-renderer";
 import {
 	getOctokit,
 	invalidateRepoPullRequestsCache,
@@ -15,10 +19,7 @@ import {
 	getRepoContributors,
 	type PRPageResult,
 } from "@/lib/github";
-import { revalidatePath } from "next/cache";
 import { invalidateRepoCache } from "@/lib/repo-data-cache-vc";
-import { all } from "better-all";
-import { renderMarkdownToHtml } from "@/components/shared/markdown-renderer";
 
 export async function refreshPullRequests(owner: string, repo: string) {
 	await invalidateRepoPullRequestsCache(owner, repo);

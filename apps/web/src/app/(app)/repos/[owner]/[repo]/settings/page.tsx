@@ -1,7 +1,8 @@
-import type { Metadata } from "next";
 import { Settings, ShieldAlert } from "lucide-react";
-import { getOctokit, getRepoBranches, extractRepoPermissions } from "@/lib/github";
+import type { Metadata } from "next";
+
 import { RepoSettings } from "@/components/repo/repo-settings";
+import { getOctokit, getRepoBranches, extractRepoPermissions } from "@/lib/github";
 
 export async function generateMetadata({
 	params,

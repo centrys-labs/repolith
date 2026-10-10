@@ -1,8 +1,5 @@
 "use client";
 
-import { useState, useTransition, useRef } from "react";
-import { useRouter } from "next/navigation";
-import { cn } from "@/lib/utils";
 import {
 	AlertTriangle,
 	Archive,
@@ -20,6 +17,9 @@ import {
 	X,
 	Check,
 } from "lucide-react";
+import { useRouter } from "next/navigation";
+import { useState, useTransition, useRef } from "react";
+
 import {
 	updateRepoSettings,
 	updateRepoTopics,
@@ -27,6 +27,7 @@ import {
 	archiveRepository,
 	deleteRepository,
 } from "@/app/(app)/repos/[owner]/[repo]/settings/actions";
+import { cn } from "@/lib/utils";
 
 interface RepoData {
 	name: string;

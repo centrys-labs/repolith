@@ -1,13 +1,14 @@
 "use client";
 
-import { useState, useEffect, useMemo, useCallback, useRef, memo } from "react";
+import { ChevronRight, Search, X } from "lucide-react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { ChevronRight, Search, X } from "lucide-react";
+import { useState, useEffect, useMemo, useCallback, useRef, memo } from "react";
+
 import { FileTypeIcon } from "@/components/shared/file-icon";
-import { cn } from "@/lib/utils";
-import { encodeFilePath } from "@/lib/github-utils";
 import { type FileTreeNode, getAncestorPaths } from "@/lib/file-tree";
+import { encodeFilePath } from "@/lib/github-utils";
+import { cn } from "@/lib/utils";
 
 interface FileExplorerTreeProps {
 	tree: FileTreeNode[];

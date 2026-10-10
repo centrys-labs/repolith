@@ -1,5 +1,7 @@
 "use server";
 
+import { revalidatePath } from "next/cache";
+
 import {
 	getOctokit,
 	getGitHubToken,
@@ -9,9 +11,8 @@ import {
 	getRepoBranches,
 	getPullRequestBundle,
 } from "@/lib/github";
-import { getErrorMessage } from "@/lib/utils";
-import { revalidatePath } from "next/cache";
 import { invalidateRepoCache } from "@/lib/repo-data-cache-vc";
+import { getErrorMessage } from "@/lib/utils";
 
 type PRMutationScope = "detail" | "list" | "layout";
 

@@ -1,8 +1,8 @@
 "use client";
 
-import { useState } from "react";
 import { Loader2, Sparkles, GitCommit } from "lucide-react";
-import { getErrorMessage } from "@/lib/utils";
+import { useState } from "react";
+
 import {
 	Dialog,
 	DialogContent,
@@ -10,6 +10,7 @@ import {
 	DialogTitle,
 	DialogFooter,
 } from "@/components/ui/dialog";
+import { getErrorMessage } from "@/lib/utils";
 
 interface CommitDialogProps {
 	open: boolean;

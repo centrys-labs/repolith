@@ -1,6 +1,7 @@
 import { ImageResponse } from "next/og";
-import { OG, OGFrame, Avatar, StatBadge, ogFonts, truncate } from "@/lib/og/og-utils";
+
 import { getOGRepo } from "@/lib/og/og-data";
+import { OG, OGFrame, Avatar, StatBadge, ogFonts, truncate } from "@/lib/og/og-utils";
 
 export const runtime = "nodejs";
 export const contentType = "image/png";

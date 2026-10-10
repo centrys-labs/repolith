@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+
 import {
 	getOrg,
 	getOrgRepos,
@@ -15,9 +16,9 @@ import {
 } from "@/lib/github";
 /** Session-scoped; must not be statically shared across GitHub users. */
 export const dynamic = "force-dynamic";
-import { ogImageUrl, ogImages } from "@/lib/og/og-utils";
 import { OrgDetailContent } from "@/components/orgs/org-detail-content";
 import { UserProfileContent } from "@/components/users/user-profile-content";
+import { ogImageUrl, ogImages } from "@/lib/og/og-utils";
 
 export async function generateMetadata({
 	params,

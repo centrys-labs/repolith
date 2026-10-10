@@ -1,7 +1,8 @@
 import { Octokit } from "@octokit/rest";
-import { getCustomThemeBySlug, syncCustomThemeData } from "@/lib/theme-store";
-import { scanCustomThemeRepo, ScanError } from "@/lib/extension-scanner";
+
 import { getServerSession } from "@/lib/auth";
+import { scanCustomThemeRepo, ScanError } from "@/lib/extension-scanner";
+import { getCustomThemeBySlug, syncCustomThemeData } from "@/lib/theme-store";
 
 export async function POST(_request: Request, { params }: { params: Promise<{ slug: string }> }) {
 	const { slug } = await params;

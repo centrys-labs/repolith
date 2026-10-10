@@ -1,12 +1,13 @@
 "use client";
 
-import { useState, useTransition, useRef } from "react";
-import { useRouter } from "next/navigation";
 import { MessageSquarePlus, CircleOff, CheckCircle2, CircleDot, ChevronDown } from "lucide-react";
-import { cn } from "@/lib/utils";
-import { useClickOutside } from "@/hooks/use-click-outside";
+import { useRouter } from "next/navigation";
+import { useState, useTransition, useRef } from "react";
+
 import { closeIssue, reopenIssue } from "@/app/(app)/repos/[owner]/[repo]/issues/issue-actions";
 import { useMutationEvents } from "@/components/shared/mutation-event-provider";
+import { useClickOutside } from "@/hooks/use-click-outside";
+import { cn } from "@/lib/utils";
 
 type CloseReason = "completed" | "not_planned";
 

@@ -1,12 +1,13 @@
 "use client";
 
-import { useQueryState, parseAsStringLiteral } from "nuqs";
+import { Star, GitFork, Flame } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { Star, GitFork, Flame } from "lucide-react";
-import { cn, formatNumber } from "@/lib/utils";
-import { getLanguageColor } from "@/lib/github-utils";
+import { useQueryState, parseAsStringLiteral } from "nuqs";
+
 import type { TrendingRepoItem } from "@/lib/github-types";
+import { getLanguageColor } from "@/lib/github-utils";
+import { cn, formatNumber } from "@/lib/utils";
 
 const periods = ["daily", "weekly", "monthly"] as const;
 type Period = (typeof periods)[number];

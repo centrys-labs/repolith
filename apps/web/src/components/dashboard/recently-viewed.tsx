@@ -1,12 +1,13 @@
 "use client";
 
-import { useState, useEffect, useMemo, useRef } from "react";
-import Link from "next/link";
 import { History, GitPullRequest, CircleDot, ChevronRight, Search } from "lucide-react";
+import Link from "next/link";
+import { useState, useEffect, useMemo, useRef } from "react";
+
 import { GithubAvatar } from "@/components/shared/github-avatar";
-import { cn } from "@/lib/utils";
 import { TimeAgo } from "@/components/ui/time-ago";
 import { getRecentViews, type RecentViewItem } from "@/lib/recent-views";
+import { cn } from "@/lib/utils";
 
 export function RecentlyViewed() {
 	const [views, setViews] = useState<RecentViewItem[]>([]);

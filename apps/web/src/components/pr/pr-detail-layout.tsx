@@ -1,10 +1,12 @@
 "use client";
 
-import { useState, useRef, useCallback, useEffect, createContext, useContext } from "react";
-import { useSearchParams } from "next/navigation";
 import { Code2, MessageCircle, ChevronRight, Sparkles, ListChecks } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { useSearchParams } from "next/navigation";
+import { useState, useRef, useCallback, useEffect, createContext, useContext } from "react";
+
 import { ResizeHandle } from "@/components/ui/resize-handle";
+import { cn } from "@/lib/utils";
+
 import {
 	PROptimisticCommentsProvider,
 	PROptimisticCommentsDisplay,

@@ -1,5 +1,7 @@
 import { Octokit } from "@octokit/rest";
 import { z } from "zod";
+
+import { getServerSession } from "@/lib/auth";
 import { scanCustomThemeRepo, ScanError } from "@/lib/extension-scanner";
 import {
 	publishCustomTheme,
@@ -7,7 +9,6 @@ import {
 	customThemeExistsBySlug,
 	toSlug,
 } from "@/lib/theme-store";
-import { getServerSession } from "@/lib/auth";
 
 const MAX_CUSTOM_THEMES_PER_USER = 5;
 

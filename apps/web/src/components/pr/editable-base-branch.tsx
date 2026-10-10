@@ -1,15 +1,16 @@
 "use client";
 
-import { useState, useRef, useTransition, useEffect } from "react";
-import { useRouter } from "next/navigation";
 import { GitBranch, ChevronDown, Check, Loader2, Search } from "lucide-react";
-import { cn } from "@/lib/utils";
-import { useClickOutside } from "@/hooks/use-click-outside";
+import { useRouter } from "next/navigation";
+import { useState, useRef, useTransition, useEffect } from "react";
+
 import {
 	fetchBranchNames,
 	updatePRBaseBranch,
 } from "@/app/(app)/repos/[owner]/[repo]/pulls/pr-actions";
 import { useMutationEvents } from "@/components/shared/mutation-event-provider";
+import { useClickOutside } from "@/hooks/use-click-outside";
+import { cn } from "@/lib/utils";
 
 interface EditableBaseBranchProps {
 	owner: string;

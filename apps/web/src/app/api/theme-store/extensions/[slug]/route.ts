@@ -1,9 +1,10 @@
 import { Octokit } from "@octokit/rest";
-import { auth } from "@/lib/auth";
 import { headers } from "next/headers";
-import { getCustomThemeBySlug, unpublishCustomTheme, publishCustomTheme } from "@/lib/theme-store";
+
+import { auth } from "@/lib/auth";
 import { getServerSession } from "@/lib/auth";
 import { scanCustomThemeRepo, ScanError } from "@/lib/extension-scanner";
+import { getCustomThemeBySlug, unpublishCustomTheme, publishCustomTheme } from "@/lib/theme-store";
 
 export async function GET(_request: Request, { params }: { params: Promise<{ slug: string }> }) {
 	const { slug } = await params;

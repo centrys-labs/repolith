@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
-import { getRepoDiscussionsPage } from "@/lib/github";
+
 import { DiscussionsList } from "@/components/discussion/discussions-list";
+import { getRepoDiscussionsPage } from "@/lib/github";
 
 export async function generateMetadata({
 	params,

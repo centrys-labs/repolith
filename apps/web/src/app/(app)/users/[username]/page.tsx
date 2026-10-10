@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+
 import {
 	getUser,
 	getUserProfileRepositories,
@@ -12,10 +13,11 @@ import {
 } from "@/lib/github";
 /** Session-scoped; must not be statically shared across GitHub users. */
 export const dynamic = "force-dynamic";
-import { ogImageUrl, ogImages } from "@/lib/og/og-utils";
-import { UserProfileContent } from "@/components/users/user-profile-content";
 import { ExternalLink, User } from "lucide-react";
 import { redirect } from "next/navigation";
+
+import { UserProfileContent } from "@/components/users/user-profile-content";
+import { ogImageUrl, ogImages } from "@/lib/og/og-utils";
 
 function UnknownUserPage({ username }: { username: string }) {
 	const githubUrl = `https://github.com/${encodeURIComponent(username)}`;

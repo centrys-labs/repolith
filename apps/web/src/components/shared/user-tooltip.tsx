@@ -1,7 +1,5 @@
 "use client";
 
-import { useState } from "react";
-import Image from "next/image";
 import { useQuery } from "@tanstack/react-query";
 import {
 	Users,
@@ -12,9 +10,12 @@ import {
 	Calendar,
 	Bot,
 } from "lucide-react";
+import Image from "next/image";
+import { useState } from "react";
+
+import type { UserProfile } from "@/app/api/user-profile/route";
 import { Tooltip, TooltipContent, TooltipPortal, TooltipTrigger } from "@/components/ui/tooltip";
 import { cn } from "@/lib/utils";
-import type { UserProfile } from "@/app/api/user-profile/route";
 
 interface UserTooltipProps {
 	username: string;

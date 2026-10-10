@@ -1,8 +1,5 @@
 "use client";
 
-import { useState, useMemo, useRef, useEffect, useCallback } from "react";
-import Link from "next/link";
-import Image from "next/image";
 import {
 	Play,
 	GitBranch,
@@ -15,12 +12,17 @@ import {
 	ChevronRight,
 	ArrowLeftRight,
 } from "lucide-react";
-import { cn } from "@/lib/utils";
-import { TimeAgo } from "@/components/ui/time-ago";
+import Image from "next/image";
+import Link from "next/link";
+import { useState, useMemo, useRef, useEffect, useCallback } from "react";
+
 import { LiveDuration } from "@/components/ui/live-duration";
-import { StatusIcon } from "./status-icon";
+import { TimeAgo } from "@/components/ui/time-ago";
+import { cn } from "@/lib/utils";
+
 import { RunComparisonInline } from "./run-comparison-inline";
 import { getRunLinkTargets, splitTitleOnPrToken } from "./run-link-targets";
+import { StatusIcon } from "./status-icon";
 
 interface Workflow {
 	id: number;

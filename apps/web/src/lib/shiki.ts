@@ -5,6 +5,7 @@ import {
 	type BundledLanguage,
 	type BundledTheme,
 } from "shiki";
+
 import { parseDiffPatch, getLanguageFromFilename } from "./github-utils";
 import { getTheme, getThemeVariant } from "./themes";
 import type { ShikiTheme, ThemeVariant } from "./themes/types";

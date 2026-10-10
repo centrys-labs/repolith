@@ -1,10 +1,6 @@
 "use client";
 
-import { useState, useMemo, useRef, useCallback, useTransition, useEffect } from "react";
-import { createPortal } from "react-dom";
-import { useRouter, useSearchParams } from "next/navigation";
-import Link from "next/link";
-import { GithubAvatar } from "@/components/shared/github-avatar";
+import { useInfiniteQuery, useQuery, useQueryClient } from "@tanstack/react-query";
 import {
 	GitPullRequest,
 	GitPullRequestClosed,
@@ -29,12 +25,15 @@ import {
 	FileText,
 	Check,
 } from "lucide-react";
-import type { CheckStatus, PRPageResult } from "@/lib/github";
+import Link from "next/link";
+import { useRouter, useSearchParams } from "next/navigation";
+import { useState, useMemo, useRef, useCallback, useTransition, useEffect } from "react";
+import { createPortal } from "react-dom";
+
 import type { PRPeekData } from "@/app/(app)/repos/[owner]/[repo]/pulls/actions";
 import { CheckStatusBadge } from "@/components/pr/check-status-badge";
-import { cn } from "@/lib/utils";
-import { TimeAgo } from "@/components/ui/time-ago";
-import { useClickOutside } from "@/hooks/use-click-outside";
+import { GithubAvatar } from "@/components/shared/github-avatar";
+import { LabelBadge } from "@/components/shared/label-badge";
 import {
 	ListSearchInput,
 	SortCycleButton,
@@ -42,14 +41,16 @@ import {
 	ClearFiltersButton,
 	LoadingOverlay,
 } from "@/components/shared/list-controls";
-import { LabelBadge } from "@/components/shared/label-badge";
-import { useMutationSubscription } from "@/hooks/use-mutation-subscription";
-import { isRepoEvent, type MutationEvent } from "@/lib/mutation-events";
-import { useInfiniteQuery, useQuery, useQueryClient } from "@tanstack/react-query";
-import { useServerInitialData } from "@/hooks/use-server-initial-data";
 import { UserTooltip } from "@/components/shared/user-tooltip";
-import { Sheet, SheetContent } from "@/components/ui/sheet";
 import { ResizeHandle } from "@/components/ui/resize-handle";
+import { Sheet, SheetContent } from "@/components/ui/sheet";
+import { TimeAgo } from "@/components/ui/time-ago";
+import { useClickOutside } from "@/hooks/use-click-outside";
+import { useMutationSubscription } from "@/hooks/use-mutation-subscription";
+import { useServerInitialData } from "@/hooks/use-server-initial-data";
+import type { CheckStatus, PRPageResult } from "@/lib/github";
+import { isRepoEvent, type MutationEvent } from "@/lib/mutation-events";
+import { cn } from "@/lib/utils";
 
 interface PRUser {
 	login: string;

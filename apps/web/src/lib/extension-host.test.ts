@@ -1,6 +1,7 @@
 import { readFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { runInNewContext } from "node:vm";
+
 import { describe, expect, it, vi } from "vitest";
 
 const extensions = ["chrome-extension", "firefox-extension"] as const;

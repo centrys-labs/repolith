@@ -1,6 +1,7 @@
 import { createOpenRouter } from "@openrouter/ai-sdk-provider";
-import type { AIModelId } from "./ai-models";
+
 import { getUserSettings } from "../user-settings-store";
+import type { AIModelId } from "./ai-models";
 
 const INTERNAL_MODEL_ID: AIModelId = "anthropic/claude-haiku-4.5";
 

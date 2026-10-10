@@ -1,6 +1,10 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
+import { headers } from "next/headers";
+
+import { auth, getServerSession } from "@/lib/auth";
+import { getOctokit, extractRepoPermissions } from "@/lib/github";
 import {
 	createPromptRequest,
 	updatePromptRequestStatus,
@@ -15,9 +19,6 @@ import {
 	listPromptRequestReactions,
 	type PromptReactionContent,
 } from "@/lib/prompt-request-store";
-import { auth, getServerSession } from "@/lib/auth";
-import { headers } from "next/headers";
-import { getOctokit, extractRepoPermissions } from "@/lib/github";
 
 async function assertAuthorOrMaintainer(promptUserId: string, owner: string, repo: string) {
 	const session = await auth.api.getSession({ headers: await headers() });

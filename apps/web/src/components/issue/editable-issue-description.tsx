@@ -1,18 +1,19 @@
 "use client";
 
-import { useState, useTransition } from "react";
-import { useRouter } from "next/navigation";
-import Link from "next/link";
 import { Pencil, X, Loader2, AlertCircle } from "lucide-react";
-import { cn } from "@/lib/utils";
-import { TimeAgo } from "@/components/ui/time-ago";
-import { MarkdownCopyHandler } from "@/components/shared/markdown-copy-handler";
-import { MarkdownMentionTooltips } from "@/components/shared/markdown-mention-tooltips";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useState, useTransition } from "react";
+
+import { updateIssue } from "@/app/(app)/repos/[owner]/[repo]/issues/issue-actions";
 import { CollapsibleBody } from "@/components/issue/collapsible-body";
+import { MarkdownCopyHandler } from "@/components/shared/markdown-copy-handler";
+import { MarkdownEditor } from "@/components/shared/markdown-editor";
+import { MarkdownMentionTooltips } from "@/components/shared/markdown-mention-tooltips";
 import { ReactionDisplay, type Reactions } from "@/components/shared/reaction-display";
 import { UserTooltip } from "@/components/shared/user-tooltip";
-import { MarkdownEditor } from "@/components/shared/markdown-editor";
-import { updateIssue } from "@/app/(app)/repos/[owner]/[repo]/issues/issue-actions";
+import { TimeAgo } from "@/components/ui/time-ago";
+import { cn } from "@/lib/utils";
 
 interface EditableIssueDescriptionProps {
 	entry: {

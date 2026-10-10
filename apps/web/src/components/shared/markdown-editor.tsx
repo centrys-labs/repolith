@@ -1,13 +1,9 @@
 "use client";
 
-import { useRef, useEffect, useImperativeHandle, forwardRef, useMemo } from "react";
-import { useEditor, EditorContent } from "@tiptap/react";
-import StarterKit from "@tiptap/starter-kit";
 import LinkExtension from "@tiptap/extension-link";
 import Placeholder from "@tiptap/extension-placeholder";
-import { Markdown } from "tiptap-markdown";
-import { CustomMention } from "@/lib/tiptap-mention";
-import { createSuggestionConfig, type MentionUser } from "@/components/shared/mention-suggestion";
+import { useEditor, EditorContent } from "@tiptap/react";
+import StarterKit from "@tiptap/starter-kit";
 import {
 	Bold,
 	Italic,
@@ -19,6 +15,11 @@ import {
 	FileCode,
 	Heading2,
 } from "lucide-react";
+import { useRef, useEffect, useImperativeHandle, forwardRef, useMemo } from "react";
+import { Markdown } from "tiptap-markdown";
+
+import { createSuggestionConfig, type MentionUser } from "@/components/shared/mention-suggestion";
+import { CustomMention } from "@/lib/tiptap-mention";
 import { cn } from "@/lib/utils";
 
 export interface MarkdownEditorRef {

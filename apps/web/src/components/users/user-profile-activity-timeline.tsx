@@ -1,9 +1,10 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { ChevronDown, GitCommit, GitPullRequest, MessageCircle, Plus } from "lucide-react";
 import Link from "next/link";
-import type { ActivityEvent } from "@/lib/github-types";
-import { cn, formatNumber } from "@/lib/utils";
+import { useMemo, useState } from "react";
+
+import { TimeAgo } from "@/components/ui/time-ago";
 import {
 	buildContributionMonthGroups,
 	buildProfileRepoMonthMap,
@@ -21,9 +22,9 @@ import type {
 	CreatedRepoEntry,
 	CommitActivityItem,
 } from "@/components/users/activity-timeline/types";
-import { TimeAgo } from "@/components/ui/time-ago";
-import { ChevronDown, GitCommit, GitPullRequest, MessageCircle, Plus } from "lucide-react";
+import type { ActivityEvent } from "@/lib/github-types";
 import { getLanguageColor } from "@/lib/github-utils";
+import { cn, formatNumber } from "@/lib/utils";
 
 function ActivityCard({
 	icon,

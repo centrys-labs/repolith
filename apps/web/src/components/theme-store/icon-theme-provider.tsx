@@ -1,8 +1,9 @@
 "use client";
 
 import { createContext, useCallback, useContext, useEffect, useState, useRef } from "react";
-import type { IconMapping, ThemeStoreDetail } from "@/lib/theme-store-types";
+
 import { useMutationEvents } from "@/components/shared/mutation-event-provider";
+import type { IconMapping, ThemeStoreDetail } from "@/lib/theme-store-types";
 
 const STORAGE_KEY = "icon-theme-id";
 const DEFAULT_SENTINEL = "__default__";

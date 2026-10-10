@@ -1,7 +1,8 @@
-import { auth } from "@/lib/auth";
-import { getSpendingLimitInfo, updateSpendingLimit } from "@/lib/billing/spending-limit";
-import { getCreditBalance } from "@/lib/billing/credit";
 import { headers } from "next/headers";
+
+import { auth } from "@/lib/auth";
+import { getCreditBalance } from "@/lib/billing/credit";
+import { getSpendingLimitInfo, updateSpendingLimit } from "@/lib/billing/spending-limit";
 
 export async function GET() {
 	const session = await auth.api.getSession({ headers: await headers() });

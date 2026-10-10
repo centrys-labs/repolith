@@ -1,12 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
-import { useRouter } from "next/navigation";
-import Link from "next/link";
-import Image from "next/image";
 import { useQuery } from "@tanstack/react-query";
-import { cn, formatNumber } from "@/lib/utils";
-import type { CommitActivityWeek, CheckStatus } from "@/lib/github";
 import {
 	GitPullRequest,
 	CircleDot,
@@ -19,23 +13,11 @@ import {
 	Eye,
 	LayoutDashboard,
 } from "lucide-react";
-import { CheckStatusBadge } from "@/components/pr/check-status-badge";
-import {
-	unpinFromOverview,
-	fetchPinnedItemsForRepo,
-} from "@/app/(app)/repos/[owner]/[repo]/pin-actions";
-import type { PinnedItem } from "@/lib/pinned-items-store";
-import { useMutationSubscription } from "@/hooks/use-mutation-subscription";
-import { useMutationEvents } from "@/components/shared/mutation-event-provider";
-import { isRepoEvent, type MutationEvent } from "@/lib/mutation-events";
-import { useReadme } from "@/hooks/use-readme";
-import { MarkdownCopyHandler } from "@/components/shared/markdown-copy-handler";
-import { ReactiveCodeBlocks } from "@/components/shared/reactive-code-blocks";
-import { ReadmeToolbar } from "@/components/repo/readme-toolbar";
-import {
-	fetchReadmeMarkdown,
-	revalidateReadme,
-} from "@/app/(app)/repos/[owner]/[repo]/readme-actions";
+import Image from "next/image";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useState, useEffect, useCallback } from "react";
+
 import {
 	fetchOverviewPRs,
 	fetchOverviewIssues,
@@ -44,6 +26,25 @@ import {
 	fetchOverviewCIStatus,
 	fetchCompareLinkStatus,
 } from "@/app/(app)/repos/[owner]/[repo]/overview-actions";
+import {
+	unpinFromOverview,
+	fetchPinnedItemsForRepo,
+} from "@/app/(app)/repos/[owner]/[repo]/pin-actions";
+import {
+	fetchReadmeMarkdown,
+	revalidateReadme,
+} from "@/app/(app)/repos/[owner]/[repo]/readme-actions";
+import { CheckStatusBadge } from "@/components/pr/check-status-badge";
+import { ReadmeToolbar } from "@/components/repo/readme-toolbar";
+import { MarkdownCopyHandler } from "@/components/shared/markdown-copy-handler";
+import { useMutationEvents } from "@/components/shared/mutation-event-provider";
+import { ReactiveCodeBlocks } from "@/components/shared/reactive-code-blocks";
+import { useMutationSubscription } from "@/hooks/use-mutation-subscription";
+import { useReadme } from "@/hooks/use-readme";
+import type { CommitActivityWeek, CheckStatus } from "@/lib/github";
+import { isRepoEvent, type MutationEvent } from "@/lib/mutation-events";
+import type { PinnedItem } from "@/lib/pinned-items-store";
+import { cn, formatNumber } from "@/lib/utils";
 
 // --- Shared UI primitives ---
 function Section({

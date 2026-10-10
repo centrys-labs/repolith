@@ -1,8 +1,5 @@
 "use client";
 
-import { useState, useRef, useCallback, useMemo, useEffect, useLayoutEffect } from "react";
-import { createPortal } from "react-dom";
-import Link from "next/link";
 import {
 	CheckCircle2,
 	XCircle,
@@ -14,8 +11,12 @@ import {
 	ChevronRight,
 	ChevronDown,
 } from "lucide-react";
-import { cn } from "@/lib/utils";
+import Link from "next/link";
+import { useState, useRef, useCallback, useMemo, useEffect, useLayoutEffect } from "react";
+import { createPortal } from "react-dom";
+
 import type { CheckStatus, CheckRun } from "@/lib/github";
+import { cn } from "@/lib/utils";
 
 export function CheckIcon({ state, className }: { state: CheckRun["state"]; className?: string }) {
 	switch (state) {

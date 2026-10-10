@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
+
 import { cn } from "@/lib/utils";
 
 const COLLAPSED_HEIGHT = 500; // px — generous since issue layout has conversation sidebar

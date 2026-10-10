@@ -1,5 +1,9 @@
 "use client";
 
+import { CheckIcon, ChevronDown, Info, LockIcon, PlusIcon } from "lucide-react";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
+
 import { ArrowRightIcon } from "@/components/shared/icons/arrow-right-icon";
 import { GithubIcon } from "@/components/shared/icons/github-icon";
 import { KeyIcon } from "@/components/shared/icons/key-icon";
@@ -9,9 +13,6 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { signIn } from "@/lib/auth-client";
 import { SCOPE_GROUPS } from "@/lib/github-scopes";
 import { cn, safeRedirect } from "@/lib/utils";
-import { CheckIcon, ChevronDown, Info, LockIcon, PlusIcon } from "lucide-react";
-import { useRouter } from "next/navigation";
-import { useState } from "react";
 
 export function LoginButton({ redirectTo }: { redirectTo?: string }) {
 	const router = useRouter();

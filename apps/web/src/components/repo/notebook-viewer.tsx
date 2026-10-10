@@ -1,5 +1,6 @@
-import { highlightCode } from "@/lib/shiki";
 import { renderMarkdownToHtml } from "@/components/shared/markdown-renderer";
+import { highlightCode } from "@/lib/shiki";
+
 import { NotebookViewerClient } from "./notebook-viewer-client";
 
 interface NotebookCell {
