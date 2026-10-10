@@ -34,11 +34,6 @@ export const auth = betterAuth({
 	database: prismaAdapter(prisma, {
 		provider: "postgresql",
 	}),
-	experimental: {
-		// Enable to test the new session store based on Prisma instead of Redis.
-		// Note: Prisma sessions don't support the cookie cache, so we disable it when enabled.
-		joins: true,
-	},
 	plugins: [
 		dash({
 			activityTracking: {
@@ -130,7 +125,7 @@ export const getServerSession = cache(async () => {
 			async account() {
 				const session = await auth.api.getAccessToken({
 					headers: await headers(),
-					body: { providerId: "github" },
+					body: { useAccountCookie: true },
 				});
 				return session;
 			},
