@@ -72,24 +72,23 @@ export const patSignIn = (): BetterAuthPlugin => ({
 				const accountId = String(githubUser.id);
 
 				// --- Find or create user ---
-				const existing = await internalAdapter.findOAuthUser(
-					email,
+				const existing = await internalAdapter.findAccountOwnerByKey({
 					accountId,
-					"github",
-				);
+					providerId: "github",
+				});
+				if (existing?.kind === "orphaned") {
+					throw ctx.error("UNAUTHORIZED", {
+						message: "GitHub account is not linked to a user",
+					});
+				}
 
 				let userId: string;
 
-				if (existing?.user) {
+				if (existing?.kind === "owned") {
 					userId = existing.user.id;
-					if (existing.linkedAccount) {
-						await internalAdapter.updateAccount(
-							existing.linkedAccount.id,
-							{
-								accessToken: encryptedPat,
-							},
-						);
-					}
+					await internalAdapter.updateAccount(existing.account.id, {
+						accessToken: encryptedPat,
+					});
 				} else {
 					const created = await internalAdapter.createOAuthUser(
 						{
@@ -114,7 +113,7 @@ export const patSignIn = (): BetterAuthPlugin => ({
 				// --- Create session + set cookie via Repolith ---
 				const session = await internalAdapter.createSession(userId, false);
 				const user =
-					existing?.user ??
+					(existing?.kind === "owned" ? existing.user : null) ??
 					(await internalAdapter.findUserById(userId))!;
 
 				await setSessionCookie(ctx, { session, user });

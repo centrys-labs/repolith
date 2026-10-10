@@ -6492,7 +6492,7 @@ export async function getWorkflowRun(owner: string, repo: string, runId: number)
 	});
 
 	const hasPullRequests = Array.isArray(data.pull_requests) && data.pull_requests.length > 0;
-	let resolvedPullRequests = data.pull_requests;
+	let resolvedPullRequests: { number: number; url: string }[] = data.pull_requests ?? [];
 
 	if (!hasPullRequests && data.head_sha) {
 		try {
