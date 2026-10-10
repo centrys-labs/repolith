@@ -15,7 +15,7 @@
 	},
 	"dependencies": {
 		"@ai-sdk/anthropic": "^3.0.129",
-		"@ai-sdk/react": "^3.0.306",
+		"@ai-sdk/react": "^4.0.133",
 		"@aws-sdk/client-s3": "^3.1149.0",
 		"@aws-sdk/s3-request-presigner": "^3.1149.0",
 		"@base-ui/react": "^1.9.0",
