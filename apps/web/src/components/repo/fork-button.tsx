@@ -1,8 +1,9 @@
 "use client";
 
-import { useState, useTransition } from "react";
-import { useRouter } from "next/navigation";
 import { GitFork, Loader2 } from "lucide-react";
+import { useRouter } from "next/navigation";
+import { useState, useTransition } from "react";
+
 import { forkRepo } from "@/app/(app)/repos/actions";
 import { cn, formatNumber } from "@/lib/utils";
 

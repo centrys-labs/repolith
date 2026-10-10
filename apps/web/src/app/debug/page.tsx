@@ -1,5 +1,6 @@
-import { auth } from "@/lib/auth";
 import { headers } from "next/headers";
+
+import { auth } from "@/lib/auth";
 
 export default async function DebugPage() {
 	const reqHeaders = await headers();

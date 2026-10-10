@@ -1,10 +1,11 @@
 "use client";
 
+import { ShieldCheck } from "lucide-react";
 import { useRef, useCallback, useState } from "react";
 import { createPortal } from "react-dom";
-import { ShieldCheck } from "lucide-react";
-import { cn } from "@/lib/utils";
+
 import type { ProfileScoreResult } from "@/lib/user-profile-score";
+import { cn } from "@/lib/utils";
 
 function scoreColor(total: number): string {
 	if (total >= 80) return "text-emerald-400";

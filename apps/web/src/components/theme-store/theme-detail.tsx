@@ -1,8 +1,5 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { useRouter } from "next/navigation";
-import Link from "next/link";
 import {
 	ArrowLeft,
 	Download,
@@ -13,8 +10,13 @@ import {
 	Trash2,
 	RefreshCw,
 } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useState, useEffect } from "react";
+
+import { useMutationEvents } from "@/components/shared/mutation-event-provider";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import {
 	Dialog,
 	DialogContent,
@@ -25,11 +27,11 @@ import {
 	DialogTrigger,
 } from "@/components/ui/dialog";
 import type { ThemeStoreDetail } from "@/lib/theme-store-types";
-import { ThemePreview } from "./theme-preview";
-import { IconThemePreview } from "./icon-theme-preview";
-import { ExtensionIcon } from "./default-theme-icon";
+
 import { UserTooltip } from "../shared/user-tooltip";
-import { useMutationEvents } from "@/components/shared/mutation-event-provider";
+import { ExtensionIcon } from "./default-theme-icon";
+import { IconThemePreview } from "./icon-theme-preview";
+import { ThemePreview } from "./theme-preview";
 
 function formatDownloads(n: number): string {
 	if (n >= 1_000_000) return `${(n / 1_000_000).toFixed(1)}M`;

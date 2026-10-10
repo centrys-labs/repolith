@@ -1,6 +1,5 @@
 "use client";
 
-import { useState, useEffect, useCallback, useRef } from "react";
 import {
 	Search,
 	Plus,
@@ -10,12 +9,15 @@ import {
 	CheckCircle2,
 	CircleDashed,
 } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { ExtensionCard } from "./theme-card";
-import { DocsDialog } from "./docs-dialog";
-import { useMutationEvents } from "@/components/shared/mutation-event-provider";
 import Link from "next/link";
+import { useState, useEffect, useCallback, useRef } from "react";
+
+import { useMutationEvents } from "@/components/shared/mutation-event-provider";
+import { Button } from "@/components/ui/button";
 import type { ThemeStoreListItem, CustomThemeType } from "@/lib/theme-store-types";
+
+import { DocsDialog } from "./docs-dialog";
+import { ExtensionCard } from "./theme-card";
 
 type FilterType = "all" | CustomThemeType;
 type InstallFilter = "all" | "installed" | "not-installed";

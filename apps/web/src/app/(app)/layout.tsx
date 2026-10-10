@@ -1,24 +1,25 @@
-import { Suspense } from "react";
-import { NuqsAdapter } from "nuqs/adapters/next/app";
-import { AppNavbar } from "@/components/layout/navbar";
-import { GlobalChatProvider } from "@/components/shared/global-chat-provider";
-import { GlobalChatPanel } from "@/components/shared/global-chat-panel";
-import { NavigationProgress } from "@/components/shared/navigation-progress";
-import { NavVisibilityProvider } from "@/components/shared/nav-visibility-provider";
-import { NavAwareContent } from "@/components/layout/nav-aware-content";
-import { getServerSession } from "@/lib/auth";
-import { getNotifications, checkIsStarred } from "@/lib/github";
-import { type GhostTabState } from "@/lib/chat-store";
-import type { NotificationItem } from "@/lib/github-types";
-import { ColorThemeProvider } from "@/components/theme/theme-provider";
-import { GitHubLinkInterceptor } from "@/components/shared/github-link-interceptor";
-import { TooltipProvider } from "@/components/ui/tooltip";
-import { MutationEventProvider } from "@/components/shared/mutation-event-provider";
-import { ResponsiveSurfaceProvider } from "@/components/shared/responsive-surface-provider";
-import { redirect } from "next/navigation";
 import { headers } from "next/headers";
+import { redirect } from "next/navigation";
+import { NuqsAdapter } from "nuqs/adapters/next/app";
+import { Suspense } from "react";
+
+import { NavAwareContent } from "@/components/layout/nav-aware-content";
+import { AppNavbar } from "@/components/layout/navbar";
 import { OnboardingOverlay } from "@/components/onboarding/onboarding-overlay";
+import { GitHubLinkInterceptor } from "@/components/shared/github-link-interceptor";
+import { GlobalChatPanel } from "@/components/shared/global-chat-panel";
+import { GlobalChatProvider } from "@/components/shared/global-chat-provider";
+import { MutationEventProvider } from "@/components/shared/mutation-event-provider";
+import { NavVisibilityProvider } from "@/components/shared/nav-visibility-provider";
+import { NavigationProgress } from "@/components/shared/navigation-progress";
+import { ResponsiveSurfaceProvider } from "@/components/shared/responsive-surface-provider";
 import { IconThemeProvider } from "@/components/theme-store/icon-theme-provider";
+import { ColorThemeProvider } from "@/components/theme/theme-provider";
+import { TooltipProvider } from "@/components/ui/tooltip";
+import { getServerSession } from "@/lib/auth";
+import { type GhostTabState } from "@/lib/chat-store";
+import { getNotifications, checkIsStarred } from "@/lib/github";
+import type { NotificationItem } from "@/lib/github-types";
 
 export default async function AppLayout({ children }: { children: React.ReactNode }) {
 	const session = await getServerSession();

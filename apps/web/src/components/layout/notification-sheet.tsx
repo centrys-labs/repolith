@@ -1,15 +1,16 @@
 "use client";
 
-import { useState, useTransition } from "react";
-import Link from "next/link";
 import { Bell, GitPullRequest, CircleDot, CheckCircle2, Clock, Check, Loader2 } from "lucide-react";
-import { Sheet, SheetContent } from "@/components/ui/sheet";
-import { cn } from "@/lib/utils";
-import { TimeAgo } from "@/components/ui/time-ago";
+import Link from "next/link";
+import { useState, useTransition } from "react";
+
 import { markNotificationDone, markAllNotificationsRead } from "@/app/(app)/repos/actions";
 import { useMutationEvents } from "@/components/shared/mutation-event-provider";
-import type { NotificationItem } from "@/lib/github-types";
+import { Sheet, SheetContent } from "@/components/ui/sheet";
+import { TimeAgo } from "@/components/ui/time-ago";
 import { useIsMobile } from "@/hooks/use-is-mobile";
+import type { NotificationItem } from "@/lib/github-types";
+import { cn } from "@/lib/utils";
 
 const reasonLabels: Record<string, string> = {
 	assign: "Assigned",

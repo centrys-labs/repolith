@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
+
+import { PromptDetail } from "@/components/prompt-request/prompt-detail";
+import { getServerSession } from "@/lib/auth";
+import { getOctokit, extractRepoPermissions, getRepo } from "@/lib/github";
 import {
 	getPromptRequest,
 	listPromptRequestComments,
 	listPromptRequestReactions,
 } from "@/lib/prompt-request-store";
-import { PromptDetail } from "@/components/prompt-request/prompt-detail";
-import { notFound } from "next/navigation";
-import { getServerSession } from "@/lib/auth";
-import { getOctokit, extractRepoPermissions, getRepo } from "@/lib/github";
 
 export async function generateMetadata({
 	params,

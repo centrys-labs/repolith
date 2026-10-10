@@ -29,6 +29,7 @@ import Link from "next/link";
 import { useParams, useRouter, useSearchParams } from "next/navigation";
 import { useCallback, useEffect, useMemo, useRef, useState, useTransition } from "react";
 import ReactMarkdown from "react-markdown";
+
 import { uploadImage } from "@/app/(app)/repos/[owner]/[repo]/issues/actions";
 import { PRDiffList } from "@/components/pr/pr-diff-list";
 import { useMutationEvents } from "@/components/shared/mutation-event-provider";
@@ -41,6 +42,7 @@ import {
 import { TimeAgo } from "@/components/ui/time-ago";
 import type { SyntaxToken } from "@/lib/shiki";
 import { cn } from "@/lib/utils";
+
 import {
 	type BranchInfo,
 	type CompareResult,

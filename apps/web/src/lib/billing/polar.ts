@@ -1,5 +1,6 @@
 import { Polar } from "@polar-sh/sdk";
 import { validateEvent, WebhookVerificationError } from "@polar-sh/sdk/webhooks";
+
 import { buildPurchaseCheckoutMetadata } from "./amounts";
 import { BILLING_CURRENCY } from "./config";
 

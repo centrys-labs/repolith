@@ -1,10 +1,11 @@
 "use client";
 
-import { useState } from "react";
-import Link from "next/link";
 import Image from "next/image";
-import { cn, formatNumber } from "@/lib/utils";
+import Link from "next/link";
+import { useState } from "react";
+
 import type { CommitActivityWeek } from "@/lib/github";
+import { cn, formatNumber } from "@/lib/utils";
 
 // --- Significant event types ---
 const SIGNIFICANT_EVENT_TYPES = new Set([

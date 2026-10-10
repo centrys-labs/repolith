@@ -1,12 +1,13 @@
+import { waitUntil } from "@vercel/functions";
 import { generateText } from "ai";
-import { auth } from "@/lib/auth";
-import { getErrorMessage } from "@/lib/utils";
 import { headers } from "next/headers";
-import { checkUsageLimit } from "@/lib/billing/usage-limit";
+
+import { auth } from "@/lib/auth";
+import { getInternalModel } from "@/lib/billing/ai-models.server";
 import { getBillingErrorCode } from "@/lib/billing/config";
 import { logTokenUsage } from "@/lib/billing/token-usage";
-import { waitUntil } from "@vercel/functions";
-import { getInternalModel } from "@/lib/billing/ai-models.server";
+import { checkUsageLimit } from "@/lib/billing/usage-limit";
+import { getErrorMessage } from "@/lib/utils";
 
 export async function POST(req: Request) {
 	const session = await auth.api.getSession({ headers: await headers() });

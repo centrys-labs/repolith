@@ -1,4 +1,3 @@
-import type { ThemeColors, ThemeDefinition, ThemeVariant, ShikiTheme } from "./types";
 import {
 	arctic,
 	cloudflare,
@@ -20,6 +19,7 @@ import {
 	rosePine,
 	LEGACY_THEME_MAP,
 } from "./themes";
+import type { ThemeColors, ThemeDefinition, ThemeVariant, ShikiTheme } from "./types";
 
 const themes: ThemeDefinition[] = [
 	KaltThemes,

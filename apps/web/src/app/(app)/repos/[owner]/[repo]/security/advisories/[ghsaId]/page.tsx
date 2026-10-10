@@ -1,8 +1,9 @@
-import type { Metadata } from "next";
 import { ShieldAlert } from "lucide-react";
-import { getRepositoryAdvisory, getRepo } from "@/lib/github";
-import { renderMarkdownToHtml } from "@/components/shared/markdown-renderer";
+import type { Metadata } from "next";
+
 import { AdvisoryDetail } from "@/components/security/advisory-detail";
+import { renderMarkdownToHtml } from "@/components/shared/markdown-renderer";
+import { getRepositoryAdvisory, getRepo } from "@/lib/github";
 
 export async function generateMetadata({
 	params,

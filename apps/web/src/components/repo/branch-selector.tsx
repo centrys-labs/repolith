@@ -1,8 +1,9 @@
 "use client";
 
-import { useState } from "react";
-import { useRouter } from "next/navigation";
 import { GitBranch, Tag, ChevronDown, Search, Check } from "lucide-react";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
+
 import { cn } from "@/lib/utils";
 
 interface BranchSelectorProps {

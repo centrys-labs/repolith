@@ -1,8 +1,6 @@
 "use client";
 
-import { useState, useTransition, useRef, useCallback } from "react";
-import { useRouter } from "next/navigation";
-import { useClickOutside } from "@/hooks/use-click-outside";
+import { useQueryClient } from "@tanstack/react-query";
 import {
 	GitMerge,
 	ChevronDown,
@@ -18,8 +16,21 @@ import {
 	ExternalLink,
 	CircleCheck,
 } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { useRouter } from "next/navigation";
+import { useState, useTransition, useRef, useCallback } from "react";
+
+import {
+	mergePullRequest,
+	closePullRequest,
+	reopenPullRequest,
+	updatePRBranch,
+	convertPRToDraft,
+	markPRReadyForReview,
+	type MergeMethod,
+} from "@/app/(app)/repos/[owner]/[repo]/pulls/pr-actions";
+import { PRChecksPanel } from "@/components/pr/pr-checks-panel";
 import { useGlobalChat } from "@/components/shared/global-chat-provider";
+import { useMutationEvents } from "@/components/shared/mutation-event-provider";
 import {
 	Dialog,
 	DialogContent,
@@ -37,19 +48,9 @@ import {
 	SheetFooter,
 } from "@/components/ui/sheet";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
-import {
-	mergePullRequest,
-	closePullRequest,
-	reopenPullRequest,
-	updatePRBranch,
-	convertPRToDraft,
-	markPRReadyForReview,
-	type MergeMethod,
-} from "@/app/(app)/repos/[owner]/[repo]/pulls/pr-actions";
-import { useMutationEvents } from "@/components/shared/mutation-event-provider";
-import { useQueryClient } from "@tanstack/react-query";
-import { PRChecksPanel } from "@/components/pr/pr-checks-panel";
+import { useClickOutside } from "@/hooks/use-click-outside";
 import type { CheckStatus } from "@/lib/github";
+import { cn } from "@/lib/utils";
 
 interface PRMergePanelProps {
 	owner: string;

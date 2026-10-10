@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
-import { getUserRepos } from "@/lib/github";
+
 import { ReposContent } from "@/components/repos/repos-content";
+import { getUserRepos } from "@/lib/github";
 
 export const metadata: Metadata = {
 	title: "Repositories",

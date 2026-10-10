@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
-import { getRepo, getRepoEvents, getCommitActivity } from "@/lib/github";
+
 import { RepoActivityView } from "@/components/repo/repo-activity-view";
+import { getRepo, getRepoEvents, getCommitActivity } from "@/lib/github";
 
 export async function generateMetadata({
 	params,

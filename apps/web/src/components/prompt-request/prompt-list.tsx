@@ -1,9 +1,5 @@
 "use client";
 
-import { useState, useMemo, useTransition, useEffect } from "react";
-import Link from "next/link";
-import Image from "next/image";
-import { useRouter } from "next/navigation";
 import {
 	Sparkles,
 	X,
@@ -16,14 +12,19 @@ import {
 	Copy,
 	Check,
 } from "lucide-react";
-import { cn } from "@/lib/utils";
-import { TimeAgo } from "@/components/ui/time-ago";
+import Image from "next/image";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useState, useMemo, useTransition, useEffect } from "react";
+
 import { closePromptRequest } from "@/app/(app)/repos/[owner]/[repo]/prompts/actions";
 import { SuggestPromptDialog } from "@/components/prompt-request/suggest-prompt-dialog";
-import type { PromptRequest, PromptRequestStatus } from "@/lib/prompt-request-store";
-import { useMutationSubscription } from "@/hooks/use-mutation-subscription";
 import { useMutationEvents } from "@/components/shared/mutation-event-provider";
+import { TimeAgo } from "@/components/ui/time-ago";
+import { useMutationSubscription } from "@/hooks/use-mutation-subscription";
 import { isRepoEvent, type MutationEvent } from "@/lib/mutation-events";
+import type { PromptRequest, PromptRequestStatus } from "@/lib/prompt-request-store";
+import { cn } from "@/lib/utils";
 
 type StatusTab = "open" | "closed";
 type SortType = "newest" | "oldest" | "updated";

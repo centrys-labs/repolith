@@ -1,6 +1,7 @@
+import { Eye, HardDrive, LinkIcon, Scale } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { Eye, HardDrive, LinkIcon, Scale } from "lucide-react";
+
 import { ForkButton } from "@/components/repo/fork-button";
 import { ForkSyncButton } from "@/components/repo/fork-sync-button";
 import { LatestCommitSection } from "@/components/repo/latest-commit-section";
@@ -11,10 +12,10 @@ import { SidebarContributors } from "@/components/repo/sidebar-contributors";
 import { SidebarLanguages } from "@/components/repo/sidebar-languages";
 import { StarButton } from "@/components/repo/star-button";
 import { TimeAgo } from "@/components/ui/time-ago";
-import { formatBytes } from "@/lib/github-utils";
-import { formatNumber } from "@/lib/utils";
 import type { ForkSyncStatus } from "@/lib/github";
+import { formatBytes } from "@/lib/github-utils";
 import type { ContributorAvatarsData } from "@/lib/repo-data-cache";
+import { formatNumber } from "@/lib/utils";
 
 type RepoSidebarVariant = "panel" | "responsive" | "summary";
 

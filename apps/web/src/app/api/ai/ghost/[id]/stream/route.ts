@@ -1,7 +1,8 @@
+import { headers } from "next/headers";
+
 import { auth } from "@/lib/auth";
 import { getConversation } from "@/lib/chat-store";
 import { streamContext } from "@/lib/resumable-stream";
-import { headers } from "next/headers";
 
 export async function GET(req: Request, { params }: { params: Promise<{ id: string }> }) {
 	const session = await auth.api.getSession({ headers: await headers() });

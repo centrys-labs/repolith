@@ -1,7 +1,7 @@
 "use client";
 
-import { useLayoutEffect } from "react";
 import { useQueryClient, type QueryKey } from "@tanstack/react-query";
+import { useLayoutEffect } from "react";
 
 /**
  * Keeps React Query cache in sync with server-provided initial data.

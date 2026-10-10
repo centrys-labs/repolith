@@ -1,19 +1,20 @@
-import Link from "next/link";
-import { GithubAvatar } from "@/components/shared/github-avatar";
 import { GitPullRequest, GitBranch, ArrowRight, Check, X } from "lucide-react";
-import type { CheckStatus, CrossReference } from "@/lib/github";
 import { CircleDot, ExternalLink } from "lucide-react";
+import Link from "next/link";
+
 import { CheckStatusBadge } from "@/components/pr/check-status-badge";
-import { cn } from "@/lib/utils";
-import { TimeAgo } from "@/components/ui/time-ago";
+import { EditableBaseBranch } from "@/components/pr/editable-base-branch";
+import { EditablePRTitle } from "@/components/pr/editable-pr-title";
+import { PRStatusIndicator } from "@/components/pr/pr-status-indicator";
 import { CopyLinkButton } from "@/components/shared/copy-link-button";
+import { GithubAvatar } from "@/components/shared/github-avatar";
 import { PinButton } from "@/components/shared/pin-button";
 import { RefreshButton } from "@/components/shared/refresh-button";
-import { EditablePRTitle } from "@/components/pr/editable-pr-title";
-import { EditableBaseBranch } from "@/components/pr/editable-base-branch";
-import { PRStatusIndicator } from "@/components/pr/pr-status-indicator";
 import { UserTooltip } from "@/components/shared/user-tooltip";
+import { TimeAgo } from "@/components/ui/time-ago";
+import type { CheckStatus, CrossReference } from "@/lib/github";
 import { buildPrHeadBranchTreeHref } from "@/lib/github-utils";
+import { cn } from "@/lib/utils";
 
 interface PRHeaderProps {
 	title: string;

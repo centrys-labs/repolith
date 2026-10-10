@@ -1,35 +1,36 @@
+import type { Octokit } from "@octokit/rest";
 import { createOpenRouter } from "@openrouter/ai-sdk-provider";
+import { waitUntil } from "@vercel/functions";
 import type { UIMessage } from "ai";
 import { convertToModelMessages, generateId, stepCountIs, streamText, tool } from "ai";
+import { Sandbox } from "e2b";
+import { headers } from "next/headers";
+import Supermemory from "supermemory";
 import { z } from "zod";
+
 import { getOctokitFromSession, getGitHubToken } from "@/lib/ai-auth";
+import { auth } from "@/lib/auth";
+import { hasModelPricing } from "@/lib/billing/ai-models";
+import { getBillingErrorCode } from "@/lib/billing/config";
+import { logTokenUsage, logFixedCostUsage } from "@/lib/billing/token-usage";
+import { checkUsageLimit } from "@/lib/billing/usage-limit";
 import {
 	getOrCreateConversation,
 	updateActiveStreamId,
 	saveMessages as saveMessagesToDb,
 } from "@/lib/chat-store";
-import { streamContext } from "@/lib/resumable-stream";
-import type { Octokit } from "@octokit/rest";
-import { Sandbox } from "e2b";
-import { auth } from "@/lib/auth";
-import { headers } from "next/headers";
-import { embedText } from "@/lib/mixedbread";
-import { rerankResults } from "@/lib/mixedbread";
 import { searchEmbeddings, type ContentType } from "@/lib/embedding-store";
-import { toAppUrl } from "@/lib/github-utils";
-import { getUserSettings } from "@/lib/user-settings-store";
-import { checkUsageLimit } from "@/lib/billing/usage-limit";
-import { getBillingErrorCode } from "@/lib/billing/config";
-import { logTokenUsage, logFixedCostUsage } from "@/lib/billing/token-usage";
-import { hasModelPricing } from "@/lib/billing/ai-models";
-import { waitUntil } from "@vercel/functions";
 import {
 	invalidateIssueCache,
 	invalidatePullRequestCache,
 	invalidateRepoIssuesCache,
 	invalidateRepoPullRequestsCache,
 } from "@/lib/github";
-import Supermemory from "supermemory";
+import { toAppUrl } from "@/lib/github-utils";
+import { embedText } from "@/lib/mixedbread";
+import { rerankResults } from "@/lib/mixedbread";
+import { streamContext } from "@/lib/resumable-stream";
+import { getUserSettings } from "@/lib/user-settings-store";
 
 export const maxDuration = 300;
 

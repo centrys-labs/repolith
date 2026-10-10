@@ -1,8 +1,10 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { PRAuthorDossier, type AuthorDossierData, type RepoActivity } from "./pr-author-dossier";
+
 import type { ScoreResult } from "@/lib/contributor-score";
+
+import { PRAuthorDossier, type AuthorDossierData, type RepoActivity } from "./pr-author-dossier";
 
 interface AuthorDossierResult {
 	author: AuthorDossierData;

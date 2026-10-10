@@ -1,7 +1,10 @@
 "use client";
 
-import { useState, useEffect } from "react";
 import { MoreHorizontal, Link, Copy, Quote, Check, Trash2, Loader2, Pencil } from "lucide-react";
+import { useState, useEffect } from "react";
+
+import { deleteIssueComment } from "@/app/(app)/repos/[owner]/[repo]/issues/issue-actions";
+import { deletePRComment } from "@/app/(app)/repos/[owner]/[repo]/pulls/pr-actions";
 import {
 	DropdownMenu,
 	DropdownMenuContent,
@@ -9,8 +12,6 @@ import {
 	DropdownMenuSeparator,
 	DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { deletePRComment } from "@/app/(app)/repos/[owner]/[repo]/pulls/pr-actions";
-import { deleteIssueComment } from "@/app/(app)/repos/[owner]/[repo]/issues/issue-actions";
 
 type MessageActionsMenuProps = {
 	owner: string;

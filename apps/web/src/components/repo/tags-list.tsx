@@ -1,10 +1,11 @@
 "use client";
 
-import { useState, useMemo, useEffect, useRef, useCallback } from "react";
-import Link from "next/link";
 import { Tag, Download, ExternalLink, Rocket, AlertCircle, Loader2 } from "lucide-react";
-import { ListSearchInput } from "@/components/shared/list-controls";
+import Link from "next/link";
+import { useState, useMemo, useEffect, useRef, useCallback } from "react";
+
 import { fetchTagsPage } from "@/app/(app)/repos/[owner]/[repo]/tags/actions";
+import { ListSearchInput } from "@/components/shared/list-controls";
 
 type RepoTag = {
 	name: string;

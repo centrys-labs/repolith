@@ -1,7 +1,5 @@
 "use client";
 
-import { useState, useMemo } from "react";
-import Link from "next/link";
 import {
 	CheckCircle2,
 	XCircle,
@@ -13,8 +11,11 @@ import {
 	ChevronRight,
 	Loader2,
 } from "lucide-react";
-import { cn } from "@/lib/utils";
+import Link from "next/link";
+import { useState, useMemo } from "react";
+
 import type { CheckStatus, CheckRun } from "@/lib/github";
+import { cn } from "@/lib/utils";
 
 function CheckIcon({ state, className }: { state: CheckRun["state"]; className?: string }) {
 	switch (state) {

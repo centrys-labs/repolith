@@ -1,15 +1,16 @@
 "use client";
 
-import { useState } from "react";
-import { useRouter } from "next/navigation";
-import Image from "next/image";
 import { Loader2, CornerDownLeft } from "lucide-react";
-import { cn } from "@/lib/utils";
-import { TimeAgo } from "@/components/ui/time-ago";
+import Image from "next/image";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
+
 import { addDiscussionComment } from "@/app/(app)/repos/[owner]/[repo]/discussions/discussion-actions";
-import { MarkdownEditor } from "@/components/shared/markdown-editor";
 import { ClientMarkdown } from "@/components/shared/client-markdown";
+import { MarkdownEditor } from "@/components/shared/markdown-editor";
 import { useMutationEvents } from "@/components/shared/mutation-event-provider";
+import { TimeAgo } from "@/components/ui/time-ago";
+import { cn } from "@/lib/utils";
 
 interface OptimisticComment {
 	id: number;

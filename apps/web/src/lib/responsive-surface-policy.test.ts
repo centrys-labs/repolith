@@ -1,4 +1,5 @@
 import { describe, expect, it } from "vitest";
+
 import { getResponsiveSurfaceDecision, getResponsiveViewport } from "./responsive-surface-policy";
 
 describe("responsive surface policy", () => {

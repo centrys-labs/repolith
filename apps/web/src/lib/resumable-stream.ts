@@ -1,3 +1,5 @@
+import { EventEmitter } from "events";
+
 /**
  * Resumable stream implementation using @upstash/redis for storage
  * and in-process EventEmitter for pub/sub.
@@ -5,7 +7,7 @@
  * Adapted from https://github.com/vercel/resumable-stream
  */
 import { after } from "next/server";
-import { EventEmitter } from "events";
+
 import { redis } from "./redis";
 
 const KEY_PREFIX = "resumable-stream:rs";

@@ -7,8 +7,8 @@
  *   bun run generate:models:check    # exit 1 if the file would change (CI)
  */
 
-import { readFileSync, writeFileSync, existsSync } from "node:fs";
 import { execFileSync } from "node:child_process";
+import { readFileSync, writeFileSync, existsSync } from "node:fs";
 import { resolve, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 

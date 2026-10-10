@@ -1,11 +1,13 @@
 "use client";
 
-import { useState } from "react";
-import Link from "next/link";
 import { Download, BadgeCheck, Loader2 } from "lucide-react";
+import Link from "next/link";
+import { useState } from "react";
+
 import { Badge } from "@/components/ui/badge";
-import { cn } from "@/lib/utils";
 import type { ThemeStoreListItem } from "@/lib/theme-store-types";
+import { cn } from "@/lib/utils";
+
 import { ExtensionIcon } from "./default-theme-icon";
 
 function hsl(v: string): string {

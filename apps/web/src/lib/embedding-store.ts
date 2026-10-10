@@ -1,6 +1,7 @@
 import crypto from "crypto";
-import { prisma } from "./db";
+
 import type { Prisma, SearchEmbedding } from "../generated/prisma/client";
+import { prisma } from "./db";
 
 export type ContentType = "pr" | "issue" | "pr_comment" | "issue_comment" | "review";
 
@@ -179,19 +180,17 @@ export async function keywordSearch(
 		take: topK,
 	});
 
-	return rows.map(
-		(row): SearchResult => ({
-			contentType: row.contentType as ContentType,
-			contentKey: row.contentKey,
-			owner: row.owner,
-			repo: row.repo,
-			itemNumber: row.itemNumber,
-			title: row.title,
-			snippet: row.snippet,
-			metadata: row.metadataJson
-				? (JSON.parse(row.metadataJson) as Record<string, unknown>)
-				: null,
-			similarity: 0,
-		}),
-	);
+	return rows.map((row): SearchResult => ({
+		contentType: row.contentType as ContentType,
+		contentKey: row.contentKey,
+		owner: row.owner,
+		repo: row.repo,
+		itemNumber: row.itemNumber,
+		title: row.title,
+		snippet: row.snippet,
+		metadata: row.metadataJson
+			? (JSON.parse(row.metadataJson) as Record<string, unknown>)
+			: null,
+		similarity: 0,
+	}));
 }

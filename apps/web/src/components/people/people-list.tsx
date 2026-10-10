@@ -1,10 +1,11 @@
 "use client";
 
-import { useState, useMemo, useCallback } from "react";
-import Link from "next/link";
+import { Shield, MapPin, Building2, Users, BookOpen, UserPlus, Loader2 } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { cn, formatNumber } from "@/lib/utils";
+import { useState, useMemo, useCallback } from "react";
+
 import { ListSearchInput, SortCycleButton } from "@/components/shared/list-controls";
 import {
 	Dialog,
@@ -13,7 +14,7 @@ import {
 	DialogTitle,
 	DialogDescription,
 } from "@/components/ui/dialog";
-import { Shield, MapPin, Building2, Users, BookOpen, UserPlus, Loader2 } from "lucide-react";
+import { cn, formatNumber } from "@/lib/utils";
 
 interface Person {
 	login: string;

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
-import { getRepoWorkflows, getRepoWorkflowRuns } from "@/lib/github";
+
 import { ActionsList } from "@/components/actions/actions-list";
+import { getRepoWorkflows, getRepoWorkflowRuns } from "@/lib/github";
 
 export async function generateMetadata({
 	params,

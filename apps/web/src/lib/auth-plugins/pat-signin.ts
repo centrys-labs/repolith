@@ -1,9 +1,9 @@
+import { Octokit } from "@octokit/rest";
+import type { BetterAuthPlugin } from "better-auth";
 import { createAuthEndpoint } from "better-auth/api";
 import { setSessionCookie } from "better-auth/cookies";
 import { symmetricEncrypt } from "better-auth/crypto";
-import { Octokit } from "@octokit/rest";
 import { z } from "zod";
-import type { BetterAuthPlugin } from "better-auth";
 
 export const patSignIn = (): BetterAuthPlugin => ({
 	id: "pat-signin",

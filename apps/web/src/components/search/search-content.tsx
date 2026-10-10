@@ -1,7 +1,5 @@
 "use client";
 
-import { useState, useEffect, useRef, useCallback, useMemo } from "react";
-import { useQueryState, parseAsString, parseAsInteger, parseAsStringLiteral } from "nuqs";
 import {
 	Search,
 	Loader2,
@@ -15,8 +13,11 @@ import {
 	GitPullRequest,
 	CircleDot,
 } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { useQueryState, parseAsString, parseAsInteger, parseAsStringLiteral } from "nuqs";
+import { useState, useEffect, useRef, useCallback, useMemo } from "react";
+
 import { getLanguageColor } from "@/lib/github-utils";
+import { cn } from "@/lib/utils";
 
 const searchCategories = ["code", "repos", "issues", "prs", "users"] as const;
 type SearchCategory = (typeof searchCategories)[number];

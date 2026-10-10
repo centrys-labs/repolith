@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
-import { getRepo } from "@/lib/github";
-import { RunComparisonPage } from "@/components/actions/run-comparison-page";
 import { redirect } from "next/navigation";
+
+import { RunComparisonPage } from "@/components/actions/run-comparison-page";
+import { getRepo } from "@/lib/github";
 
 export async function generateMetadata({
 	params,

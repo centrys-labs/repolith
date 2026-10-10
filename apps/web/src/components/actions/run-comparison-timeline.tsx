@@ -1,11 +1,13 @@
 "use client";
 
-import Link from "next/link";
-import { cn, calculateDuration } from "@/lib/utils";
-import { StatusIcon } from "./status-icon";
-import { TimeAgo } from "@/components/ui/time-ago";
 import { GitBranch } from "lucide-react";
+import Link from "next/link";
+
+import { TimeAgo } from "@/components/ui/time-ago";
+import { cn, calculateDuration } from "@/lib/utils";
+
 import type { ComparisonRun } from "./run-comparison";
+import { StatusIcon } from "./status-icon";
 
 function formatDurationFromSeconds(totalSeconds: number): string {
 	if (totalSeconds === 0) return "0s";

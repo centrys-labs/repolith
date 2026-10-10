@@ -1,9 +1,9 @@
 import { prisma } from "./db";
+import { generatePRReviewChecklist } from "./pr-review-checklist";
 import {
 	buildPRReviewFileFingerprint,
 	buildPRReviewLineFingerprint,
 } from "./pr-review-fingerprints";
-import { generatePRReviewChecklist } from "./pr-review-checklist";
 import type {
 	PRReviewChecklistItemState,
 	PRReviewDiffFile,

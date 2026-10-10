@@ -1,11 +1,12 @@
 import { Inngest } from "inngest";
-import { embedText, embedTexts } from "@/lib/mixedbread";
+
 import {
 	getExistingContentHash,
 	hashContent,
 	upsertEmbedding,
 	type ContentType,
 } from "@/lib/embedding-store";
+import { embedText, embedTexts } from "@/lib/mixedbread";
 
 export const inngest = new Inngest({ id: "better-github" });
 

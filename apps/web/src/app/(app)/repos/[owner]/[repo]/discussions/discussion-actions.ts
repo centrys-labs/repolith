@@ -1,5 +1,8 @@
 "use server";
 
+import { revalidatePath } from "next/cache";
+
+import { renderMarkdownToHtml } from "@/components/shared/markdown-renderer";
 import {
 	getDiscussionComments,
 	addDiscussionCommentViaGraphQL,
@@ -12,9 +15,7 @@ import {
 	type DiscussionComment,
 	type DiscussionReactionContent,
 } from "@/lib/github";
-import { renderMarkdownToHtml } from "@/components/shared/markdown-renderer";
 import { getErrorMessage } from "@/lib/utils";
-import { revalidatePath } from "next/cache";
 
 export async function fetchDiscussionComments(
 	owner: string,

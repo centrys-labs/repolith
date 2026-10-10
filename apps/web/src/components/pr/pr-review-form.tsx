@@ -1,18 +1,19 @@
 "use client";
 
-import { useState, useTransition, useRef, useCallback, useEffect } from "react";
-import { useRouter } from "next/navigation";
-import { Check, AlertTriangle, MessageSquare, Loader2, ChevronDown, Eye } from "lucide-react";
 import { formatForDisplay } from "@tanstack/react-hotkeys";
-import { cn } from "@/lib/utils";
-import { useClickOutside } from "@/hooks/use-click-outside";
+import { Check, AlertTriangle, MessageSquare, Loader2, ChevronDown, Eye } from "lucide-react";
+import { useRouter } from "next/navigation";
+import { useState, useTransition, useRef, useCallback, useEffect } from "react";
+
 import {
 	savePRReviewWorkspaceDraftAction,
 	submitPRReviewWorkspaceAction,
 } from "@/app/(app)/repos/[owner]/[repo]/pulls/review-workspace-actions";
 import { MarkdownEditor } from "@/components/shared/markdown-editor";
 import { useMutationEvents } from "@/components/shared/mutation-event-provider";
+import { useClickOutside } from "@/hooks/use-click-outside";
 import type { PRReviewPendingVerdict, PRReviewWorkspacePageData } from "@/lib/pr-review-types";
+import { cn } from "@/lib/utils";
 
 interface PRReviewFormProps {
 	owner: string;

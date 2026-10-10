@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { getWorkflowRun, getWorkflowRunJobs } from "@/lib/github";
+
 import { RunDetail } from "@/components/actions/run-detail";
+import { getWorkflowRun, getWorkflowRunJobs } from "@/lib/github";
 
 export async function generateMetadata({
 	params,

@@ -1,11 +1,12 @@
 "use client";
 
-import { useState, useRef, useTransition, useEffect } from "react";
 import { Pencil, Check, X, Loader2 } from "lucide-react";
-import { renamePullRequest } from "@/app/(app)/repos/[owner]/[repo]/pulls/pr-actions";
 import { useRouter } from "next/navigation";
-import { cn } from "@/lib/utils";
+import { useState, useRef, useTransition, useEffect } from "react";
+
+import { renamePullRequest } from "@/app/(app)/repos/[owner]/[repo]/pulls/pr-actions";
 import { useMutationEvents } from "@/components/shared/mutation-event-provider";
+import { cn } from "@/lib/utils";
 
 interface EditablePRTitleProps {
 	title: string;

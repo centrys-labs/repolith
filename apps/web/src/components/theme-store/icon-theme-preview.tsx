@@ -1,9 +1,10 @@
 "use client";
 
-import { useMemo } from "react";
 import { Folder } from "lucide-react";
-import type { IconMapping } from "@/lib/theme-store-types";
+import { useMemo } from "react";
+
 import { getFileIcon } from "@/components/shared/file-icon";
+import type { IconMapping } from "@/lib/theme-store-types";
 
 interface PreviewFile {
 	label: string;

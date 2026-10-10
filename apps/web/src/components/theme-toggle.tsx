@@ -1,6 +1,7 @@
 "use client";
 
 import { useColorTheme } from "@/components/theme/theme-provider";
+
 import { CrescentIcon, StarIcon } from "./shared/icons/star-icon";
 
 export function ThemeToggle() {

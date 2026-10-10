@@ -1,4 +1,11 @@
 import type { Metadata } from "next";
+
+import { BranchSelector } from "@/components/repo/branch-selector";
+import { CodeToolbar } from "@/components/repo/code-toolbar";
+import { EmptyRepoQuickSetup } from "@/components/repo/empty-repo-quick-setup";
+import { FileList } from "@/components/repo/file-list";
+import { MarkdownRenderer } from "@/components/shared/markdown-renderer";
+import { TrackView } from "@/components/shared/track-view";
 import {
 	extractRepoPermissions,
 	getRepo,
@@ -8,12 +15,7 @@ import {
 	getRepoReadme,
 	getRepoPullRequests,
 } from "@/lib/github";
-import { BranchSelector } from "@/components/repo/branch-selector";
-import { FileList } from "@/components/repo/file-list";
-import { CodeToolbar } from "@/components/repo/code-toolbar";
-import { EmptyRepoQuickSetup } from "@/components/repo/empty-repo-quick-setup";
-import { MarkdownRenderer } from "@/components/shared/markdown-renderer";
-import { TrackView } from "@/components/shared/track-view";
+
 import { deleteBranch } from "../actions";
 
 export async function generateMetadata({

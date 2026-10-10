@@ -1,11 +1,13 @@
 "use client";
 
-import { Fragment, type ReactNode, useCallback, useRef, useState } from "react";
 import { Loader2, Plus, UnfoldVertical } from "lucide-react";
+import { Fragment, type ReactNode, useCallback, useRef, useState } from "react";
+
+import { ResizeHandle } from "@/components/ui/resize-handle";
 import type { DiffLine } from "@/lib/github-utils";
 import type { SyntaxToken } from "@/lib/shiki";
 import { cn } from "@/lib/utils";
-import { ResizeHandle } from "@/components/ui/resize-handle";
+
 import { SegmentedContent, SyntaxSegmentedContent } from "./diff-content";
 import type { DiffViewportHunkInfo, DiffViewportModel, SplitRow } from "./diff-viewport-model";
 import type { PRReviewComment } from "./review-models";

@@ -1,6 +1,7 @@
-import { Pool } from "pg";
-import { attachDatabasePool } from "@vercel/functions";
 import { PrismaPg } from "@prisma/adapter-pg";
+import { attachDatabasePool } from "@vercel/functions";
+import { Pool } from "pg";
+
 import { PrismaClient } from "../generated/prisma/client";
 
 type ExtendedPrismaClient = ReturnType<typeof makePrisma>;

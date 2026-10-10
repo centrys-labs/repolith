@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
-import { getRepoCommits, getRepo, getRepoBranches } from "@/lib/github";
+
 import { CommitsList } from "@/components/repo/commits-list";
+import { getRepoCommits, getRepo, getRepoBranches } from "@/lib/github";
 
 export async function generateMetadata({
 	params,

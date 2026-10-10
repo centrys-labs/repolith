@@ -1,8 +1,9 @@
 "use client";
 
-import Image from "next/image";
 import { useQuery } from "@tanstack/react-query";
 import { Users } from "lucide-react";
+import Image from "next/image";
+
 import { revalidateContributorAvatars } from "@/app/(app)/repos/[owner]/[repo]/readme-actions";
 import type { ContributorAvatarsData } from "@/lib/repo-data-cache";
 

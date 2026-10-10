@@ -1,6 +1,7 @@
 "use client";
 
 import { useQuery } from "@tanstack/react-query";
+
 import { fetchDiscussionComments } from "@/app/(app)/repos/[owner]/[repo]/discussions/discussion-actions";
 import { DiscussionConversation } from "@/components/discussion/discussion-conversation";
 import type { DiscussionComment } from "@/lib/github";

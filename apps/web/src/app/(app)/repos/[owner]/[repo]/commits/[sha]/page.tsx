@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
+
+import { CommitDetail } from "@/components/repo/commit-detail";
 import { getCommit, getRepo } from "@/lib/github";
 import { highlightDiffLines, type SyntaxToken } from "@/lib/shiki";
-import { CommitDetail } from "@/components/repo/commit-detail";
 
 export async function generateMetadata({
 	params,

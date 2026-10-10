@@ -1,12 +1,14 @@
 "use client";
 
+import { AlertTriangle, Check, Link2, ListChecks, Loader2, Lock } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useOptimistic, useState, useTransition } from "react";
-import { AlertTriangle, Check, Link2, ListChecks, Loader2, Lock } from "lucide-react";
+
 import { setPRReviewChecklistItemStateAction } from "@/app/(app)/repos/[owner]/[repo]/pulls/review-workspace-actions";
 import { TimeAgo } from "@/components/ui/time-ago";
 import type { PRReviewChecklistItemState } from "@/lib/pr-review-types";
 import { cn } from "@/lib/utils";
+
 import { applyPRReviewChecklistToggleAction } from "./review-workspace-ui";
 
 interface ReviewChecklistSidebarProps {

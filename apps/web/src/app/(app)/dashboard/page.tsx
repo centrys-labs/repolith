@@ -1,7 +1,10 @@
 import { waitUntil } from "@vercel/functions";
+import { all } from "better-all";
 import type { Metadata } from "next";
-import { getServerSession } from "@/lib/auth";
 import { redirect } from "next/navigation";
+
+import { DashboardContent } from "@/components/dashboard/dashboard-content";
+import { getServerSession } from "@/lib/auth";
 import {
 	getUserRepos,
 	searchIssues,
@@ -10,9 +13,7 @@ import {
 	getTrendingRepos,
 	warmRepoPageDataBatch,
 } from "@/lib/github";
-import { DashboardContent } from "@/components/dashboard/dashboard-content";
 import type { GitHubUser, IssueItem, SearchResult } from "@/lib/github-types";
-import { all } from "better-all";
 
 export const metadata: Metadata = {
 	title: "Dashboard",

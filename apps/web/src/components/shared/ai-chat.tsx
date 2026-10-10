@@ -3,9 +3,6 @@
 import { useChat } from "@ai-sdk/react";
 import type { UIMessage } from "ai";
 import { DefaultChatTransport } from "ai";
-import { useEffect, useMemo, useRef, useState, useCallback, memo } from "react";
-import { BILLING_ERROR } from "@/lib/billing/config";
-import { useMutationEvents } from "@/components/shared/mutation-event-provider";
 import {
 	ArrowUp,
 	Square,
@@ -49,7 +46,11 @@ import {
 	AlertCircle,
 	CreditCard,
 } from "lucide-react";
+import { useEffect, useMemo, useRef, useState, useCallback, memo } from "react";
+
 import { HighlightedCodeBlock } from "@/components/shared/highlighted-code-block";
+import { useMutationEvents } from "@/components/shared/mutation-event-provider";
+import { BILLING_ERROR } from "@/lib/billing/config";
 
 const GHOST_THINKING_PHRASES = [
 	"Summoning answers",
@@ -137,14 +138,16 @@ function GhostThinkingIndicator({ status }: { status: string }) {
 	);
 }
 
+import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { cn } from "@/lib/utils";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
-import Link from "next/link";
-import { toInternalUrl, parseGitHubUrl } from "@/lib/github-utils";
-import { useSession } from "@/lib/auth-client";
+
 import { useGlobalChatOptional } from "@/components/shared/global-chat-provider";
+import { useSession } from "@/lib/auth-client";
+import { toInternalUrl, parseGitHubUrl } from "@/lib/github-utils";
+import { cn } from "@/lib/utils";
+
 import { GithubIcon } from "./icons/github-icon";
 
 function CopyButton({ text }: { text: string }) {

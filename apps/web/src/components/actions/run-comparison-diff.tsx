@@ -1,7 +1,5 @@
 "use client";
 
-import { Fragment, useState, useCallback, useRef } from "react";
-import Link from "next/link";
 import {
 	ChevronRight,
 	GitBranch,
@@ -13,9 +11,13 @@ import {
 	Loader2,
 	AlertCircle,
 } from "lucide-react";
+import Link from "next/link";
+import { Fragment, useState, useCallback, useRef } from "react";
+
 import { cn, calculateDuration, formatDurationDelta } from "@/lib/utils";
-import { StatusIcon } from "./status-icon";
+
 import type { ComparisonRun } from "./run-comparison";
+import { StatusIcon } from "./status-icon";
 
 function formatDurationFromSeconds(totalSeconds: number): string {
 	if (totalSeconds === 0) return "0s";

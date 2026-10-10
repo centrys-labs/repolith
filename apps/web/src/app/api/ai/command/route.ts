@@ -1,15 +1,15 @@
+import { waitUntil } from "@vercel/functions";
 import type { UIMessage } from "ai";
 import { convertToModelMessages, stepCountIs, streamText, tool } from "ai";
+import { headers } from "next/headers";
 import { z } from "zod";
+
 import { getOctokitFromSession } from "@/lib/ai-auth";
 import { auth } from "@/lib/auth";
-
-import { headers } from "next/headers";
-import { checkUsageLimit } from "@/lib/billing/usage-limit";
+import { getInternalModel } from "@/lib/billing/ai-models.server";
 import { getBillingErrorCode } from "@/lib/billing/config";
 import { logTokenUsage } from "@/lib/billing/token-usage";
-import { waitUntil } from "@vercel/functions";
-import { getInternalModel } from "@/lib/billing/ai-models.server";
+import { checkUsageLimit } from "@/lib/billing/usage-limit";
 
 export const maxDuration = 60;
 

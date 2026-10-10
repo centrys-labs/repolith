@@ -1,8 +1,9 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
-import { useRouter } from "next/navigation";
 import { GitBranch, ChevronDown, Check, Search } from "lucide-react";
+import { useRouter } from "next/navigation";
+import { useState, useRef, useEffect } from "react";
+
 import { cn } from "@/lib/utils";
 
 interface SidebarBranchSwitcherProps {

@@ -1,8 +1,9 @@
 import type { Highlighter, BundledLanguage } from "shiki";
-import { getTheme } from "./themes";
-import type { ShikiTheme } from "./themes/types";
+
 import { parseDiffPatch, getLanguageFromFilename } from "./github-utils";
 import type { SyntaxToken } from "./shiki";
+import { getTheme } from "./themes";
+import type { ShikiTheme } from "./themes/types";
 
 const DEFAULT_LIGHT_THEME = "vitesse-light";
 const DEFAULT_DARK_THEME = "vitesse-black";

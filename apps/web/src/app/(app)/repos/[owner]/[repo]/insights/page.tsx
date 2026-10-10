@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+
+import { InsightsView } from "@/components/repo/insights-view";
 import {
 	getRepo,
 	getCommitActivity,
@@ -10,7 +12,6 @@ import {
 	type WeeklyParticipation,
 	type ContributorStats,
 } from "@/lib/github";
-import { InsightsView } from "@/components/repo/insights-view";
 
 export async function generateMetadata({
 	params,

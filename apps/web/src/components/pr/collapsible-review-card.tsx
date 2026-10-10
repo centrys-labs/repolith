@@ -1,16 +1,17 @@
 "use client";
 
-import { useState, useCallback, useEffect, useMemo, memo } from "react";
-import Link from "next/link";
-import { GithubAvatar } from "@/components/shared/github-avatar";
 import { ChevronDown, FileCode2 } from "lucide-react";
+import Link from "next/link";
+import { useState, useCallback, useEffect, useMemo, memo } from "react";
 import type { Highlighter, BundledLanguage } from "shiki";
-import { cn } from "@/lib/utils";
-import { getLanguageFromFilename } from "@/lib/github-utils";
-import { TimeAgo } from "@/components/ui/time-ago";
+
 import { ClientMarkdown } from "@/components/shared/client-markdown";
+import { GithubAvatar } from "@/components/shared/github-avatar";
 import { ReactionDisplay, type Reactions } from "@/components/shared/reaction-display";
 import { UserTooltip } from "@/components/shared/user-tooltip";
+import { TimeAgo } from "@/components/ui/time-ago";
+import { getLanguageFromFilename } from "@/lib/github-utils";
+import { cn } from "@/lib/utils";
 
 const reviewStateBadge: Record<string, { label: string; className: string }> = {
 	APPROVED: {

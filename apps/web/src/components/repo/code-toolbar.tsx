@@ -1,6 +1,5 @@
 "use client";
 
-import { useState, useTransition } from "react";
 import {
 	Copy,
 	Check,
@@ -12,6 +11,7 @@ import {
 	Loader2,
 	Monitor,
 } from "lucide-react";
+import { useState, useTransition } from "react";
 
 interface EnrichedBranch {
 	name: string;

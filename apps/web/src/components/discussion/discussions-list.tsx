@@ -1,16 +1,17 @@
 "use client";
 
-import { useState, useMemo, useRef, useEffect, useCallback, useTransition } from "react";
-import Link from "next/link";
-import Image from "next/image";
 import { MessageCircle, CheckCircle2, ArrowUp, MessageSquare, Loader2 } from "lucide-react";
-import { cn } from "@/lib/utils";
-import { TimeAgo } from "@/components/ui/time-ago";
-import { LabelBadge } from "@/components/shared/label-badge";
-import { GitHubEmoji } from "@/components/shared/github-emoji";
+import Image from "next/image";
+import Link from "next/link";
+import { useState, useMemo, useRef, useEffect, useCallback, useTransition } from "react";
+
 import { loadMoreDiscussions } from "@/app/(app)/repos/[owner]/[repo]/discussions/actions";
-import type { RepoDiscussionNode, DiscussionCategory } from "@/lib/github";
 import { CreateDiscussionDialog } from "@/components/discussion/create-discussion-dialog";
+import { GitHubEmoji } from "@/components/shared/github-emoji";
+import { LabelBadge } from "@/components/shared/label-badge";
+import { TimeAgo } from "@/components/ui/time-ago";
+import type { RepoDiscussionNode, DiscussionCategory } from "@/lib/github";
+import { cn } from "@/lib/utils";
 
 type TabState = "all" | "answered" | "unanswered";
 

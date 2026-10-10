@@ -1,7 +1,5 @@
 "use client";
 
-import { useState, useTransition, useRef, useCallback } from "react";
-import { useRouter } from "next/navigation";
 import {
 	Plus,
 	Loader2,
@@ -21,6 +19,14 @@ import {
 	ChevronDown,
 	Check,
 } from "lucide-react";
+import { useRouter } from "next/navigation";
+import { useState, useTransition, useRef, useCallback } from "react";
+import ReactMarkdown from "react-markdown";
+
+import { createDiscussion } from "@/app/(app)/repos/[owner]/[repo]/discussions/actions";
+import { uploadImage } from "@/app/(app)/repos/[owner]/[repo]/issues/actions";
+import { GitHubEmoji } from "@/components/shared/github-emoji";
+import { useMutationEvents } from "@/components/shared/mutation-event-provider";
 import {
 	Dialog,
 	DialogContent,
@@ -28,13 +34,8 @@ import {
 	DialogTitle,
 	DialogDescription,
 } from "@/components/ui/dialog";
-import { cn } from "@/lib/utils";
-import ReactMarkdown from "react-markdown";
-import { createDiscussion } from "@/app/(app)/repos/[owner]/[repo]/discussions/actions";
-import { uploadImage } from "@/app/(app)/repos/[owner]/[repo]/issues/actions";
-import { useMutationEvents } from "@/components/shared/mutation-event-provider";
-import { GitHubEmoji } from "@/components/shared/github-emoji";
 import type { DiscussionCategory } from "@/lib/github";
+import { cn } from "@/lib/utils";
 
 interface CreateDiscussionDialogProps {
 	owner: string;

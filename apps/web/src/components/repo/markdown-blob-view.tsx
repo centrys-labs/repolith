@@ -1,15 +1,16 @@
 "use client";
 
-import { useState, useCallback, useEffect, useRef } from "react";
-import { useRouter } from "next/navigation";
 import { Pencil, WrapText } from "lucide-react";
-import { cn } from "@/lib/utils";
-import { formatBytes } from "@/lib/github-utils";
-import { useGlobalChat, type InlineContext } from "@/components/shared/global-chat-provider";
-import { CommitDialog } from "@/components/shared/commit-dialog";
+import { useRouter } from "next/navigation";
+import { useState, useCallback, useEffect, useRef } from "react";
+
 import { commitFileEdit } from "@/app/(app)/repos/[owner]/[repo]/blob/blob-actions";
-import { useMutationEvents } from "@/components/shared/mutation-event-provider";
 import { DocumentOutline } from "@/components/repo/document-outline";
+import { CommitDialog } from "@/components/shared/commit-dialog";
+import { useGlobalChat, type InlineContext } from "@/components/shared/global-chat-provider";
+import { useMutationEvents } from "@/components/shared/mutation-event-provider";
+import { formatBytes } from "@/lib/github-utils";
+import { cn } from "@/lib/utils";
 
 export function MarkdownBlobView({
 	rawView,

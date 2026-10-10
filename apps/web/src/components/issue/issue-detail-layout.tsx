@@ -1,7 +1,8 @@
 "use client";
 
-import { useRef, useState, useEffect, useCallback } from "react";
 import { PanelRight } from "lucide-react";
+import { useRef, useState, useEffect, useCallback } from "react";
+
 import { useResponsiveSurfaceContext } from "@/components/shared/responsive-surface-provider";
 import { Sheet, SheetContent } from "@/components/ui/sheet";
 import { getResponsiveSurfaceDecision } from "@/lib/responsive-surface-policy";

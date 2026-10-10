@@ -1,8 +1,6 @@
 "use client";
 
-import { useState, useTransition, useRef, useEffect } from "react";
-import { useRouter } from "next/navigation";
-import Image from "next/image";
+import { useQueryClient } from "@tanstack/react-query";
 import {
 	Loader2,
 	CornerDownLeft,
@@ -11,17 +9,20 @@ import {
 	CircleOff,
 	CircleDot,
 } from "lucide-react";
-import { useQueryClient } from "@tanstack/react-query";
-import { cn } from "@/lib/utils";
+import Image from "next/image";
+import { useRouter } from "next/navigation";
+import { useState, useTransition, useRef, useEffect } from "react";
+
 import {
 	addIssueComment,
 	closeIssue,
 	reopenIssue,
 } from "@/app/(app)/repos/[owner]/[repo]/issues/issue-actions";
-import { MarkdownEditor, type MarkdownEditorRef } from "@/components/shared/markdown-editor";
-import { useClickOutside } from "@/hooks/use-click-outside";
-import { useMutationEvents } from "@/components/shared/mutation-event-provider";
 import type { IssueComment } from "@/components/issue/issue-comments-client";
+import { MarkdownEditor, type MarkdownEditorRef } from "@/components/shared/markdown-editor";
+import { useMutationEvents } from "@/components/shared/mutation-event-provider";
+import { useClickOutside } from "@/hooks/use-click-outside";
+import { cn } from "@/lib/utils";
 
 type CloseReason = "completed" | "not_planned";
 

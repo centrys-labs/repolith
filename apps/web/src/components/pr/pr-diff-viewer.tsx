@@ -1,29 +1,5 @@
 "use client";
 
-import React, {
-	useState,
-	useTransition,
-	useRef,
-	useCallback,
-	useEffect,
-	useMemo,
-	useOptimistic,
-} from "react";
-import { useSearchParams, useRouter } from "next/navigation";
-import Link from "next/link";
-import {
-	parseDiffPatch,
-	parseHunkHeader,
-	type DiffLine,
-	type DiffSegment,
-} from "@/lib/github-utils";
-import type { SyntaxToken } from "@/lib/shiki";
-import { highlightDiffLinesClient } from "@/lib/shiki-client";
-import { useColorTheme } from "@/components/theme/theme-provider";
-import { cn } from "@/lib/utils";
-import { TimeAgo } from "@/components/ui/time-ago";
-import { GithubAvatar } from "@/components/shared/github-avatar";
-import { FileTypeIcon } from "@/components/shared/file-icon";
 import {
 	File,
 	ArrowRight,
@@ -50,6 +26,18 @@ import {
 	Search,
 	Pencil,
 } from "lucide-react";
+import Link from "next/link";
+import { useSearchParams, useRouter } from "next/navigation";
+import React, {
+	useState,
+	useTransition,
+	useRef,
+	useCallback,
+	useEffect,
+	useMemo,
+	useOptimistic,
+} from "react";
+
 import {
 	commitFileEditOnPR,
 	resolveReviewThread,
@@ -62,16 +50,19 @@ import {
 	setPRReviewFileStatesAction,
 	upsertPRReviewDraftCommentAction,
 } from "@/app/(app)/repos/[owner]/[repo]/pulls/review-workspace-actions";
+import { CheckStatusBadge } from "@/components/pr/check-status-badge";
+import { ClientMarkdown } from "@/components/shared/client-markdown";
 import { CommitDialog } from "@/components/shared/commit-dialog";
-import { ResizeHandle } from "@/components/ui/resize-handle";
+import { FileTypeIcon } from "@/components/shared/file-icon";
+import { GithubAvatar } from "@/components/shared/github-avatar";
 import { useGlobalChatOptional } from "@/components/shared/global-chat-provider";
 import { MarkdownEditor, type MarkdownEditorRef } from "@/components/shared/markdown-editor";
-import type { ReviewThread, CheckStatus } from "@/lib/github";
-import { ClientMarkdown } from "@/components/shared/client-markdown";
-import { ReactionDisplay, type Reactions } from "@/components/shared/reaction-display";
-import { CheckStatusBadge } from "@/components/pr/check-status-badge";
 import { useMutationEvents } from "@/components/shared/mutation-event-provider";
+import { ReactionDisplay, type Reactions } from "@/components/shared/reaction-display";
 import { UserTooltip } from "@/components/shared/user-tooltip";
+import { useColorTheme } from "@/components/theme/theme-provider";
+import { ResizeHandle } from "@/components/ui/resize-handle";
+import { TimeAgo } from "@/components/ui/time-ago";
 import {
 	DEFAULT_DIFF_PREFERENCES,
 	type DiffViewMode,
@@ -79,26 +70,37 @@ import {
 	getDiffPreferences,
 	setDiffPreferences,
 } from "@/lib/diff-preferences";
+import type { ReviewThread, CheckStatus } from "@/lib/github";
+import {
+	parseDiffPatch,
+	parseHunkHeader,
+	type DiffLine,
+	type DiffSegment,
+} from "@/lib/github-utils";
+import { buildPRReviewFileFingerprint } from "@/lib/pr-review-fingerprints";
 import {
 	buildPRReviewClientLineFingerprint,
 	getPRReviewClientRangeContent,
 } from "@/lib/pr-review-fingerprints-client";
-import { buildPRReviewFileFingerprint } from "@/lib/pr-review-fingerprints";
 import type { PRReviewDiffFile, PRReviewWorkspacePageData } from "@/lib/pr-review-types";
+import type { SyntaxToken } from "@/lib/shiki";
+import { highlightDiffLinesClient } from "@/lib/shiki-client";
+import { cn } from "@/lib/utils";
+
 import { DiffFileTree } from "./diff-file-tree";
 import { DiffTreeSettingsPopover } from "./diff-tree-settings";
-import {
-	applyPRReviewViewedFileAction,
-	buildPRReviewViewerPreferences,
-	buildVisiblePRReviewFiles,
-	getActiveViewedFilePaths,
-} from "./review/review-workspace-ui";
 import {
 	type AddContextCallback,
 	type PRDiffFile as DiffFile,
 	type PRReviewComment as BaseReviewComment,
 	type PRReviewSummary as ReviewSummary,
 } from "./review/review-models";
+import {
+	applyPRReviewViewedFileAction,
+	buildPRReviewViewerPreferences,
+	buildVisiblePRReviewFiles,
+	getActiveViewedFilePaths,
+} from "./review/review-workspace-ui";
 import { SuggestionBlock } from "./review/suggestion-block";
 
 type ReviewComment = BaseReviewComment & { reactions?: Reactions };

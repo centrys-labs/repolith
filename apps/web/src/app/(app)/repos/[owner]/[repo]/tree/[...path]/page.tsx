@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
+
+import { FileList } from "@/components/repo/file-list";
 import { getRepoContents, getRepoBranches, getRepoTags } from "@/lib/github";
 import { parseRefAndPath } from "@/lib/github-utils";
-import { FileList } from "@/components/repo/file-list";
 
 export async function generateMetadata({
 	params,

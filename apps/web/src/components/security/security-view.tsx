@@ -1,11 +1,12 @@
 "use client";
 
-import { useState } from "react";
 import { Bug, ExternalLink, FileText, KeyRound, ShieldAlert } from "lucide-react";
 import Link from "next/link";
-import { cn } from "@/lib/utils";
-import { TimeAgo } from "@/components/ui/time-ago";
+import { useState } from "react";
+
 import { ReactiveCodeBlocks } from "@/components/shared/reactive-code-blocks";
+import { TimeAgo } from "@/components/ui/time-ago";
+import { cn } from "@/lib/utils";
 
 interface Advisory {
 	ghsaId: string;

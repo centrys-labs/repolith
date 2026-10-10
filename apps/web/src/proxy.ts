@@ -1,5 +1,6 @@
-import { NextRequest, NextResponse } from "next/server";
 import { getSessionCookie } from "better-auth/cookies";
+import { NextRequest, NextResponse } from "next/server";
+
 import { APP_ROUTES } from "./app-routes";
 
 const publicPaths = ["/", "/api/auth", "/api/inngest"];

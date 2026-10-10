@@ -1,6 +1,7 @@
 "use client";
 
 import type { ReactNode } from "react";
+
 import { ResizeHandle } from "@/components/ui/resize-handle";
 
 interface PRReviewShellProps {

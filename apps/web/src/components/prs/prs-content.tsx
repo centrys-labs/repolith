@@ -1,9 +1,5 @@
 "use client";
 
-import { useMemo } from "react";
-import { useQueryState, parseAsString, parseAsStringLiteral } from "nuqs";
-import Link from "next/link";
-import Image from "next/image";
 import {
 	GitPullRequest,
 	GitMerge,
@@ -17,11 +13,16 @@ import {
 	AtSign,
 	Users,
 } from "lucide-react";
-import { cn } from "@/lib/utils";
-import { TimeAgo } from "@/components/ui/time-ago";
-import { toInternalUrl } from "@/lib/github-utils";
+import Image from "next/image";
+import Link from "next/link";
+import { useQueryState, parseAsString, parseAsStringLiteral } from "nuqs";
+import { useMemo } from "react";
+
 import { CopyLinkButton } from "@/components/shared/copy-link-button";
+import { TimeAgo } from "@/components/ui/time-ago";
 import type { IssueItem } from "@/lib/github-types";
+import { toInternalUrl } from "@/lib/github-utils";
+import { cn } from "@/lib/utils";
 
 const prTabTypes = ["review", "created", "assigned", "mentioned"] as const;
 type TabType = (typeof prTabTypes)[number];

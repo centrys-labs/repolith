@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
-import { getRepoReleases } from "@/lib/github";
-import { renderMarkdownToHtml } from "@/components/shared/markdown-renderer";
+
 import { ReleasesList } from "@/components/repo/releases-list";
+import { renderMarkdownToHtml } from "@/components/shared/markdown-renderer";
+import { getRepoReleases } from "@/lib/github";
 
 export async function generateMetadata({
 	params,

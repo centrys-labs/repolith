@@ -1,7 +1,8 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
 import { ChevronDown } from "lucide-react";
+import { useState, useRef, useEffect } from "react";
+
 import { cn } from "@/lib/utils";
 
 const COLLAPSED_HEIGHT = 150;

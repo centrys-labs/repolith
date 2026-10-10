@@ -1,20 +1,24 @@
-import { getRepoPageData, getRepoTree, prefetchPRData, getForkSyncStatus } from "@/lib/github";
-import { countPromptRequests } from "@/lib/prompt-request-store";
-import { buildFileTree, type FileTreeNode } from "@/lib/file-tree";
-import { RepoSidebar } from "@/components/repo/repo-sidebar";
-import { RepoNav } from "@/components/repo/repo-nav";
-import { ForkButton } from "@/components/repo/fork-button";
+import { waitUntil } from "@vercel/functions";
+import { ExternalLink, ShieldAlert, AlertCircle } from "lucide-react";
+import { cookies } from "next/headers";
+
 import { CodeContentWrapper } from "@/components/repo/code-content-wrapper";
+import { ForkButton } from "@/components/repo/fork-button";
 import { PinButton } from "@/components/repo/pin-button";
 import { RepoLayoutWrapper } from "@/components/repo/repo-layout-wrapper";
-import { StarButton } from "@/components/repo/star-button";
-import { ChatPageActivator } from "@/components/shared/chat-page-activator";
+import { RepoNav } from "@/components/repo/repo-nav";
 import { RepoRevalidator } from "@/components/repo/repo-revalidator";
-import { cookies } from "next/headers";
+import { RepoSidebar } from "@/components/repo/repo-sidebar";
 import {
 	REPO_SIDEBAR_COOKIE,
 	type RepoSidebarState,
 } from "@/components/repo/repo-sidebar-constants";
+import { StarButton } from "@/components/repo/star-button";
+import { ChatPageActivator } from "@/components/shared/chat-page-activator";
+import { buildFileTree, type FileTreeNode } from "@/lib/file-tree";
+import { getRepoPageData, getRepoTree, prefetchPRData, getForkSyncStatus } from "@/lib/github";
+import { countPromptRequests } from "@/lib/prompt-request-store";
+import { setCachedRepoTree } from "@/lib/repo-data-cache";
 import {
 	getCachedContributorAvatars,
 	getCachedRepoLanguages,
@@ -22,9 +26,6 @@ import {
 	getCachedTags,
 	getCachedRepoTree,
 } from "@/lib/repo-data-cache-vc";
-import { setCachedRepoTree } from "@/lib/repo-data-cache";
-import { waitUntil } from "@vercel/functions";
-import { ExternalLink, ShieldAlert, AlertCircle } from "lucide-react";
 
 function RepoErrorPage({ owner, repo, error }: { owner: string; repo: string; error: string }) {
 	const githubUrl = `https://github.com/${owner}/${repo}`;

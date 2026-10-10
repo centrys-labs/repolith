@@ -1,10 +1,11 @@
 "use server";
 
-import { getOctokit, invalidateRepoPullRequestsCache } from "@/lib/github";
-import { getErrorMessage } from "@/lib/utils";
 import { revalidatePath } from "next/cache";
+
+import { getOctokit, invalidateRepoPullRequestsCache } from "@/lib/github";
 import { invalidateRepoCache } from "@/lib/repo-data-cache-vc";
 import { highlightDiffLines, type SyntaxToken } from "@/lib/shiki";
+import { getErrorMessage } from "@/lib/utils";
 
 export interface CompareFile {
 	filename: string;

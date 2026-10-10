@@ -1,8 +1,8 @@
 "use client";
 
-import { cn } from "@/lib/utils";
-import { useResponsiveSurfaceContext } from "@/components/shared/responsive-surface-provider";
 import { useNavVisibility } from "@/components/shared/nav-visibility-provider";
+import { useResponsiveSurfaceContext } from "@/components/shared/responsive-surface-provider";
+import { cn } from "@/lib/utils";
 
 export function NavAwareContent({ children }: { children: React.ReactNode }) {
 	const { isNavHidden } = useNavVisibility();

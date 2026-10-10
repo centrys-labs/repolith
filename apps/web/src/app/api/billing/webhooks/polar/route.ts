@@ -1,6 +1,6 @@
 import { BillingAmountError } from "@/lib/billing/amounts";
-import { applyRefundToPurchaseGrant, grantCreditsForPaidOrder } from "@/lib/billing/purchase-grant";
 import { verifyPolarWebhook, WebhookVerificationError } from "@/lib/billing/polar";
+import { applyRefundToPurchaseGrant, grantCreditsForPaidOrder } from "@/lib/billing/purchase-grant";
 
 export async function POST(req: Request) {
 	const rawBody = await req.text();

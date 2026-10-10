@@ -12,10 +12,11 @@ import {
 } from "lucide-react";
 import type { ComponentProps } from "react";
 import ReactMarkdown from "react-markdown";
-import { cn, formatNumber } from "@/lib/utils";
-import { getLanguageColor } from "@/lib/github-utils";
+
 import { TimeAgo } from "@/components/ui/time-ago";
 import { useSession } from "@/lib/auth-client";
+import { getLanguageColor } from "@/lib/github-utils";
+import { cn, formatNumber } from "@/lib/utils";
 
 // ─── Tool Loading Indicator ────────────────────────────────────────────────────
 

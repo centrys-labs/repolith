@@ -11,6 +11,7 @@ import {
 	Folder,
 	FolderOpen,
 } from "lucide-react";
+
 import { useIconTheme } from "@/components/theme-store/icon-theme-provider";
 import type { IconMapping } from "@/lib/theme-store-types";
 

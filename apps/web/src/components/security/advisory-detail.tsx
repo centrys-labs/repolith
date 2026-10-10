@@ -1,12 +1,13 @@
 "use client";
 
 import { ArrowLeft, ExternalLink, User } from "lucide-react";
-import Link from "next/link";
 import Image from "next/image";
-import { cn } from "@/lib/utils";
-import { TimeAgo } from "@/components/ui/time-ago";
+import Link from "next/link";
+
 import { ReactiveCodeBlocks } from "@/components/shared/reactive-code-blocks";
+import { TimeAgo } from "@/components/ui/time-ago";
 import type { SecurityAdvisoryDetail } from "@/lib/github";
+import { cn } from "@/lib/utils";
 
 function severityColor(severity: string | null): {
 	dot: string;

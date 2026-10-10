@@ -1,4 +1,5 @@
 import { describe, expect, it } from "vitest";
+
 import { getAppUrl, PRODUCTION_URL } from "./site-url";
 
 describe("getAppUrl", () => {

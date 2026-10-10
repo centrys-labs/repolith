@@ -1,7 +1,9 @@
 "use client";
 
-import { createContext, useCallback, useContext, useEffect, useRef, useState } from "react";
 import { useTheme } from "next-themes";
+import { createContext, useCallback, useContext, useEffect, useRef, useState } from "react";
+
+import type { CustomThemeData } from "@/lib/theme-store-types";
 import {
 	applyTheme,
 	getTheme,
@@ -15,7 +17,6 @@ import {
 	DEFAULT_MODE,
 	type ThemeDefinition,
 } from "@/lib/themes";
-import type { CustomThemeData } from "@/lib/theme-store-types";
 import {
 	applyBorderRadius,
 	getBorderRadiusPreset,
@@ -24,6 +25,7 @@ import {
 	DEFAULT_BORDER_RADIUS,
 	type BorderRadiusPreset,
 } from "@/lib/themes/border-radius";
+
 import { useMutationEvents } from "../shared/mutation-event-provider";
 
 interface ColorThemeContext {

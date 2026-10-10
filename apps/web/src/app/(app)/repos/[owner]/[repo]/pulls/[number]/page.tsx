@@ -1,4 +1,29 @@
+import { all } from "better-all";
 import type { Metadata } from "next";
+import { headers } from "next/headers";
+import { redirect } from "next/navigation";
+
+import { PRAuthorDossier } from "@/components/pr/pr-author-dossier";
+import { PRCommentForm } from "@/components/pr/pr-comment-form";
+import { PRConflictResolver } from "@/components/pr/pr-conflict-resolver";
+import {
+	PRConversation,
+	type TimelineEntry,
+	type ReviewCommentEntry,
+	type CommitEntry,
+	type StateChangeEntry,
+	type CrossReferenceEntry,
+} from "@/components/pr/pr-conversation";
+import { PRDetailLayout } from "@/components/pr/pr-detail-layout";
+import { PRDiffViewer } from "@/components/pr/pr-diff-viewer";
+import { PRHeader } from "@/components/pr/pr-header";
+import { PRMergePanel } from "@/components/pr/pr-merge-panel";
+import { PROverviewPanel } from "@/components/pr/pr-overview-panel";
+import { PRReviewForm } from "@/components/pr/pr-review-form";
+import { ReviewChecklistSidebar } from "@/components/pr/review/review-checklist-sidebar";
+import { ChatPageActivator } from "@/components/shared/chat-page-activator";
+import { TrackView } from "@/components/shared/track-view";
+import { auth } from "@/lib/auth";
 import {
 	getPullRequestBundle,
 	getPullRequestFiles,
@@ -15,36 +40,12 @@ import {
 	type AuthorDossierResult,
 	getCrossReferences,
 } from "@/lib/github";
-import { redirect } from "next/navigation";
-import { ogImageUrl, ogImages } from "@/lib/og/og-utils";
 import { extractParticipants } from "@/lib/github-utils";
-import { highlightDiffLines, type SyntaxToken } from "@/lib/shiki";
-import { PRHeader } from "@/components/pr/pr-header";
-import { PRDiffViewer } from "@/components/pr/pr-diff-viewer";
-import { PRDetailLayout } from "@/components/pr/pr-detail-layout";
-import {
-	PRConversation,
-	type TimelineEntry,
-	type ReviewCommentEntry,
-	type CommitEntry,
-	type StateChangeEntry,
-	type CrossReferenceEntry,
-} from "@/components/pr/pr-conversation";
-import { PRMergePanel } from "@/components/pr/pr-merge-panel";
-import { PRCommentForm } from "@/components/pr/pr-comment-form";
-import { PRReviewForm } from "@/components/pr/pr-review-form";
-import { PRConflictResolver } from "@/components/pr/pr-conflict-resolver";
-import { PRAuthorDossier } from "@/components/pr/pr-author-dossier";
-import { PROverviewPanel } from "@/components/pr/pr-overview-panel";
-import { ReviewChecklistSidebar } from "@/components/pr/review/review-checklist-sidebar";
-import { ChatPageActivator } from "@/components/shared/chat-page-activator";
-import { TrackView } from "@/components/shared/track-view";
-import { auth } from "@/lib/auth";
-import { headers } from "next/headers";
 import { inngest } from "@/lib/inngest";
+import { ogImageUrl, ogImages } from "@/lib/og/og-utils";
 import { isItemPinned } from "@/lib/pinned-items-store";
 import { getPRReviewWorkspacePageData } from "@/lib/pr-review-workspace";
-import { all } from "better-all";
+import { highlightDiffLines, type SyntaxToken } from "@/lib/shiki";
 
 export async function generateMetadata({
 	params,

@@ -1,15 +1,17 @@
 "use client";
 
-import { RepoBreadcrumb } from "@/components/repo/repo-breadcrumb";
-import { useState, useCallback, useRef, useTransition, useEffect } from "react";
-import { createPortal } from "react-dom";
-import { usePathname } from "next/navigation";
 import { PanelLeft } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
+import { usePathname } from "next/navigation";
+import { useState, useCallback, useRef, useTransition, useEffect } from "react";
+import { createPortal } from "react-dom";
+
+import { RepoBreadcrumb } from "@/components/repo/repo-breadcrumb";
 import { useResponsiveSurfaceContext } from "@/components/shared/responsive-surface-provider";
 import { Sheet, SheetContent } from "@/components/ui/sheet";
 import { getResponsiveSurfaceDecision } from "@/lib/responsive-surface-policy";
 import { cn } from "@/lib/utils";
+
 import { shouldRenderCompactRepoHeader } from "./repo-layout-wrapper-visibility";
 import { setRepoSidebarState } from "./repo-sidebar-actions";
 

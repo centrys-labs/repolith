@@ -1,13 +1,14 @@
 "use client";
 
+import { formatForDisplay } from "@tanstack/react-hotkeys";
+import { ArrowRight, Star } from "lucide-react";
 import { useCallback, useEffect, useRef, useState, useTransition } from "react";
 import { createPortal } from "react-dom";
-import { ArrowRight, Star } from "lucide-react";
-import { formatForDisplay } from "@tanstack/react-hotkeys";
-import { cn } from "@/lib/utils";
+
+import { starRepo } from "@/app/(app)/repos/actions";
 import { useGlobalChatOptional } from "@/components/shared/global-chat-provider";
 import { authClient } from "@/lib/auth-client";
-import { starRepo } from "@/app/(app)/repos/actions";
+import { cn } from "@/lib/utils";
 
 interface OnboardingOverlayProps {
 	userName: string;

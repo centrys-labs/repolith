@@ -1,10 +1,10 @@
-import { unified } from "unified";
-import remarkParse from "remark-parse";
-import remarkGfm from "remark-gfm";
-import remarkRehype from "remark-rehype";
 import rehypeRaw from "rehype-raw";
 import rehypeSanitize, { defaultSchema } from "rehype-sanitize";
 import rehypeStringify from "rehype-stringify";
+import remarkGfm from "remark-gfm";
+import remarkParse from "remark-parse";
+import remarkRehype from "remark-rehype";
+import { unified } from "unified";
 
 /**
  * GitHub-compatible sanitization schema.
@@ -58,12 +58,12 @@ const sanitizeSchema: typeof defaultSchema = {
 		input: [...(defaultSchema.attributes?.input ?? []), "checked", "disabled", "type"],
 	},
 };
-import { highlightCode } from "@/lib/shiki";
-import { toInternalUrl } from "@/lib/github-utils";
 import { MarkdownCopyHandler } from "@/components/shared/markdown-copy-handler";
-import { ReactiveCodeBlocks } from "@/components/shared/reactive-code-blocks";
 import { MarkdownMentionTooltips } from "@/components/shared/markdown-mention-tooltips";
+import { ReactiveCodeBlocks } from "@/components/shared/reactive-code-blocks";
 import { isGitHubUserAttachmentAssetUrl } from "@/lib/github-user-attachment";
+import { toInternalUrl } from "@/lib/github-utils";
+import { highlightCode } from "@/lib/shiki";
 
 interface RepoContext {
 	owner: string;

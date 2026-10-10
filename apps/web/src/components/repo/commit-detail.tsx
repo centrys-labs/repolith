@@ -1,13 +1,5 @@
 "use client";
 
-import { useState, useRef, useCallback, useEffect } from "react";
-import Link from "next/link";
-import Image from "next/image";
-import { parseDiffPatch, type DiffLine, type DiffSegment } from "@/lib/github-utils";
-import type { SyntaxToken } from "@/lib/shiki";
-import { cn } from "@/lib/utils";
-import { TimeAgo } from "@/components/ui/time-ago";
-import { parseCoAuthors, getCommitBody, getInitials } from "@/lib/commit-utils";
 import {
 	File,
 	ChevronLeft,
@@ -18,8 +10,17 @@ import {
 	GitCommitHorizontal,
 	Link2,
 } from "lucide-react";
-import { ResizeHandle } from "@/components/ui/resize-handle";
+import Image from "next/image";
+import Link from "next/link";
+import { useState, useRef, useCallback, useEffect } from "react";
+
 import { FileTypeIcon } from "@/components/shared/file-icon";
+import { ResizeHandle } from "@/components/ui/resize-handle";
+import { TimeAgo } from "@/components/ui/time-ago";
+import { parseCoAuthors, getCommitBody, getInitials } from "@/lib/commit-utils";
+import { parseDiffPatch, type DiffLine, type DiffSegment } from "@/lib/github-utils";
+import type { SyntaxToken } from "@/lib/shiki";
+import { cn } from "@/lib/utils";
 
 interface CommitFile {
 	filename: string;

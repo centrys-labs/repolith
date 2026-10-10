@@ -1,9 +1,9 @@
 "use client";
 
+import { SmilePlus, ArrowBigUp } from "lucide-react";
 import { useState, useRef, useEffect, useCallback, useTransition } from "react";
 import { createPortal } from "react-dom";
-import { SmilePlus, ArrowBigUp } from "lucide-react";
-import { cn } from "@/lib/utils";
+
 import {
 	addDiscussionReactionAction,
 	removeDiscussionReactionAction,
@@ -11,6 +11,7 @@ import {
 	getCurrentUser,
 	type DiscussionReactionContentType,
 } from "@/app/(app)/repos/[owner]/[repo]/discussions/discussion-actions";
+import { cn } from "@/lib/utils";
 
 export interface Reactions {
 	"+1"?: number;

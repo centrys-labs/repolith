@@ -1,15 +1,16 @@
 "use client";
 
-import { useState, useTransition, type MouseEvent } from "react";
-import Link from "next/link";
 import { CheckCircle2, ChevronDown, Circle, Loader2 } from "lucide-react";
-import { GithubAvatar } from "@/components/shared/github-avatar";
-import { ClientMarkdown } from "@/components/shared/client-markdown";
-import { TimeAgo } from "@/components/ui/time-ago";
+import Link from "next/link";
+import { useState, useTransition, type MouseEvent } from "react";
+
 import {
 	resolveReviewThread,
 	unresolveReviewThread,
 } from "@/app/(app)/repos/[owner]/[repo]/pulls/pr-actions";
+import { ClientMarkdown } from "@/components/shared/client-markdown";
+import { GithubAvatar } from "@/components/shared/github-avatar";
+import { TimeAgo } from "@/components/ui/time-ago";
 import type { ReviewThread } from "@/lib/github";
 import { cn } from "@/lib/utils";
 

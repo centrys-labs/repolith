@@ -1,13 +1,14 @@
 "use client";
 
 import { useState } from "react";
-import { cn, formatNumber } from "@/lib/utils";
+
 import type {
 	CommitActivityWeek,
 	CodeFrequencyWeek,
 	WeeklyParticipation,
 	ContributorStats,
 } from "@/lib/github";
+import { cn, formatNumber } from "@/lib/utils";
 
 // --- Language colors ---
 const LANG_COLORS: Record<string, string> = {

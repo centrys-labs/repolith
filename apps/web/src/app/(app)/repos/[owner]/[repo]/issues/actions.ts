@@ -1,9 +1,10 @@
 "use server";
 
-import { getAuthenticatedUser, getOctokit, invalidateRepoIssuesCache } from "@/lib/github";
-import { getErrorMessage } from "@/lib/utils";
 import { revalidatePath } from "next/cache";
+
+import { getAuthenticatedUser, getOctokit, invalidateRepoIssuesCache } from "@/lib/github";
 import { invalidateRepoCache } from "@/lib/repo-data-cache-vc";
+import { getErrorMessage } from "@/lib/utils";
 
 export async function fetchIssuesByAuthor(owner: string, repo: string, author: string) {
 	const octokit = await getOctokit();

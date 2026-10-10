@@ -1,8 +1,5 @@
 "use client";
 
-import { useState, useTransition, useMemo, useRef, useEffect, useCallback } from "react";
-import Image from "next/image";
-import Link from "next/link";
 import {
 	GitBranch,
 	ChevronDown,
@@ -13,22 +10,26 @@ import {
 	Loader2,
 	Maximize2,
 } from "lucide-react";
-import { cn } from "@/lib/utils";
-import { TimeAgo } from "@/components/ui/time-ago";
-import { ResizeHandle } from "@/components/ui/resize-handle";
+import Image from "next/image";
+import Link from "next/link";
+import { useState, useTransition, useMemo, useRef, useEffect, useCallback } from "react";
+
 import {
 	fetchCommitsByDate,
 	fetchCommitsPage,
 	fetchCommitDetail,
 	type CommitDetailData,
 } from "@/app/(app)/repos/[owner]/[repo]/commits/actions";
-import { useMutationSubscription } from "@/hooks/use-mutation-subscription";
-import { isRepoEvent, type MutationEvent } from "@/lib/mutation-events";
-import { parseCoAuthors, getCommitBody, getInitials, type CoAuthor } from "@/lib/commit-utils";
-import { Sheet, SheetContent } from "@/components/ui/sheet";
-import { useIsMobile } from "@/hooks/use-is-mobile";
 import { CommitDetail } from "@/components/repo/commit-detail";
+import { ResizeHandle } from "@/components/ui/resize-handle";
+import { Sheet, SheetContent } from "@/components/ui/sheet";
+import { TimeAgo } from "@/components/ui/time-ago";
+import { useIsMobile } from "@/hooks/use-is-mobile";
+import { useMutationSubscription } from "@/hooks/use-mutation-subscription";
+import { parseCoAuthors, getCommitBody, getInitials, type CoAuthor } from "@/lib/commit-utils";
+import { isRepoEvent, type MutationEvent } from "@/lib/mutation-events";
 import type { SyntaxToken } from "@/lib/shiki";
+import { cn } from "@/lib/utils";
 
 // Constants
 const SHEET_WIDTH_COOKIE = "commit_sheet_width";

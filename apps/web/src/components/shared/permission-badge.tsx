@@ -1,9 +1,10 @@
 "use client";
 
+import { Check, Info, Lock } from "lucide-react";
+
 import { Tooltip, TooltipContent, TooltipPortal, TooltipTrigger } from "@/components/ui/tooltip";
 import type { ScopeGroup } from "@/lib/github-scopes";
 import { cn } from "@/lib/utils";
-import { Check, Info, Lock } from "lucide-react";
 
 interface PermissionBadgeProps {
 	group: ScopeGroup;

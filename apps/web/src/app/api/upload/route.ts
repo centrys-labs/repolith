@@ -1,6 +1,7 @@
+import { headers } from "next/headers";
+
 import { auth } from "@/lib/auth";
 import { imageUpload } from "@/lib/image-upload";
-import { headers } from "next/headers";
 
 const MAX_SIZE = 5 * 1024 * 1024; // 5 MB
 const ALLOWED_TYPES = new Set([

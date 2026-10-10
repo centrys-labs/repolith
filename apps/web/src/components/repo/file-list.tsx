@@ -1,6 +1,7 @@
 import Link from "next/link";
-import { formatBytes, encodeFilePath } from "@/lib/github-utils";
+
 import { FileTypeIcon } from "@/components/shared/file-icon";
+import { formatBytes, encodeFilePath } from "@/lib/github-utils";
 
 interface FileItem {
 	name: string;

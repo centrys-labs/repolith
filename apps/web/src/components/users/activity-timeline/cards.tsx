@@ -1,10 +1,12 @@
 "use client";
 
+import { CircleDot, GitCommit, GitPullRequest, MessageCircle, Plus } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
-import { CircleDot, GitCommit, GitPullRequest, MessageCircle, Plus } from "lucide-react";
-import { cn } from "@/lib/utils";
+
 import { TimeAgo } from "@/components/ui/time-ago";
+import { cn } from "@/lib/utils";
+
 import {
 	DEFAULT_VISIBLE_ROWS,
 	monthLabel,

@@ -1,11 +1,12 @@
 "use client";
 
-import React, { useState, useEffect, useCallback, forwardRef, useImperativeHandle } from "react";
-import { createRoot, type Root } from "react-dom/client";
-import { createPortal } from "react-dom";
-import Image from "next/image";
-import { cn } from "@/lib/utils";
 import type { SuggestionProps, SuggestionKeyDownProps } from "@tiptap/suggestion";
+import Image from "next/image";
+import React, { useState, useEffect, useCallback, forwardRef, useImperativeHandle } from "react";
+import { createPortal } from "react-dom";
+import { createRoot, type Root } from "react-dom/client";
+
+import { cn } from "@/lib/utils";
 
 export interface MentionUser {
 	login: string;

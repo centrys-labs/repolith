@@ -1,17 +1,5 @@
 "use client";
 
-import { followUser, unfollowUser } from "@/app/(app)/users/[username]/actions";
-import { ContributionChart } from "@/components/dashboard/contribution-chart";
-import { RepoBadge } from "@/components/repo/repo-badge";
-import { XIcon } from "@/components/shared/icons/x-icon";
-import { TimeAgo } from "@/components/ui/time-ago";
-import { UserProfileActivityTimeline } from "@/components/users/user-profile-activity-timeline";
-import { UserProfileActivityTimelineBoundary } from "@/components/users/user-profile-activity-timeline-boundary";
-import { UserProfileScoreRing } from "@/components/users/user-profile-score-ring";
-import { getLanguageColor } from "@/lib/github-utils";
-import type { ActivityEvent } from "@/lib/github-types";
-import { computeUserProfileScore } from "@/lib/user-profile-score";
-import { cn, formatNumber } from "@/lib/utils";
 import {
 	Activity,
 	ArrowUpDown,
@@ -35,6 +23,19 @@ import Image from "next/image";
 import Link from "next/link";
 import { parseAsString, parseAsStringLiteral, useQueryState } from "nuqs";
 import { useCallback, useEffect, useMemo, useRef, useState, useTransition } from "react";
+
+import { followUser, unfollowUser } from "@/app/(app)/users/[username]/actions";
+import { ContributionChart } from "@/components/dashboard/contribution-chart";
+import { RepoBadge } from "@/components/repo/repo-badge";
+import { XIcon } from "@/components/shared/icons/x-icon";
+import { TimeAgo } from "@/components/ui/time-ago";
+import { UserProfileActivityTimeline } from "@/components/users/user-profile-activity-timeline";
+import { UserProfileActivityTimelineBoundary } from "@/components/users/user-profile-activity-timeline-boundary";
+import { UserProfileScoreRing } from "@/components/users/user-profile-score-ring";
+import type { ActivityEvent } from "@/lib/github-types";
+import { getLanguageColor } from "@/lib/github-utils";
+import { computeUserProfileScore } from "@/lib/user-profile-score";
+import { cn, formatNumber } from "@/lib/utils";
 
 // !TODO: Last item in languages row should take up remaining space on mobile for a cleaner look
 // !TODO: Better input handling of contribution graph on mobile

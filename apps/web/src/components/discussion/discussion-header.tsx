@@ -1,10 +1,11 @@
-import Link from "next/link";
-import Image from "next/image";
 import { MessageCircle, CheckCircle2 } from "lucide-react";
-import { cn } from "@/lib/utils";
+import Image from "next/image";
+import Link from "next/link";
+
+import { DiscussionUpvoteButton } from "@/components/discussion/discussion-upvote-button";
 import { GitHubEmoji } from "@/components/shared/github-emoji";
 import { TimeAgo } from "@/components/ui/time-ago";
-import { DiscussionUpvoteButton } from "@/components/discussion/discussion-upvote-button";
+import { cn } from "@/lib/utils";
 
 interface DiscussionHeaderProps {
 	title: string;

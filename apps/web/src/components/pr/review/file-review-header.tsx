@@ -1,6 +1,5 @@
 "use client";
 
-import type { KeyboardEvent, RefObject } from "react";
 import {
 	ArrowRight,
 	ChevronDown,
@@ -18,8 +17,11 @@ import {
 	WrapText,
 	X,
 } from "lucide-react";
+import type { KeyboardEvent, RefObject } from "react";
+
 import { FileTypeIcon } from "@/components/shared/file-icon";
 import { cn } from "@/lib/utils";
+
 import type { PRDiffFile } from "./review-models";
 
 interface FileReviewHeaderProps {

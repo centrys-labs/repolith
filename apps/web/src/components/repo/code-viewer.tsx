@@ -1,5 +1,6 @@
 import { getLanguageFromFilename } from "@/lib/github-utils";
 import { highlightCode } from "@/lib/shiki";
+
 import { CodeViewerClient } from "./code-viewer-client";
 
 export async function CodeViewer({

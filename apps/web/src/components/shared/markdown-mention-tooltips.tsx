@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
+
 import { UserTooltip } from "@/components/shared/user-tooltip";
 
 interface MentionData {

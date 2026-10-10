@@ -1,22 +1,24 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { usePathname } from "next/navigation";
 import { useQuery } from "@tanstack/react-query";
 import { PanelLeft, Copy, Check, Download, Monitor } from "lucide-react";
+import { usePathname } from "next/navigation";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+
+import {
+	revalidateBranches,
+	revalidateTags,
+} from "@/app/(app)/repos/[owner]/[repo]/readme-actions";
 import { useResponsiveSurfaceContext } from "@/components/shared/responsive-surface-provider";
 import { Sheet, SheetContent } from "@/components/ui/sheet";
 import { type FileTreeNode } from "@/lib/file-tree";
 import { parseRefAndPath } from "@/lib/github-utils";
 import { getResponsiveSurfaceDecision } from "@/lib/responsive-surface-policy";
-import { FileExplorerTree } from "./file-explorer-tree";
+import { cn } from "@/lib/utils";
+
 import { BranchSelector } from "./branch-selector";
 import { BreadcrumbNav } from "./breadcrumb-nav";
-import { cn } from "@/lib/utils";
-import {
-	revalidateBranches,
-	revalidateTags,
-} from "@/app/(app)/repos/[owner]/[repo]/readme-actions";
+import { FileExplorerTree } from "./file-explorer-tree";
 
 interface CodeContentWrapperProps {
 	owner: string;

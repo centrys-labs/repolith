@@ -1,8 +1,9 @@
 "use client";
 
-import { useState } from "react";
-import { GithubAvatar } from "@/components/shared/github-avatar";
 import { ChevronRight, GitCommitHorizontal } from "lucide-react";
+import { useState } from "react";
+
+import { GithubAvatar } from "@/components/shared/github-avatar";
 import { cn } from "@/lib/utils";
 
 interface CommitActivityGroupProps {

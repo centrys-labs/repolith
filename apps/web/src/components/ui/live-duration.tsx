@@ -1,8 +1,9 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { formatDuration } from "@/lib/utils";
+
 import { subscribeLiveTick } from "@/lib/live-tick";
+import { formatDuration } from "@/lib/utils";
 
 interface LiveDurationProps {
 	startedAt: string | null;

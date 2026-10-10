@@ -1,7 +1,8 @@
 "use server";
 
-import { getOctokit } from "@/lib/github";
 import { revalidatePath } from "next/cache";
+
+import { getOctokit } from "@/lib/github";
 import { invalidateRepoCache } from "@/lib/repo-data-cache-vc";
 import { getErrorMessage } from "@/lib/utils";
 

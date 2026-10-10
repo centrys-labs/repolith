@@ -1,10 +1,5 @@
 "use client";
 
-import { useState, useRef, useMemo, useCallback, useEffect } from "react";
-import { useQueryState, parseAsString, parseAsStringLiteral } from "nuqs";
-import { useClickOutside } from "@/hooks/use-click-outside";
-import Link from "next/link";
-import Image from "next/image";
 import {
 	FolderGit2,
 	Star,
@@ -21,9 +16,15 @@ import {
 	Archive,
 	ChevronDown,
 } from "lucide-react";
-import { cn, formatNumber } from "@/lib/utils";
-import { getLanguageColor } from "@/lib/github-utils";
+import Image from "next/image";
+import Link from "next/link";
+import { useQueryState, parseAsString, parseAsStringLiteral } from "nuqs";
+import { useState, useRef, useMemo, useCallback, useEffect } from "react";
+
 import { TimeAgo } from "@/components/ui/time-ago";
+import { useClickOutside } from "@/hooks/use-click-outside";
+import { getLanguageColor } from "@/lib/github-utils";
+import { cn, formatNumber } from "@/lib/utils";
 
 interface Repo {
 	id: number;

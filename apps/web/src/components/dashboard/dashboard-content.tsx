@@ -1,9 +1,6 @@
 "use client";
 
 import { noSSR } from "foxact/no-ssr";
-import { Suspense, useEffect, useState, useCallback, useTransition, useMemo } from "react";
-import { useQueryState, parseAsStringLiteral } from "nuqs";
-import Link from "next/link";
 import {
 	GitPullRequest,
 	CircleDot,
@@ -27,23 +24,15 @@ import {
 	Pin,
 	PinOff,
 } from "lucide-react";
-import { cn, formatNumber } from "@/lib/utils";
-import { TimeAgo } from "@/components/ui/time-ago";
-import { toInternalUrl, getLanguageColor } from "@/lib/github-utils";
-import { GithubAvatar } from "@/components/shared/github-avatar";
-import { RecentlyViewed } from "./recently-viewed";
-import { CreateRepoDialog } from "@/components/repo/create-repo-dialog";
+import Link from "next/link";
+import { useQueryState, parseAsStringLiteral } from "nuqs";
+import { Suspense, useEffect, useState, useCallback, useTransition, useMemo } from "react";
+
 import { markNotificationDone } from "@/app/(app)/repos/actions";
+import { CreateRepoDialog } from "@/components/repo/create-repo-dialog";
+import { GithubAvatar } from "@/components/shared/github-avatar";
 import { useMutationEvents } from "@/components/shared/mutation-event-provider";
-import {
-	getPinnedRepos,
-	togglePinRepo,
-	unpinRepo,
-	reorderPinnedRepos,
-	type PinnedRepo,
-} from "@/lib/pinned-repos";
-import { getRecentViews } from "@/lib/recent-views";
-import { repoFullNameFromInternalUrl, warmReposInBackground } from "@/lib/repo-warming";
+import { TimeAgo } from "@/components/ui/time-ago";
 import type {
 	IssueItem,
 	RepoItem,
@@ -53,6 +42,19 @@ import type {
 	GitHubUser,
 	SearchResult,
 } from "@/lib/github-types";
+import { toInternalUrl, getLanguageColor } from "@/lib/github-utils";
+import {
+	getPinnedRepos,
+	togglePinRepo,
+	unpinRepo,
+	reorderPinnedRepos,
+	type PinnedRepo,
+} from "@/lib/pinned-repos";
+import { getRecentViews } from "@/lib/recent-views";
+import { repoFullNameFromInternalUrl, warmReposInBackground } from "@/lib/repo-warming";
+import { cn, formatNumber } from "@/lib/utils";
+
+import { RecentlyViewed } from "./recently-viewed";
 
 const tabKeys = ["reviews", "prs", "issues", "notifs"] as const;
 type TabKey = (typeof tabKeys)[number];

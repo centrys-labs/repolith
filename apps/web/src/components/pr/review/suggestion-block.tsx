@@ -1,12 +1,13 @@
 "use client";
 
-import { useEffect, useMemo, useState, useTransition } from "react";
-import { useRouter } from "next/navigation";
 import { Check, CheckCircle2, Code2, Loader2 } from "lucide-react";
-import { ClientMarkdown } from "@/components/shared/client-markdown";
-import { useMutationEvents } from "@/components/shared/mutation-event-provider";
+import { useRouter } from "next/navigation";
+import { useEffect, useMemo, useState, useTransition } from "react";
+
 import { commitSuggestion } from "@/app/(app)/repos/[owner]/[repo]/pulls/pr-actions";
 import { applyPRReviewSuggestionAction } from "@/app/(app)/repos/[owner]/[repo]/pulls/review-workspace-actions";
+import { ClientMarkdown } from "@/components/shared/client-markdown";
+import { useMutationEvents } from "@/components/shared/mutation-event-provider";
 import type { PRReviewSuggestion } from "@/lib/pr-review-types";
 import { cn } from "@/lib/utils";
 

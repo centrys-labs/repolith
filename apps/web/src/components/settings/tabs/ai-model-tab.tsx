@@ -1,10 +1,11 @@
 "use client";
 
-import { useState } from "react";
 import { Check, Loader2 } from "lucide-react";
-import { cn } from "@/lib/utils";
-import type { UserSettings } from "@/lib/user-settings-store";
+import { useState } from "react";
+
 import { SELECTABLE_MODELS } from "@/lib/billing/ai-models";
+import type { UserSettings } from "@/lib/user-settings-store";
+import { cn } from "@/lib/utils";
 
 interface AIModelTabProps {
 	settings: UserSettings;

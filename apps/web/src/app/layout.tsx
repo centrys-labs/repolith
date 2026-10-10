@@ -1,17 +1,19 @@
-import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import { JetBrains_Mono } from "next/font/google";
-import { ThemeProvider } from "next-themes";
-import "./globals.css";
-import { generateThemeScript } from "@/lib/theme-script";
-import { listThemes } from "@/lib/themes";
-import { QueryProvider } from "@/components/providers/query-provider";
-import { SWRegister } from "@/components/pwa/sw-register";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import Script from "next/script";
+import type { Metadata, Viewport } from "next";
+import { ThemeProvider } from "next-themes";
+
+import "./globals.css";
+import { Geist, Geist_Mono } from "next/font/google";
+import { JetBrains_Mono } from "next/font/google";
 import { cookies } from "next/headers";
+import Script from "next/script";
+
+import { QueryProvider } from "@/components/providers/query-provider";
+import { SWRegister } from "@/components/pwa/sw-register";
 import { getAppUrl } from "@/lib/site-url";
+import { generateThemeScript } from "@/lib/theme-script";
+import { listThemes } from "@/lib/themes";
 
 const geistSans = Geist({
 	variable: "--font-geist-sans",

@@ -1,8 +1,9 @@
 "use client";
 
-import { useMemo, useEffect, useCallback } from "react";
-import { useRouter } from "next/navigation";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
+import { useRouter } from "next/navigation";
+import { useMemo, useEffect, useCallback } from "react";
+
 import {
 	fetchIssueComments,
 	addIssueComment,
@@ -14,8 +15,8 @@ import {
 	type IssueDescriptionEntry,
 } from "@/components/issue/issue-conversation";
 import { IssueTimelineEvents } from "@/components/issue/issue-timeline-events";
-import type { IssueTimelineEvent } from "@/lib/github";
 import { useMutationEvents } from "@/components/shared/mutation-event-provider";
+import type { IssueTimelineEvent } from "@/lib/github";
 export interface IssueComment {
 	id: number;
 	body?: string | null;

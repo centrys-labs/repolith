@@ -1,9 +1,10 @@
 "use server";
 
-import { getOctokit } from "@/lib/github";
-import { getErrorMessage, getErrorStatus } from "@/lib/utils";
 import { revalidatePath } from "next/cache";
+
+import { getOctokit } from "@/lib/github";
 import { invalidateRepoCache } from "@/lib/repo-data-cache-vc";
+import { getErrorMessage, getErrorStatus } from "@/lib/utils";
 
 export async function updateRepoSettings(
 	owner: string,

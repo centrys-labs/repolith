@@ -1,12 +1,13 @@
 "use client";
 
-import { useRef, useState, useEffect, useCallback } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { cn } from "@/lib/utils";
+import { useRef, useState, useEffect, useCallback } from "react";
+
+import { useNavVisibility } from "@/components/shared/nav-visibility-provider";
 import { useMutationSubscription } from "@/hooks/use-mutation-subscription";
 import { isRepoEvent, type MutationEvent } from "@/lib/mutation-events";
-import { useNavVisibility } from "@/components/shared/nav-visibility-provider";
+import { cn } from "@/lib/utils";
 
 interface RepoNavProps {
 	owner: string;

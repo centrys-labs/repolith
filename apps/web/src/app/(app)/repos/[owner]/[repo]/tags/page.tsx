@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
-import { getRepoTags, getRepoReleases } from "@/lib/github";
+
 import { TagsList } from "@/components/repo/tags-list";
+import { getRepoTags, getRepoReleases } from "@/lib/github";
 
 export async function generateMetadata({
 	params,

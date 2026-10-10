@@ -9,6 +9,7 @@ import {
 	useRef,
 	type ReactNode,
 } from "react";
+
 import type { GhostTabState } from "@/lib/chat-store";
 
 export interface InlineContext {

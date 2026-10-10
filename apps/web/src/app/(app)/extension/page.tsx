@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+
 import { ExtensionPageContent } from "@/components/extension/extension-page-content";
 
 export const metadata: Metadata = {

@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
-import { getRepoIssuesPage } from "@/lib/github";
+
 import { IssuesList } from "@/components/issue/issues-list";
+import { getRepoIssuesPage } from "@/lib/github";
+
 import { fetchIssuesByAuthor } from "./actions";
 
 export async function generateMetadata({

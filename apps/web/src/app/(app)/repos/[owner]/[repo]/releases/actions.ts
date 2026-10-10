@@ -1,7 +1,7 @@
 "use server";
 
-import { getRepoReleasesPage } from "@/lib/github";
 import { renderMarkdownToHtml } from "@/components/shared/markdown-renderer";
+import { getRepoReleasesPage } from "@/lib/github";
 
 export async function fetchReleasesPage(owner: string, repo: string, page: number) {
 	const raw = await getRepoReleasesPage(owner, repo, page);

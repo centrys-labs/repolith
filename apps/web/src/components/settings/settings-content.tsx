@@ -1,17 +1,19 @@
 "use client";
 
-import { useState, useRef } from "react";
 import { useQueryClient } from "@tanstack/react-query";
 import { Settings, Bot, CreditCard, User, Code2 } from "lucide-react";
+import { useState, useRef } from "react";
+
+import { useMutationEvents } from "@/components/shared/mutation-event-provider";
+import type { UserSettings } from "@/lib/user-settings-store";
 import { cn } from "@/lib/utils";
-import { GeneralTab } from "./tabs/general-tab";
+
+import type { GitHubProfile } from "./settings-dialog";
+import { AccountTab } from "./tabs/account-tab";
 import { AIModelTab } from "./tabs/ai-model-tab";
 import { BillingTab } from "./tabs/billing-tab";
-import { AccountTab } from "./tabs/account-tab";
 import { EditorTab } from "./tabs/editor-tab";
-import type { UserSettings } from "@/lib/user-settings-store";
-import type { GitHubProfile } from "./settings-dialog";
-import { useMutationEvents } from "@/components/shared/mutation-event-provider";
+import { GeneralTab } from "./tabs/general-tab";
 
 const TABS = [
 	{ id: "general", label: "General", icon: Settings },

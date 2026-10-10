@@ -1,5 +1,6 @@
-import { auth } from "@/lib/auth";
 import { headers } from "next/headers";
+
+import { auth } from "@/lib/auth";
 import { getInstalledCustomThemes } from "@/lib/theme-store";
 import type { CustomThemeType } from "@/lib/theme-store-types";
 

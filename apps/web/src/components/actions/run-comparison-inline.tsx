@@ -1,10 +1,11 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
 import { Loader2, X, ArrowLeft, ArrowLeftRight } from "lucide-react";
+import { useState, useEffect, useRef } from "react";
+
+import type { ComparisonRun } from "./run-comparison";
 import { RunComparisonDiff } from "./run-comparison-diff";
 import { RunComparisonTimeline } from "./run-comparison-timeline";
-import type { ComparisonRun } from "./run-comparison";
 
 export function RunComparisonInline({
 	owner,

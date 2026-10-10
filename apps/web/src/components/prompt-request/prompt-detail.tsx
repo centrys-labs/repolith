@@ -1,9 +1,5 @@
 "use client";
 
-import { useState, useTransition, useOptimistic, useCallback } from "react";
-import Link from "next/link";
-import Image from "next/image";
-import { useRouter } from "next/navigation";
 import {
 	ArrowLeft,
 	Sparkles,
@@ -18,12 +14,11 @@ import {
 	Ghost,
 	CornerDownLeft,
 } from "lucide-react";
-import { cn } from "@/lib/utils";
-import { ClientMarkdown } from "@/components/shared/client-markdown";
-import { MarkdownEditor } from "@/components/shared/markdown-editor";
-import { TimeAgo } from "@/components/ui/time-ago";
-import { useMutationEvents } from "@/components/shared/mutation-event-provider";
-import { useGlobalChat } from "@/components/shared/global-chat-provider";
+import Image from "next/image";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useState, useTransition, useOptimistic, useCallback } from "react";
+
 import {
 	closePromptRequest,
 	reopenPromptRequest,
@@ -32,12 +27,19 @@ import {
 	addPromptComment,
 	deletePromptComment,
 } from "@/app/(app)/repos/[owner]/[repo]/prompts/actions";
+import { ClientMarkdown } from "@/components/shared/client-markdown";
+import { useGlobalChat } from "@/components/shared/global-chat-provider";
+import { MarkdownEditor } from "@/components/shared/markdown-editor";
+import { useMutationEvents } from "@/components/shared/mutation-event-provider";
+import { TimeAgo } from "@/components/ui/time-ago";
 import type {
 	PromptRequest,
 	PromptRequestStatus,
 	PromptRequestComment,
 	PromptRequestReaction,
 } from "@/lib/prompt-request-store";
+import { cn } from "@/lib/utils";
+
 import { PromptReactionDisplay } from "./prompt-reaction-display";
 
 const statusColors: Record<PromptRequestStatus, string> = {

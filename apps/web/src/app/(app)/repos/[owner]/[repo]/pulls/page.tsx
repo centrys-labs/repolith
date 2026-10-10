@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
+
+import { PRsList } from "@/components/pr/prs-list";
 import { getRepoPullRequestsWithStats } from "@/lib/github";
 import { getAuthenticatedUser } from "@/lib/github";
-import { PRsList } from "@/components/pr/prs-list";
+
 import {
 	fetchPRsByAuthor,
 	fetchAllCheckStatuses,

@@ -1,21 +1,22 @@
 "use client";
 
-import Link from "next/link";
-import Image from "next/image";
 import { RotateCcw } from "lucide-react";
-import { MarkdownCopyHandler } from "@/components/shared/markdown-copy-handler";
-import { EditableIssueDescription } from "@/components/issue/editable-issue-description";
-import { ReactiveCodeBlocks } from "@/components/shared/reactive-code-blocks";
-import { MarkdownMentionTooltips } from "@/components/shared/markdown-mention-tooltips";
-import { ClientMarkdown } from "@/components/shared/client-markdown";
-import { cn } from "@/lib/utils";
-import { TimeAgo } from "@/components/ui/time-ago";
-import { BotActivityGroup } from "@/components/pr/bot-activity-group";
-import { OlderActivityGroup } from "@/components/issue/older-activity-group";
+import Image from "next/image";
+import Link from "next/link";
+
 import { CollapsibleBody } from "@/components/issue/collapsible-body";
-import { ReactionDisplay, type Reactions } from "@/components/shared/reaction-display";
+import { EditableIssueDescription } from "@/components/issue/editable-issue-description";
+import { OlderActivityGroup } from "@/components/issue/older-activity-group";
+import { BotActivityGroup } from "@/components/pr/bot-activity-group";
 import { ChatMessageWrapper } from "@/components/pr/chat-message-wrapper";
+import { ClientMarkdown } from "@/components/shared/client-markdown";
+import { MarkdownCopyHandler } from "@/components/shared/markdown-copy-handler";
+import { MarkdownMentionTooltips } from "@/components/shared/markdown-mention-tooltips";
+import { ReactionDisplay, type Reactions } from "@/components/shared/reaction-display";
+import { ReactiveCodeBlocks } from "@/components/shared/reactive-code-blocks";
 import { UserTooltip } from "@/components/shared/user-tooltip";
+import { TimeAgo } from "@/components/ui/time-ago";
+import { cn } from "@/lib/utils";
 
 interface BaseUser {
 	login: string;

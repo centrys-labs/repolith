@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
-import { getNotifications } from "@/lib/github";
+
 import { NotificationsContent } from "@/components/notifications/notifications-content";
+import { getNotifications } from "@/lib/github";
 
 export const metadata: Metadata = {
 	title: "Notifications",

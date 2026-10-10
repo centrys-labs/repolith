@@ -1,15 +1,16 @@
 "use client";
 
+import Link from "next/link";
 import { Children, isValidElement, type ReactNode } from "react";
 import ReactMarkdown from "react-markdown";
-import remarkGfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";
 import rehypeSanitize, { defaultSchema } from "rehype-sanitize";
-import Link from "next/link";
-import { cn } from "@/lib/utils";
-import { parseGitHubUrl, toInternalUrl } from "@/lib/github-utils";
+import remarkGfm from "remark-gfm";
+
 import { HighlightedCodeBlock } from "@/components/shared/highlighted-code-block";
 import { isGitHubUserAttachmentAssetUrl } from "@/lib/github-user-attachment";
+import { parseGitHubUrl, toInternalUrl } from "@/lib/github-utils";
+import { cn } from "@/lib/utils";
 
 const sanitizeSchema: typeof defaultSchema = {
 	...defaultSchema,

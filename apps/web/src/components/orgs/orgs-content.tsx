@@ -1,9 +1,9 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { Building2, ChevronRight, ExternalLink, Search } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { Building2, ChevronRight, ExternalLink, Search } from "lucide-react";
+import { useMemo, useState } from "react";
 
 export interface OrgListItem {
 	id: number;

@@ -1,8 +1,5 @@
 "use client";
 
-import { useState, useTransition } from "react";
-import { useQueryState, parseAsStringLiteral } from "nuqs";
-import Link from "next/link";
 import {
 	Bell,
 	GitPullRequest,
@@ -15,11 +12,15 @@ import {
 	Check,
 	Loader2,
 } from "lucide-react";
-import { cn } from "@/lib/utils";
-import { TimeAgo } from "@/components/ui/time-ago";
-import type { NotificationItem } from "@/lib/github-types";
+import Link from "next/link";
+import { useQueryState, parseAsStringLiteral } from "nuqs";
+import { useState, useTransition } from "react";
+
 import { markNotificationDone, markAllNotificationsRead } from "@/app/(app)/repos/actions";
 import { useMutationEvents } from "@/components/shared/mutation-event-provider";
+import { TimeAgo } from "@/components/ui/time-ago";
+import type { NotificationItem } from "@/lib/github-types";
+import { cn } from "@/lib/utils";
 
 const notifFilterTypes = ["all", "unread", "participating", "mention"] as const;
 type FilterType = (typeof notifFilterTypes)[number];

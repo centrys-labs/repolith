@@ -1,7 +1,5 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
 import {
 	Gauge,
 	RefreshCw,
@@ -16,8 +14,11 @@ import {
 	Check,
 	ArrowRight,
 } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
+
 import { signOut } from "@/lib/auth-client";
+import { cn } from "@/lib/utils";
 
 function parseRateLimitFromDigest(message: string) {
 	// The error message is serialized by Next.js, try to detect rate limit

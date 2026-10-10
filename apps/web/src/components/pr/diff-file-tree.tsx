@@ -1,9 +1,10 @@
 "use client";
 
-import { useState, useCallback, useMemo, memo, useEffect, useRef } from "react";
 import { ChevronRight, Check, Search, X, FolderTree, List } from "lucide-react";
+import { useState, useCallback, useMemo, memo, useEffect, useRef } from "react";
+
 import { FileTypeIcon } from "@/components/shared/file-icon";
-import { cn } from "@/lib/utils";
+import type { DiffViewMode, DiffFontSize } from "@/lib/diff-preferences";
 import {
 	type DiffTreeNode,
 	type DiffFile,
@@ -11,7 +12,7 @@ import {
 	getAncestorPaths,
 } from "@/lib/file-tree";
 import type { ReviewThread } from "@/lib/github";
-import type { DiffViewMode, DiffFontSize } from "@/lib/diff-preferences";
+import { cn } from "@/lib/utils";
 
 interface DiffFileTreeProps {
 	files: DiffFile[];

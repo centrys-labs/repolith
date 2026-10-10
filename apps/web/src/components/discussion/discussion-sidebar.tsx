@@ -1,7 +1,8 @@
 import { CheckCircle2, MessageCircle, Tag, Calendar } from "lucide-react";
-import { cn } from "@/lib/utils";
+
 import { GitHubEmoji } from "@/components/shared/github-emoji";
 import { TimeAgo } from "@/components/ui/time-ago";
+import { cn } from "@/lib/utils";
 
 interface DiscussionSidebarProps {
 	category: { name: string; emoji: string; emojiHTML?: string | null; isAnswerable: boolean };
