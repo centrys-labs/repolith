@@ -9,7 +9,7 @@ Redirects GitHub URLs to your Repolith instance.
 3. Click **Load unpacked**
 4. Select this folder (`packages/chrome-extension`)
 
-That's it — GitHub pages will now redirect to `http://localhost:3000`.
+That's it — GitHub pages will now redirect to `https://repolith.my.id`.
 
 ## Configure
 

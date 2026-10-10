@@ -1,19 +1,30 @@
-const DEFAULT_HOST = "https://repolith.dev";
+const DEFAULT_HOST = "https://repolith.my.id";
+const LEGACY_HOST = "https://repolith.dev";
+
+function resolveHost(host) {
+	return !host || host === LEGACY_HOST ? DEFAULT_HOST : host;
+}
 
 browser.runtime.onInstalled.addListener(() => {
-	browser.storage.local.get(["enabled", "host"]).then((data) => {
+	browser.storage.local.get(["enabled", "host"]).then(async (data) => {
 		const enabled = data.enabled !== false;
-		const host = data.host || DEFAULT_HOST;
-		browser.storage.local.set({ enabled, host });
+		const host = resolveHost(data.host);
+		await browser.storage.local.set({ enabled, host });
 
 		if (enabled) {
 			if (host === DEFAULT_HOST) {
-				browser.declarativeNetRequest.updateEnabledRulesets({
+				await clearDynamicRules();
+				await browser.declarativeNetRequest.updateEnabledRulesets({
 					enableRulesetIds: ["redirect_rules"],
 				});
 			} else {
 				switchToDynamicRules(host);
 			}
+		} else {
+			await browser.declarativeNetRequest.updateEnabledRulesets({
+				disableRulesetIds: ["redirect_rules"],
+			});
+			await clearDynamicRules();
 		}
 		updateIcon(enabled);
 	});
@@ -22,7 +33,7 @@ browser.runtime.onInstalled.addListener(() => {
 browser.runtime.onMessage.addListener((msg, _sender, sendResponse) => {
 	if (msg.type === "toggle") {
 		browser.storage.local.get(["host"]).then((data) => {
-			const host = data.host || DEFAULT_HOST;
+			const host = resolveHost(data.host);
 			browser.storage.local.set({ enabled: msg.enabled });
 
 			if (msg.enabled) {

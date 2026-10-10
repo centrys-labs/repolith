@@ -6,7 +6,10 @@ const saveBtn = document.getElementById("save");
 browser.storage.local.get(["enabled", "host"]).then((data) => {
 	const enabled = data.enabled !== false;
 	toggle.checked = enabled;
-	hostInput.value = data.host || "https://repolith.dev";
+	hostInput.value =
+		data.host === "https://repolith.dev"
+			? "https://repolith.my.id"
+			: data.host || "https://repolith.my.id";
 	updateStatus(enabled);
 });
 
