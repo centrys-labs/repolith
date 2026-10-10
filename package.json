@@ -10,14 +10,14 @@
 		"github",
 		"pull-requests"
 	],
-	"homepage": "https://repolith.dev",
+	"homepage": "https://repolith.my.id",
 	"bugs": {
-		"url": "https://github.com/kaltdev/repolith/issues"
+		"url": "https://github.com/centrys-labs/repolith/issues"
 	},
 	"license": "MIT",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/kaltdev/repolith.git"
+		"url": "https://github.com/centrys-labs/repolith.git"
 	},
 	"workspaces": [
 		"apps/*",

@@ -11,6 +11,7 @@ import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import Script from "next/script";
 import { cookies } from "next/headers";
+import { getAppUrl } from "@/lib/site-url";
 
 const geistSans = Geist({
 	variable: "--font-geist-sans",
@@ -27,7 +28,7 @@ const jetbrainsMono = JetBrains_Mono({
 	subsets: ["latin"],
 });
 
-const siteUrl = process.env.NEXT_PUBLIC_APP_URL ?? "https://repolith.dev";
+const siteUrl = getAppUrl();
 
 export const viewport: Viewport = {
 	themeColor: "#000000",
