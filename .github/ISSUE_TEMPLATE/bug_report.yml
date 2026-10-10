@@ -1,0 +1,27 @@
+name: Bug report
+description: Report a reproducible issue with Repolith
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: For security vulnerabilities, use the private reporting instructions in SECURITY.md instead of this public form.
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: Include the page or extension, actions taken, and relevant environment.
+      placeholder: Describe the steps without including credentials or private data.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+    validations:
+      required: true

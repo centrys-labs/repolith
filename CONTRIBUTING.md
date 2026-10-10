@@ -5,7 +5,7 @@ Thanks for your interest in contributing! This guide covers what you need to get
 ## Prerequisites
 
 - **Node.js** 22+
-- **Bun**
+- **Bun** 1.4.2 (see `packageManager` in `package.json`)
 - **Docker** (for PostgreSQL)
 - A **GitHub OAuth App** ([create one here](https://github.com/settings/developers))
 
@@ -19,7 +19,7 @@ cd repolith
 # 2. Use the repo Node version
 nvm use
 
-# 3. Start PostgreSQL
+# 3. Start PostgreSQL, Redis, and the local Redis REST bridge
 docker compose up -d
 
 # 4. Configure environment
@@ -29,7 +29,7 @@ cp apps/web/.env.example apps/web/.env
 # 5. Install dependencies
 bun install
 
-# 6. Run database migrations
+# 6. Run database migrations on your local database
 cd apps/web && bunx prisma migrate dev && bunx prisma generate && cd ../..
 
 # 7. Start dev server
@@ -48,13 +48,15 @@ bun fmt          # Format with oxfmt
 bun fmt:check    # Check formatting
 bun typecheck    # TypeScript type checking
 bun check        # Run lint + fmt:check + typecheck
+bun run --cwd apps/web test --run  # Run the Vitest suite
+SKIP_ENV_VALIDATION=true bun run build  # Build without deployment credentials
 ```
 
 ## Pull Request Workflow
 
 1. Fork the repo and create a branch from `main`
 2. Make your changes
-3. Run `bun check` to verify lint, format, and types pass
+3. Run `bun check` and `bun run --cwd apps/web test --run` before pushing
 4. Push your branch and open a PR against `main`
 5. Fill out the PR description — explain what changed and why
 

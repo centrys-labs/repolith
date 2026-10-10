@@ -4,11 +4,11 @@
 This repo is a Bun workspace monorepo. `apps/web` contains the main Next.js 16 app, with routes in `src/app`, UI in `src/components`, shared logic in `src/lib`, and client hooks in `src/hooks`. Database schema and migrations live in `apps/web/prisma`, and static assets live in `apps/web/public`. Browser extensions are separate packages in `packages/chrome-extension` and `packages/firefox-extension`. Treat `apps/web/src/generated` as generated output and regenerate it instead of editing by hand.
 
 ## Build, Test, and Development Commands
-Use Node `22` from `.nvmrc` and Bun `1.3.5`. Start local services with `docker compose up -d`; it brings up PostgreSQL, Redis, and the Redis REST bridge.
+Use Node `22` from `.nvmrc` and Bun `1.4.2`. Start local services with `docker compose up -d`; it brings up PostgreSQL, Redis, and the Redis REST bridge.
 
 - `bun install`: install all workspace dependencies.
 - `bun dev`: run workspace dev scripts.
-- `bun build`: build every workspace; CI also runs this with `SKIP_ENV_VALIDATION=true`.
+- `bun run build`: build every workspace; CI also runs this with `SKIP_ENV_VALIDATION=true`.
 - `bun check`: run lint, format check, and TypeScript validation together.
 - `bun lint`, `bun fmt`, `bun typecheck`: run individual quality gates.
 - `cd apps/web && bunx prisma migrate dev`: apply local Prisma migrations.
@@ -20,7 +20,7 @@ Prefer `Context7` for third-party framework and library documentation before usi
 TypeScript is strict at the workspace root. Inside `apps/web`, use the `@/*` alias for imports from `src`. Formatting is enforced by `oxfmt`: tabs, semicolons, double quotes, sorted imports, and sorted Tailwind classes. Linting is handled by `oxlint`, so run `bun fmt` and `bun lint` instead of hand-formatting. Use PascalCase for React components, camelCase for utilities and stores, and standard Next route filenames such as `page.tsx`, `layout.tsx`, and `route.ts`.
 
 ## Testing Guidelines
-Tests use Bun's built-in runner (`bun:test`) and are colocated as `*.test.ts`. Run `bun test` from the repo root, or target a file such as `bun test "apps/web/src/app/(app)/repos/[owner]/[repo]/commits/actions.test.ts"`. There is no coverage gate in CI, so add focused regression tests for new server actions, utilities, and data transforms, then run `bun check` before opening a PR.
+Tests use Vitest and are colocated as `*.test.ts`. Run `bun run --cwd apps/web test --run` from the repo root, or target a file such as `bun run --cwd apps/web test --run "src/app/(app)/repos/[owner]/[repo]/commits/actions.test.ts"`. Add focused regression tests for new server actions, utilities, and data transforms, then run `bun check` and the test suite before opening a PR.
 
 ## Design Guidelines
 Try to follow the design of the rest of the codebase as much as possible.
