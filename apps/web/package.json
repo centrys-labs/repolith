@@ -24,7 +24,7 @@
 		"@mixedbread-ai/sdk": "^2.2.11",
 		"@octokit/rest": "^22.0.1",
 		"@openrouter/ai-sdk-provider": "^2.10.0",
-		"@polar-sh/sdk": "^0.45.2",
+		"@polar-sh/sdk": "^1.0.2",
 		"@prisma/adapter-pg": "7.10.0",
 		"@prisma/client": "7.10.0",
 		"@radix-ui/react-avatar": "^1.2.7",
